@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_drawer_1"
+            android:icon="@drawable/bi_phone"
+            android:title="Samsung" />
+        <item
+            android:id="@+id/menu_drawer_2"
+            android:icon="@drawable/bi_phone"
+            android:title="Iphone" />
+
+        <item
+            android:id="@+id/menu_drawer_4"
+            android:icon="@drawable/bi_phone"
+            android:title="Oppo" />
+
+        <item
+            android:id="@+id/menu_drawer_5"
+            android:icon="@drawable/bi_phone"
+            android:title="Vivo" />
+
+        <item
+            android:id="@+id/menu_drawer_6"
+            android:icon="@drawable/bi_phone"
+            android:title="Xiaomi" />
+    </group>
+</menu>
