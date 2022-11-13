@@ -4,12 +4,43 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/background.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_btn.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_delivery.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_left.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_red.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_red_left.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_red_right.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_button_right.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_edittext.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_edittext_2.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_layout.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_layout_1.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_layout_2.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_layout_3.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bg_login_register.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bi_person_circle.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/bi_phone.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/date.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/delete.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/edit.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/email.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/ic_baseline_person_24.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/key.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/name.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/nav_header.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/phone.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/shop.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/user.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/arrow_right.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.1075" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1075" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.199" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/activity_mang_hinh_home.xml" value="0.2" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/layout_14.xml" value="0.25416666666666665" />
