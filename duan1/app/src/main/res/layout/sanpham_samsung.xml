@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:id="@+id/drawerLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="87dp"
+                android:layout_height="67dp"
+                android:background="@drawable/ic_menu_foreground" />
+
+            <TextView
+                android:layout_width="303dp"
+                android:layout_height="66dp"
+                android:gravity="center"
+                android:text="Samsung"
+                android:textColor="#db3e3e"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                        <ImageView
+                            android:id="@+id/ivSanPhamSS1"
+                            android:layout_width="match_parent"
+                            android:layout_height="134dp"
+                            android:src="@drawable/ic_image_foreground" />
+
+
+
+                    <ImageView
+                        android:id="@+id/ivSanPhamSS2"
+                        android:layout_width="match_parent"
+                        android:layout_height="132dp"
+                        android:src="@drawable/ic_image_foreground" />
+                <ImageView
+                    android:id="@+id/ivSanPhamSS3"
+                    android:layout_width="126dp"
+                    android:layout_height="132dp"
+                    android:src="@drawable/ic_image_foreground" />
+                <ImageView
+                    android:id="@+id/ivSanPhamSS4"
+                    android:layout_width="126dp"
+                    android:layout_height="132dp"
+                    android:src="@drawable/ic_image_foreground" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                        <TextView
+                            android:id="@+id/txtNameSS1"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp"
+                            android:fontFamily="arial"
+                            android:gravity="bottom"
+                            android:text="SamSung"
+                            android:textSize="22dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtPriceSS1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="arial"
+                            android:text="38.900.000"
+                            android:textSize="26dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/txtChiTietSS1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/ic_cart_foreground"
+                            android:fontFamily="arial"
+                            android:text="Xem chi tiết"
+                            android:textSize="18dp"
+                            android:textStyle="italic" />
+
+
+
+                    <TextView
+                        android:id="@+id/txtNameSS2"
+                        android:layout_width="match_parent"
+                        android:layout_height="63dp"
+                        android:fontFamily="arial"
+                        android:gravity="bottom"
+                        android:text="Samsung"
+                        android:textSize="22dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtPriceSS2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="arial"
+                        android:text="38.900.000"
+                        android:textSize="26dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/txtChiTietSS2"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:drawableRight="@drawable/ic_cart_foreground"
+                        android:fontFamily="arial"
+                        android:text="Xem chi tiết"
+                        android:textSize="18dp"
+                        android:textStyle="italic" />
+
+
+                <TextView
+
+                    android:id="@+id/txtNameSS3"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:fontFamily="arial"
+                    android:gravity="bottom"
+                    android:text="Samsung"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPriceSS3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:text="38.900.000"
+                    android:textSize="26dp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/txtChiTietSS3"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:drawableRight="@drawable/ic_cart_foreground"
+                    android:fontFamily="arial"
+                    android:text="Xem chi tiết"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+                <TextView
+
+                    android:id="@+id/txtNameSS4"
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:fontFamily="arial"
+                    android:gravity="bottom"
+                    android:text="Samsung"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPriceSS4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:text="38.900.000"
+                    android:textSize="26dp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/txtChiTietSS4"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:drawableRight="@drawable/ic_cart_foreground"
+                    android:fontFamily="arial"
+                    android:text="Xem chi tiết"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationView"
+        app:menu="@menu/menu_drawer"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_layout"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/menu_context">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
