@@ -20,11 +20,12 @@
         android:hint="Tìm Kiếm" />
 
     <ImageView
+        android:layout_marginLeft="20dp"
         android:id="@+id/ivGioHang"
-        android:layout_width="57dp"
-        android:layout_height="48dp"
-        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_weight="1"
-        android:src="@drawable/ic_cart_foreground" />
+        android:src="@drawable/cart" />
 </LinearLayout>
 </androidx.appcompat.widget.Toolbar>

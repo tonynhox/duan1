@@ -4,10 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.118" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/background_button.xml" value="0.2185" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/botron.xml" value="0.2225" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button.xml" value="0.204" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button1.xml" value="0.2185" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button2.xml" value="0.2185" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button3.xml" value="0.2185" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button4.xml" value="0.2185" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button5.xml" value="0.2185" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_button6.xml" value="0.2185" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_edittext.xml" value="0.132" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/header_layout.xml" value="0.2065" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_add_foreground.xml" value="0.2185" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_cart_foreground.xml" value="0.1" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_delete_foreground.xml" value="0.204" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_edit_foreground.xml" value="0.204" />
@@ -21,14 +29,28 @@
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_search_foreground.xml" value="0.118" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/chitietdonhang.xml" value="0.25" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/chitietsanpham.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/chitietsanpham_member.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/chitietsanphammember.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/dialog_sua.xml" value="0.264" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/dialog_sua_addmin.xml" value="0.25" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/dialog_sua_admin.xml" value="0.2" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/dialog_sua_member.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/dialog_them.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/donhang.xml" value="0.2" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/fragment_chitietdonhang.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/fragment_trangthaidonhang.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/header_layout.xml" value="0.264" />
-        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/manhinhchinh.xml" value="0.2" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_chitietdonhang.xml" value="0.264" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_chitietsanpham.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_donhang.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_iphone.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_lichsudonhang.xml" value="0.264" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_manhinhchinh.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_samsung.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_sanphammoi.xml" value="0.2" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang.xml" value="0.25" />
+        <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/manhinhchinh.xml" value="0.264" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/sanpham_iphone.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/sanpham_samsung.xml" value="0.25" />
         <entry key="..\:/Users/nhat7/OneDrive/Documents/GitHub/duan1/duan1/app/src/main/res/layout/sanphammoi.xml" value="0.264" />

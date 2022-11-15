@@ -50,11 +50,25 @@
                             android:src="@drawable/ic_image_foreground" />
 
                         <TextView
+                            android:id="@+id/txtChonAnhLon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="arial"
+                            android:text="Chọn ảnh lớn"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/ivHinhAnhNho"
+                            android:layout_width="168dp"
+                            android:layout_height="137dp"
+                            android:src="@drawable/ic_image_foreground" />
+
+                        <TextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="arial"
-                            android:text="Chọn ảnh"
+                            android:text="Chọn ảnh nhỏ"
 
                             android:textSize="18dp"
                             android:textStyle="bold" />
@@ -82,16 +96,17 @@
                         android:orientation="vertical">
 
                         <EditText
+                            android:id="@+id/edtTenSP"
                             android:layout_marginTop="50dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="arial"
-
                             android:hint="Tên Sản phẩm:"
                             android:textSize="18dp"
                            />
 
                         <EditText
+                            android:id="@+id/edtMaThuongHieu"
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -102,6 +117,7 @@
                             />
 
                         <EditText
+                            android:id="@+id/edtGiaSP"
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -111,6 +127,7 @@
                             android:textSize="18dp"
                             />
                         <EditText
+                            android:id="@+id/edtSoLuongSP"
                             android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -118,10 +135,9 @@
                             android:gravity="bottom"
                             android:hint="Số lượng:"
                             android:textSize="18dp"
-
                             />
-
                         <EditText
+                            android:id="@+id/edtMoTaSP"
                             android:layout_width="match_parent"
                             android:layout_height="78dp"
                             android:layout_marginTop="10dp"
@@ -135,11 +151,6 @@
         </LinearLayout>
     </LinearLayout>
 
-
-
-
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,20 +158,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnHuy"
             android:layout_width="130dp"
             android:layout_height="53dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="400dp"
+            android:background="@drawable/custom_button6"
             android:text="Hủy"
-            android:layout_marginTop="400dp"
-            android:layout_marginLeft="200dp"/>
-        <Button
+            android:textColor="#fff9f9" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLuu"
             android:layout_width="130dp"
             android:layout_height="53dp"
-            android:background="@drawable/custom_button"
-            android:layout_marginTop="400dp"
             android:layout_marginLeft="50dp"
-            android:text="thêm"/>
+            android:layout_marginTop="400dp"
+            android:background="@drawable/custom_button5"
+            android:text="Lưu"
+            android:textColor="#fff9f9" />
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
