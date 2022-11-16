@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-18dp"
+        tools:layout_editor_absoluteY="-132dp">
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="113dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="Tên:"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtTenSP"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/ivSanPhamSS1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivSanPhamSS1"
+            android:layout_width="166dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/ic_image_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txtTenSP"
+            android:layout_width="114dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="abc"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="113dp"
+            android:layout_height="33dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="Giá:"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivSanPhamSS1"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/txtGiaSP"
+            android:layout_width="114dp"
+            android:layout_height="33dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="10.000.000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
+
+        <TextView
+            android:id="@+id/txtNgayMua"
+            android:layout_width="116dp"
+            android:layout_height="33dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="15/11/2022"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="113dp"
+            android:layout_height="33dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="Ngày:"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivSanPhamSS1"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

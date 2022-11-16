@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dtSS"
+        android:title="SamSung"
+        android:icon="@drawable/ic_phone_foreground"/>
+    <item android:id="@+id/dtIP"
+        android:title="Iphone"
+        android:icon="@drawable/ic_phone_foreground"/>
+    <item android:id="@+id/dtOP"
+        android:title="Oppo"
+        android:icon="@drawable/ic_phone_foreground"/>
+    <item android:id="@+id/dtVV"
+        android:title="Vivo"
+        android:icon="@drawable/ic_phone_foreground"/>
+    <item android:id="@+id/dtRM"
+        android:title="Realme"
+        android:icon="@drawable/ic_phone_foreground"/>
+    <item android:id="@+id/dtXM"
+        android:title="Xiaomi"
+        android:icon="@drawable/ic_phone_foreground"/>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/menu_drawer_1"
-            android:icon="@drawable/bi_phone"
-            android:title="Samsung" />
-        <item
-            android:id="@+id/menu_drawer_2"
-            android:icon="@drawable/bi_phone"
-            android:title="Iphone" />
-
-        <item
-            android:id="@+id/menu_drawer_4"
-            android:icon="@drawable/bi_phone"
-            android:title="Oppo" />
-
-        <item
-            android:id="@+id/menu_drawer_5"
-            android:icon="@drawable/bi_phone"
-            android:title="Vivo" />
-
-        <item
-            android:id="@+id/menu_drawer_6"
-            android:icon="@drawable/bi_phone"
-            android:title="Xiaomi" />
-    </group>
 </menu>
