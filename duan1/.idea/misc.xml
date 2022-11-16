@@ -35,6 +35,7 @@
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable-v24/user.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/arrow_right.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/bg_bgr.xml" value="0.1955" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/bg_cumter.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.199" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.1075" />
@@ -45,6 +46,8 @@
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/activity_mang_hinh_home.xml" value="0.2" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/bg_btn.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/doimatkhau.xml" value="0.2" />
+        <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/fragment_hosocuatoi.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/layout_12.xml" value="0.264" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/layout_14.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/layout/layout_2.xml" value="0.25416666666666665" />
