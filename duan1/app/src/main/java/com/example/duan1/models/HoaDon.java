@@ -1,61 +1,57 @@
 package com.example.duan1.models;
 
 public class HoaDon {
-    public int MaHoaDon;
-    public int MaTaiKhoan;
-    public String TrangThaiHD;
-    public int NgayMua;
-    public String DiaChi;
+    public int maHoaDon;
+    public int maTaiKhoan;
+    public String trangThaiHD;
+    public int ngayMua;
+    public String diaChi;
 
     public HoaDon(int maHoaDon, int maTaiKhoan, String trangThaiHD, int ngayMua, String diaChi) {
-        MaHoaDon = maHoaDon;
-        MaTaiKhoan = maTaiKhoan;
-        TrangThaiHD = trangThaiHD;
-        NgayMua = ngayMua;
-        DiaChi = diaChi;
-    }
-
-    public HoaDon(int maHoaDon) {
-        MaHoaDon = maHoaDon;
+        this.maHoaDon = maHoaDon;
+        this.maTaiKhoan = maTaiKhoan;
+        this.trangThaiHD = trangThaiHD;
+        this.ngayMua = ngayMua;
+        this.diaChi = diaChi;
     }
 
     public int getMaHoaDon() {
-        return MaHoaDon;
+        return maHoaDon;
     }
 
     public void setMaHoaDon(int maHoaDon) {
-        MaHoaDon = maHoaDon;
+        this.maHoaDon = maHoaDon;
     }
 
     public int getMaTaiKhoan() {
-        return MaTaiKhoan;
+        return maTaiKhoan;
     }
 
     public void setMaTaiKhoan(int maTaiKhoan) {
-        MaTaiKhoan = maTaiKhoan;
+        this.maTaiKhoan = maTaiKhoan;
     }
 
     public String getTrangThaiHD() {
-        return TrangThaiHD;
+        return trangThaiHD;
     }
 
     public void setTrangThaiHD(String trangThaiHD) {
-        TrangThaiHD = trangThaiHD;
+        this.trangThaiHD = trangThaiHD;
     }
 
     public int getNgayMua() {
-        return NgayMua;
+        return ngayMua;
     }
 
     public void setNgayMua(int ngayMua) {
-        NgayMua = ngayMua;
+        this.ngayMua = ngayMua;
     }
 
     public String getDiaChi() {
-        return DiaChi;
+        return diaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        DiaChi = diaChi;
+        this.diaChi = diaChi;
     }
 }

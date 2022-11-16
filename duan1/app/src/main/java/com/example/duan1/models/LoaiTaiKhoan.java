@@ -1,30 +1,27 @@
 package com.example.duan1.models;
 
 public class LoaiTaiKhoan {
-    public int MaLoaiTaiKhoan;
-    public String TenLoaiTaiKhoan;
+    public int maLoaiTaiKhoan;
+    public String tenLoaiTaiKhoan;
 
-    public LoaiTaiKhoan(String tenLoaiTaiKhoan) {
-        TenLoaiTaiKhoan = tenLoaiTaiKhoan;
-    }
-
-    public LoaiTaiKhoan(int maLoaiTaiKhoan) {
-        MaLoaiTaiKhoan = maLoaiTaiKhoan;
+    public LoaiTaiKhoan(int maLoaiTaiKhoan, String tenLoaiTaiKhoan) {
+        this.maLoaiTaiKhoan = maLoaiTaiKhoan;
+        this.tenLoaiTaiKhoan = tenLoaiTaiKhoan;
     }
 
     public int getMaLoaiTaiKhoan() {
-        return MaLoaiTaiKhoan;
+        return maLoaiTaiKhoan;
     }
 
     public void setMaLoaiTaiKhoan(int maLoaiTaiKhoan) {
-        MaLoaiTaiKhoan = maLoaiTaiKhoan;
+        this.maLoaiTaiKhoan = maLoaiTaiKhoan;
     }
 
     public String getTenLoaiTaiKhoan() {
-        return TenLoaiTaiKhoan;
+        return tenLoaiTaiKhoan;
     }
 
     public void setTenLoaiTaiKhoan(String tenLoaiTaiKhoan) {
-        TenLoaiTaiKhoan = tenLoaiTaiKhoan;
+        this.tenLoaiTaiKhoan = tenLoaiTaiKhoan;
     }
 }
