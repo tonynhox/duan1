@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backround"
+    android:gravity="center">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A53131"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bgr"
+            android:padding="35dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/my_font"
+                android:text="ĐỔI MẬT KHẨU"
+                android:textColor="#FF3C3C"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.415"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="24dp"
+                android:paddingStart="8dp"
+                android:text="Nhập lại mật khẩu"
+                android:textColor="#DA2020"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <EditText
+                android:id="@+id/edt_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:hint=""
+                android:padding="8dp"
+                android:gravity="center"
+                android:background="@drawable/bg_edittext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/username"
+                app:layout_constraintTop_toBottomOf="@id/username" />
+
+            <ImageView
+                android:id="@+id/img_username"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/key"
+                app:layout_constraintBottom_toBottomOf="@id/edt_username"
+                app:layout_constraintEnd_toStartOf="@id/edt_username"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/edt_username" />
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="24dp"
+                android:paddingStart="8dp"
+                android:text="Mật khẩu cũ "
+                android:textColor="#DA2020"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_username" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:hint="..."
+                android:background="@drawable/bg_edittext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/password"
+                app:layout_constraintTop_toBottomOf="@id/password" />
+
+            <ImageView
+                android:id="@+id/img_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/key"
+                app:layout_constraintBottom_toBottomOf="@id/edt_password"
+                app:layout_constraintEnd_toStartOf="@id/edt_password"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/edt_password" />
+
+            <TextView
+                android:id="@+id/pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="52dp"
+                android:layout_marginTop="28dp"
+                android:paddingStart="8dp"
+                android:text="Mật khẩu Mới "
+                android:textColor="#DA2020"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+
+            <EditText
+                android:id="@+id/edt_pass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/bg_edittext"
+                android:gravity="center"
+                android:hint="***"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/password"
+                app:layout_constraintTop_toBottomOf="@+id/pass" />
+
+            <ImageView
+                android:id="@+id/img_pass"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/key"
+                app:layout_constraintBottom_toBottomOf="@+id/edt_pass"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/edt_pass" />
+
+            <TextView
+                android:id="@+id/no_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="148dp"
+                android:layout_marginTop="20dp"
+                android:paddingStart="8dp"
+                android:textColor="#DA2020"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edt_password" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/edt_pass"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edt_pass"
+                app:layout_constraintTop_toBottomOf="@id/no_account"
+                app:layout_constraintVertical_bias="1.0">
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn"
+                    android:backgroundTint="#FF3C3C"
+                    android:text="Lưu"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#FF3C3C" />
+
+                <Button
+                    android:id="@+id/register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn"
+                    android:backgroundTint="#000000"
+                    android:text="Hủy"
+                    android:textAllCaps="false"
+                    app:backgroundTint="#000000" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>
