@@ -14,11 +14,13 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:gravity="center"
+            android:textColor="#db3e3e"
             android:id="@+id/textView"
             android:layout_width="120dp"
             android:layout_height="39dp"
             android:text="Samsung"
-            android:textSize="23dp"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

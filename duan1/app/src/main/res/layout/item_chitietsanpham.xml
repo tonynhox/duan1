@@ -72,8 +72,8 @@
 
         <TextView
             android:id="@+id/txtSoLuongSP"
-            android:layout_width="116dp"
-            android:layout_height="33dp"
+            android:layout_width="111dp"
+            android:layout_height="37dp"
             app:layout_constraintStart_toEndOf="@+id/textView29"
             app:layout_constraintTop_toBottomOf="@+id/txtTenThuongHieu" />
 
@@ -90,7 +90,7 @@
 
         <TextView
             android:id="@+id/txtTenThuongHieu"
-            android:layout_width="116dp"
+            android:layout_width="112dp"
             android:layout_height="33dp"
             android:layout_marginTop="36dp"
             app:layout_constraintStart_toEndOf="@+id/textView13"

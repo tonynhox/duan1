@@ -136,10 +136,11 @@
                             android:hint="Số lượng:"
                             android:textSize="18dp"
                             />
+
                         <EditText
                             android:id="@+id/edtMoTaSP"
                             android:layout_width="match_parent"
-                            android:layout_height="78dp"
+                            android:layout_height="88dp"
                             android:layout_marginTop="10dp"
                             android:fontFamily="arial"
                             android:gravity="bottom"
