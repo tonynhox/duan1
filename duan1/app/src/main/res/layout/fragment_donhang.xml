@@ -6,36 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="91dp"
-        android:layout_height="51dp"
-        android:background="@drawable/ic_menu_foreground"
-        app:layout_constraintBottom_toBottomOf="@+id/textView44"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView44"
-        android:layout_width="320dp"
-        android:layout_height="53dp"
-        android:gravity="right|center"
-        android:text="Đơn hàng"
-        android:textColor="#db3e3e"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_donhang"
-        android:layout_width="403dp"
-        android:layout_height="536dp"
+        android:layout_width="397dp"
+        android:layout_height="595dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView44"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
