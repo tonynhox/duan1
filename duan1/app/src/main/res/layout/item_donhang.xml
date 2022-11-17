@@ -16,10 +16,13 @@
         tools:layout_editor_absoluteY="-132dp">
 
         <TextView
+            android:textSize="16sp"
+
             android:id="@+id/txtGiaSP"
             android:layout_width="163dp"
-            android:layout_height="32dp"
+            android:layout_height="35dp"
             android:text="30.000.000"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView18"
@@ -29,18 +32,21 @@
             android:id="@+id/ivHinhAnhLon"
             android:layout_width="120dp"
             android:layout_height="100dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/ic_image_foreground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textSize="16sp"
+
             android:id="@+id/textView17"
-            android:layout_width="76dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="40dp"
+            android:textColor="@color/black"
             android:text="Tên:"
             app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
             app:layout_constraintTop_toTopOf="parent" />
@@ -80,20 +86,25 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <TextView
+            android:textSize="16sp"
+
             android:id="@+id/textView18"
-            android:layout_width="76dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
             android:layout_marginStart="24dp"
+            android:textColor="@color/black"
             android:text="Giá:"
             app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/txtTenSP"
             android:layout_width="163dp"
-            android:layout_height="32dp"
+            android:layout_height="35dp"
             android:layout_marginTop="40dp"
-            android:text="nhật"
+            android:textSize="16sp"
+            android:text="iphone"
             app:layout_constraintStart_toEndOf="@+id/textView17"
             app:layout_constraintTop_toTopOf="parent" />
 
