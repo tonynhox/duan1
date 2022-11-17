@@ -26,7 +26,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_manhinhchinh);
+        setContentView(R.layout.activity_manhinhchinh);
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);

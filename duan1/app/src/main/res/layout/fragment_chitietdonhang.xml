@@ -19,30 +19,38 @@
             app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/textView25"
-            android:layout_width="103dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
             android:text="Tổng: "
+            android:textSize="18dp"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnMua"
             app:layout_constraintStart_toStartOf="parent" />
         <TextView
             android:id="@+id/txtTongTien"
-            android:layout_width="272dp"
+            android:layout_width="270dp"
             android:layout_height="30dp"
             android:layout_marginTop="462dp"
             android:text="10.000.000"
-            android:textSize="16dp"
+            android:textStyle="italic|bold"
+            android:textSize="18dp"
             android:textColor="#d20000"
             app:layout_constraintBottom_toTopOf="@+id/btnMua"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toEndOf="@+id/textView25"/>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <TextView
             android:id="@+id/btnMua"
-            android:layout_width="369dp"
-            android:layout_height="32dp"
-            android:background="@color/white"
-            android:text="Thoát"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/thoat"
+            android:textStyle="italic|bold"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.533"

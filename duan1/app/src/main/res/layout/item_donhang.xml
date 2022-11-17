@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,17 +19,18 @@
             android:id="@+id/txtGiaSP"
             android:layout_width="163dp"
             android:layout_height="32dp"
-            android:layout_marginStart="4dp"
             android:text="30.000.000"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView18"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/ivHinhAnhLon"
-            android:layout_width="174dp"
-            android:layout_height="123dp"
-            android:layout_marginTop="64dp"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/ic_image_foreground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,16 +39,18 @@
             android:id="@+id/textView17"
             android:layout_width="76dp"
             android:layout_height="32dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
             android:text="Tên:"
             app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/appCompatButton5"
-            android:layout_width="69dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/custom_button1"
             android:text="-"
             android:textSize="30dp"
@@ -53,9 +59,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/appCompatButton6"
-            android:layout_width="69dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="48dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
             android:background="#D9D9D9"
             android:text="1"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton5"
@@ -63,9 +70,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/appCompatButton7"
-            android:layout_width="69dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/custom_button2"
             android:text="+"
             app:layout_constraintStart_toEndOf="@+id/appCompatButton6"
@@ -75,6 +83,7 @@
             android:id="@+id/textView18"
             android:layout_width="76dp"
             android:layout_height="32dp"
+            android:layout_marginStart="24dp"
             android:text="Giá:"
             app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
@@ -83,12 +92,10 @@
             android:id="@+id/txtTenSP"
             android:layout_width="163dp"
             android:layout_height="32dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="40dp"
             android:text="nhật"
             app:layout_constraintStart_toEndOf="@+id/textView17"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

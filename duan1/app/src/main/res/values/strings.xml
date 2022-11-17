@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Du An 1</string>
     <string name="tieptucmua"><u>Tiếp tục mua</u></string>
+    <string name="thoat"><u>Thoát</u></string>
 </resources>

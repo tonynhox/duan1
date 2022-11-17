@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:id="@+id/drawerLayout">
 
     <LinearLayout
@@ -18,7 +17,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="169dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -28,13 +27,13 @@
                     android:orientation="vertical">
 
                     <TextView
-
-                        android:layout_width="124dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="200dp"
                         android:layout_height="35dp"
                         android:fontFamily="arial"
-                        android:text="Chỉnh Sửa"
+                        android:text="Sửa sản phẩm"
                         android:textColor="#DB3E3E"
-                        android:textSize="26dp"
+                        android:textSize="23dp"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -54,6 +53,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="arial"
+                            android:layout_gravity="center"
                             android:text="Chọn ảnh lớn"
                             android:textSize="18dp"
                             android:textStyle="bold" />
@@ -69,7 +69,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="arial"
                             android:text="Chọn ảnh nhỏ"
-
+                            android:layout_gravity="center"
                             android:textSize="18dp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -103,7 +103,7 @@
                             android:fontFamily="arial"
                             android:hint="Tên Sản phẩm:"
                             android:textSize="18dp"
-                           />
+                            />
 
                         <EditText
                             android:id="@+id/edtMaThuongHieu"
@@ -140,11 +140,12 @@
                         <EditText
                             android:id="@+id/edtMoTaSP"
                             android:layout_width="match_parent"
-                            android:layout_height="87dp"
+                            android:layout_height="88dp"
                             android:layout_marginTop="10dp"
                             android:fontFamily="arial"
                             android:gravity="bottom"
                             android:hint="Mô tả:"
+                            android:text=""
                             android:textSize="18dp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -161,32 +162,23 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnHuy"
             android:layout_width="130dp"
             android:layout_height="53dp"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="400dp"
             android:background="@drawable/custom_button6"
             android:text="Hủy"
             android:textColor="#fff9f9" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLuu"
             android:layout_width="130dp"
             android:layout_height="53dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="400dp"
             android:background="@drawable/custom_button5"
             android:text="Lưu"
             android:textColor="#fff9f9" />
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_alignParentBottom="true"
-            app:menu="@menu/menu_context">
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

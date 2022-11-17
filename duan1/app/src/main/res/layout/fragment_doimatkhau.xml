@@ -41,22 +41,22 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:paddingStart="8dp"
-                android:text="Nhập lại mật khẩu"
+                android:text="Mật khẩu cũ "
                 android:textColor="#DA2020"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title" />
 
             <EditText
-                android:id="@+id/edt_username"
+                android:id="@+id/edt_passOld"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
-                android:hint=""
-                android:padding="8dp"
-                android:gravity="center"
                 android:background="@drawable/bg_edittext"
+                android:gravity="center"
+                android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/username"
                 app:layout_constraintTop_toBottomOf="@id/username" />
 
@@ -65,10 +65,10 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/key"
-                app:layout_constraintBottom_toBottomOf="@id/edt_username"
-                app:layout_constraintEnd_toStartOf="@id/edt_username"
+                app:layout_constraintBottom_toBottomOf="@id/edt_passOld"
+                app:layout_constraintEnd_toStartOf="@id/edt_passOld"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/edt_username" />
+                app:layout_constraintTop_toTopOf="@id/edt_passOld" />
 
             <TextView
                 android:id="@+id/password"
@@ -77,13 +77,13 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="24dp"
                 android:paddingStart="8dp"
-                android:text="Mật khẩu cũ "
+                android:text="Mật khẩu Mới "
                 android:textColor="#DA2020"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edt_username" />
+                app:layout_constraintTop_toBottomOf="@id/edt_passOld" />
 
             <EditText
-                android:id="@+id/edt_password"
+                android:id="@+id/edt_passNew"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -101,10 +101,10 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/key"
-                app:layout_constraintBottom_toBottomOf="@id/edt_password"
-                app:layout_constraintEnd_toStartOf="@id/edt_password"
+                app:layout_constraintBottom_toBottomOf="@id/edt_passNew"
+                app:layout_constraintEnd_toStartOf="@id/edt_passNew"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/edt_password" />
+                app:layout_constraintTop_toTopOf="@id/edt_passNew" />
 
             <TextView
                 android:id="@+id/pass"
@@ -113,10 +113,10 @@
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="28dp"
                 android:paddingStart="8dp"
-                android:text="Mật khẩu Mới "
+                android:text="Nhập lại mật khẩu"
                 android:textColor="#DA2020"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+                app:layout_constraintTop_toBottomOf="@+id/edt_passNew" />
 
             <EditText
                 android:id="@+id/edt_pass"
@@ -151,7 +151,7 @@
                 android:paddingStart="8dp"
                 android:textColor="#DA2020"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edt_password" />
+                app:layout_constraintTop_toBottomOf="@id/edt_passNew" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"

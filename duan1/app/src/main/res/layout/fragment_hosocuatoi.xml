@@ -20,74 +20,75 @@
             android:src="@drawable/bi_person_circle" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
-        android:text="Tên"
+        android:text="Họ Tên:"
+        android:paddingLeft="10dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:backgroundTint="@color/white" />
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
-        android:text="Tên đăng nhập"
+        android:paddingLeft="10dp"
+        android:text="Tên đăng nhập: "
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:backgroundTint="@color/white" />
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
-        android:text="Ngày sinh"
+        android:text="Ngày sinh:"
+        android:paddingLeft="10dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:backgroundTint="@color/white" />
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
-        android:text="Số điện thoại"
+        android:text="Số điện thoại:"
+        android:paddingLeft="10dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:backgroundTint="@color/white" />
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
-        android:text="Email"
+        android:text="Email:"
+        android:paddingLeft="10dp"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:backgroundTint="@color/white" />
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginTop="24dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
+        android:paddingLeft="10dp"
         android:text="Thiết lập lại mật khẩu"
         android:textAllCaps="false"
         android:textColor="@color/black"
