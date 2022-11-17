@@ -1,16 +1,22 @@
 package com.example.duan1.models;
 
+import java.util.Date;
+
 public class TaiKhoan {
     public int maTaiKhoan;
     public String tenTaiKhoan;
     public String matKhau;
     public String hoTen;
-    public int namSinh;
-    public int soDienThoai;
+    public Date namSinh;
+    public String soDienThoai;
     public String email;
     public int maLoaiTaiKhoan;
 
-    public TaiKhoan(int maTaiKhoan, String tenTaiKhoan, String matKhau, String hoTen, int namSinh, int soDienThoai, String email, int aLoaiTaiKhoan) {
+
+    public TaiKhoan() {
+    }
+
+    public TaiKhoan(int maTaiKhoan, String tenTaiKhoan, String matKhau, String hoTen, Date namSinh, String soDienThoai, String email, int maLoaiTaiKhoan) {
         this.maTaiKhoan = maTaiKhoan;
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
@@ -18,7 +24,7 @@ public class TaiKhoan {
         this.namSinh = namSinh;
         this.soDienThoai = soDienThoai;
         this.email = email;
-        this.maLoaiTaiKhoan = aLoaiTaiKhoan;
+        this.maLoaiTaiKhoan = maLoaiTaiKhoan;
     }
 
     public int getMaTaiKhoan() {
@@ -53,19 +59,19 @@ public class TaiKhoan {
         this.hoTen = hoTen;
     }
 
-    public int getNamSinh() {
+    public Date getNamSinh() {
         return namSinh;
     }
 
-    public void setNamSinh(int namSinh) {
+    public void setNamSinh(Date namSinh) {
         this.namSinh = namSinh;
     }
 
-    public int getSoDienThoai() {
+    public String getSoDienThoai() {
         return soDienThoai;
     }
 
-    public void setSoDienThoai(int soDienThoai) {
+    public void setSoDienThoai(String soDienThoai) {
         this.soDienThoai = soDienThoai;
     }
 

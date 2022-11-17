@@ -1,4 +1,4 @@
-package com.example.duan1.model;
+package com.example.duan1.models;
 
 public class SanPham {
     public int maSP;
