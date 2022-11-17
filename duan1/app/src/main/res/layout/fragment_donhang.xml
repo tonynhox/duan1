@@ -61,19 +61,24 @@
         android:layout_width="349dp"
         android:layout_height="42dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
         android:background="@drawable/background_button"
         android:text="Thanh Toán"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTong" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/btnMua"
         android:layout_width="349dp"
         android:layout_height="42dp"
         android:layout_marginTop="12dp"
-        android:background="@color/white"
-        android:text="Tiếp tục mua"
+        android:text="@string/tieptucmua"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnThanhToan" />
