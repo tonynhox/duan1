@@ -92,8 +92,10 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_canhan.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_chitietdonhang.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_chitietsanpham.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_doimatkhau.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_donhang.xml" value="0.264" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_manhinhchinh.xml" value="0.2" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanpham_iphone.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanpham_samsung.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanphamhot.xml" value="0.2" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_trangthaidonhang.xml" value="0.25416666666666665" />
@@ -105,6 +107,7 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_lichsudonhang.xml" value="0.264" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_manhinhchinh.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_samsung.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanpham.xml" value="0.4896810506566604" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanphamhot_admin.xml" value="0.2" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanphammoi.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang.xml" value="0.264" />
