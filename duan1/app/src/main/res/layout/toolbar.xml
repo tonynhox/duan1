@@ -12,9 +12,10 @@
 
     <EditText
         android:id="@+id/edtTim"
-        android:layout_width="248dp"
-        android:layout_height="48dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:layout_weight="2"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/ic_search_foreground"
         android:hint="Tìm Kiếm" />
@@ -22,10 +23,9 @@
     <ImageView
         android:layout_marginLeft="20dp"
         android:id="@+id/ivGioHang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:src="@drawable/cart" />
 </LinearLayout>
 </androidx.appcompat.widget.Toolbar>
