@@ -11,7 +11,10 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.duan1.R;
@@ -23,6 +26,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,17 @@ public class  ManHinhChinh extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
-
+        editText = findViewById(R.id.edtTim);
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                        Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
+            }
+        });
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
