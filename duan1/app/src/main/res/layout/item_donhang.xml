@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:layout_margin="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-18dp"
+        tools:layout_editor_absoluteY="-132dp">
+
+        <TextView
+            android:textSize="16sp"
+
+            android:id="@+id/txtGiaSP"
+            android:layout_width="163dp"
+            android:layout_height="35dp"
+            android:text="30.000.000"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
+
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/ivHinhAnhLon"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_image_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textSize="16sp"
+
+            android:id="@+id/textView17"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:text="Tên:"
+            app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton5"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_button1"
+            android:text="-"
+            android:textSize="30dp"
+            app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton6"
+            android:layout_width="48dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:background="#D9D9D9"
+            android:text="1"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton5"
+            app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton7"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_button2"
+            android:text="+"
+            app:layout_constraintStart_toEndOf="@+id/appCompatButton6"
+            app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
+
+        <TextView
+            android:textSize="16sp"
+
+            android:id="@+id/textView18"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/black"
+            android:text="Giá:"
+            app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/txtTenSP"
+            android:layout_width="163dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="40dp"
+            android:textSize="16sp"
+            android:text="iphone"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
