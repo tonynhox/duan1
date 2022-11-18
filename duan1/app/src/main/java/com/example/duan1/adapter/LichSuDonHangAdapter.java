@@ -14,15 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.HoaDon;
+import com.example.duan1.models.LichSuDonHang;
 import com.example.duan1.models.SanPham;
 
 import java.util.List;
 
 public class LichSuDonHangAdapter extends RecyclerView.Adapter<LichSuDonHangAdapter.MyViewHolder> {
-    List<HoaDon>list;
+    List<LichSuDonHang>list;
     Context context;
 
-    public LichSuDonHangAdapter(List<HoaDon> list, Context context) {
+    public LichSuDonHangAdapter(List<LichSuDonHang> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -37,9 +38,11 @@ public class LichSuDonHangAdapter extends RecyclerView.Adapter<LichSuDonHangAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
-        Glide.with(context).load(list.get(i).hi).into(holder.ivNho);
-        holder.txtsoluong.setText(list.get(i).getSoLuongSp());
-        holder.txtmahoadon.setText(String.valueOf(list.get(i).ma));
+        Glide.with(context).load(list.get(i).hinhAnhNho).into(holder.ivNho);
+        holder.txtsoluong.setText(list.get(i).getSoluongSP());
+        holder.txtmahoadon.setText(String.valueOf(list.get(i).getMaHoaDon()));
+        holder.txtngaymua.setText(String.valueOf(list.get(i).getNgayMua()));
+        holder.txtgiasanpham.setText(String.valueOf(list.get(i).getGia()));
 
     }
 
