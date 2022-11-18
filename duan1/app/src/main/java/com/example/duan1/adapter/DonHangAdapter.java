@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1.R;
+import com.example.duan1.models.DonHang;
 import com.example.duan1.models.SanPham;
 
 import java.util.ArrayList;
@@ -20,10 +21,10 @@ import java.util.List;
 
 public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHolder> {
 
-    List<SanPham> list;
+    List<DonHang> list;
     Context context;
 
-    public DonHangAdapter(List<SanPham> list, Context context) {
+    public DonHangAdapter(List<DonHang> list, Context context) {
         this.list = list;
         this.context = context;
     }
