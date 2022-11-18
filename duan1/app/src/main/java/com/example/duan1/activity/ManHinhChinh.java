@@ -69,9 +69,9 @@ public class  ManHinhChinh extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.navigationBottom);
 
-        bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
@@ -83,10 +83,10 @@ public class  ManHinhChinh extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, meFragment).commit();
                         break;
                 }
+                return false;
             }
         });
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home){
