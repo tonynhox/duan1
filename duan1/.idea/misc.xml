@@ -76,6 +76,41 @@
         <entry key="..\:/Users/ADMIN/Documents/GitHub/duan1/duan1/app/src/main/res/menu/menu_drawer.xml" value="0.1" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/activity_main.xml" value="0.13360507246376813" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_add.xml" value="0.12473958333333333" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_sua_admin.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_sua_member.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_them.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_canhan.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_chitietdonhang.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_chitietsanpham.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_doimatkhau.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_donhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_hosocuatoi.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_manhinhchinh.xml" value="0.2" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanpham_iphone.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanpham_samsung.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_sanphamhot.xml" value="0.2" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_trangthaidonhang.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/header_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_chitietdonhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_chitietsanpham.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_donhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_iphone_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_lichsudonhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_manhinhchinh.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_samsung.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanpham.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanpham_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanphamhot_admin.xml" value="0.2" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanphammoi.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang_admin.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/loading.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/login.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/manghinhchao.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/register.xml" value="0.1" />
+>>>>>>> origin/backup
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/test.xml" value="0.24947916666666667" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/test2.xml" value="0.253125" />
       </map>
