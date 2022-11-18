@@ -1,88 +1,90 @@
 package com.example.duan1.models;
 
 public class SanPham {
-    public int maSP;
-    public int maTH;
-    public int  giaSp;
-    public int soluongSp;
-    public String motaSP;
-    public String tenSP;
-    public String hinhanhLon;
-    public String hinhanhNho;
+    public int maSp;
+    public String tenSp;
+    public long giaSp;
+    public int maThuongHieu;
+    public String motaSp;
+    public int soLuongSp;
+    public String hinhAnhLon;
+    public String hinhAnhNho;
 
+    public SanPham() {
+    }
 
-    public SanPham(int maSP, int maTH, int giaSp, int soluongSp, String motaSP, String tenSP, String hinhanhLon, String hinhanhNho) {
-        this.maSP = maSP;
-        this.maTH = maTH;
+    public SanPham(int maSp, String tenSp, long giaSp, int maThuongHieu, String motaSp, int soLuongSp, String hinhAnhLon, String hinhAnhNho) {
+        this.maSp = maSp;
+        this.tenSp = tenSp;
         this.giaSp = giaSp;
-        this.soluongSp = soluongSp;
-        this.motaSP = motaSP;
-        this.tenSP = tenSP;
-        this.hinhanhLon = hinhanhLon;
-        this.hinhanhNho = hinhanhNho;
+        this.maThuongHieu = maThuongHieu;
+        this.motaSp = motaSp;
+        this.soLuongSp = soLuongSp;
+        this.hinhAnhLon = hinhAnhLon;
+        this.hinhAnhNho = hinhAnhNho;
     }
 
-    public int getMaSP() {
-        return maSP;
+    public int getMaSp() {
+        return maSp;
     }
 
-    public void setMaSP(int maSP) {
-        this.maSP = maSP;
+    public void setMaSp(int maSp) {
+        this.maSp = maSp;
     }
 
-    public int getMaTH() {
-        return maTH;
+    public String getTenSp() {
+        return tenSp;
     }
 
-    public void setMaTH(int maTH) {
-        this.maTH = maTH;
+    public void setTenSp(String tenSp) {
+        this.tenSp = tenSp;
     }
 
-    public int getGiaSp() {
+    public long getGiaSp() {
         return giaSp;
     }
 
-    public void setGiaSp(int giaSp) {
+    public void setGiaSp(long giaSp) {
         this.giaSp = giaSp;
     }
 
-    public int getSoluongSp() {
-        return soluongSp;
+    public int getMaThuongHieu() {
+        return maThuongHieu;
     }
 
-    public void setSoluongSp(int soluongSp) {
-        this.soluongSp = soluongSp;
+    public void setMaThuongHieu(int maThuongHieu) {
+        this.maThuongHieu = maThuongHieu;
     }
 
-    public String getMotaSP() {
-        return motaSP;
+    public String getMotaSp() {
+        return motaSp;
     }
 
-    public void setMotaSP(String motaSP) {
-        this.motaSP = motaSP;
+    public void setMotaSp(String motaSp) {
+        this.motaSp = motaSp;
     }
 
-    public String getTenSP() {
-        return tenSP;
+    public int getSoLuongSp() {
+        return soLuongSp;
     }
 
-    public void setTenSP(String tenSP) {
-        this.tenSP = tenSP;
+    public void setSoLuongSp(int soLuongSp) {
+        this.soLuongSp = soLuongSp;
     }
 
-    public String getHinhanhLon() {
-        return hinhanhLon;
+    public String getHinhAnhLon() {
+        return hinhAnhLon;
     }
 
-    public void setHinhanhLon(String hinhanhLon) {
-        this.hinhanhLon = hinhanhLon;
+    public void setHinhAnhLon(String hinhAnhLon) {
+        this.hinhAnhLon = hinhAnhLon;
     }
 
-    public String getHinhanhNho() {
-        return hinhanhNho;
+    public String getHinhAnhNho() {
+        return hinhAnhNho;
     }
 
-    public void setHinhanhNho(String hinhanhNho) {
-        this.hinhanhNho = hinhanhNho;
+    public void setHinhAnhNho(String hinhAnhNho) {
+        this.hinhAnhNho = hinhAnhNho;
     }
 }
