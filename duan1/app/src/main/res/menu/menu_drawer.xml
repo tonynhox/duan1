@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Các hãng điện thoại">
+        <menu>
+            <item android:id="@+id/dtSS"
+                android:title="SamSung"
+                android:icon="@drawable/ic_phone_foreground"/>
+            <item android:id="@+id/dtIP"
+                android:title="Iphone"
+                android:icon="@drawable/ic_phone_foreground"/>
+            <item android:id="@+id/dtOP"
+                android:title="Oppo"
+                android:icon="@drawable/ic_phone_foreground"/>
+            <item android:id="@+id/dtVV"
+                android:title="Vivo"
+                android:icon="@drawable/ic_phone_foreground"/>
+            <item android:id="@+id/dtRM"
+                android:title="Realme"
+                android:icon="@drawable/ic_phone_foreground"/>
+            <item android:id="@+id/dtXM"
+                android:title="Xiaomi"
+                android:icon="@drawable/ic_phone_foreground"/>
+        </menu>
+    </item>
+</menu>

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.duan1">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,6 +17,18 @@
         android:theme="@style/Theme.DuAn1"
         tools:targetApi="31">
 
+        <activity
+            android:name=".activity.ManHinhRegister"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ManHinhChinh"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ManHinhLoading"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ManHinhLogin"
+            android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">
