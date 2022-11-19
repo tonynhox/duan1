@@ -60,18 +60,6 @@ public class  ManHinhChinh extends AppCompatActivity {
             }
         });
 
-//        event.getAction() == KeyEvent.ACTION_DOWN &&
-//                keyCode == KeyEvent.KEYCODE_ENTER
-//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if ((event.getAction() == KeyEvent.ACTION_DOWN)) {
-//                    //do what you want on the press of 'done'
-//                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
-//                }
-//                return false;
-//            }
-//        });
-
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -80,7 +68,7 @@ public class  ManHinhChinh extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         fragment = new HomeFragment();
         fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-//        SanPhamTHFragment.
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

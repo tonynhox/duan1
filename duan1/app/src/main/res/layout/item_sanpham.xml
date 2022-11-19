@@ -23,8 +23,8 @@
 
         <TextView
             android:id="@+id/txtTenSP"
-            android:layout_width="261dp"
-            android:layout_height="28dp"
+            android:layout_width="260dp"
+            android:layout_height="30dp"
             android:layout_marginTop="16dp"
             android:text="SamSung"
             android:textSize="16dp"
@@ -35,7 +35,7 @@
 
         <TextView
             android:id="@+id/txtChiTiet"
-            android:layout_width="203dp"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:text="Xem chi tiết"
@@ -55,12 +55,12 @@
 
         <TextView
             android:id="@+id/txtGiaSP"
-            android:layout_width="257dp"
-            android:layout_height="26dp"
+            android:layout_width="260dp"
+            android:layout_height="30dp"
             android:text="400.000.000"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintHorizontal_bias="0.589"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
     </androidx.constraintlayout.widget.ConstraintLayout>
