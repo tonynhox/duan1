@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +22,10 @@ import android.widget.Toast;
 import com.example.duan1.R;
 import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.fragments.HomeFragment;
+import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class  ManHinhChinh extends AppCompatActivity {
@@ -46,14 +50,27 @@ public class  ManHinhChinh extends AppCompatActivity {
         // bắt sự kiên enter
         editText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
+                        (event.getAction() == KeyEvent.ACTION_DOWN &&
+                        event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                         Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
             }
         });
+
+//        event.getAction() == KeyEvent.ACTION_DOWN &&
+//                keyCode == KeyEvent.KEYCODE_ENTER
+//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if ((event.getAction() == KeyEvent.ACTION_DOWN)) {
+//                    //do what you want on the press of 'done'
+//                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
+//                }
+//                return false;
+//            }
+//        });
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -106,13 +123,13 @@ public class  ManHinhChinh extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, homeFragment).commit();
                         break;
                     case R.id.history:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, historyFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, historyFragment).commit();
                         break;
                     case R.id.me:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, meFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
                         break;
                 }
                 return false;

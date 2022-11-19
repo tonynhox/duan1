@@ -15,7 +15,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_trangthaidonhang"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="400dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         <ListView
             android:id="@+id/list_lichsudonhang"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="290dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
