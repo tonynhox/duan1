@@ -24,7 +24,7 @@ public class ManHinhLoading extends AppCompatActivity {
             public void onFinish() {
                 Intent intent= new Intent(ManHinhLoading.this,ManHinhLogin.class);
                 startActivity(intent);
-            }\\\\\\\
+            }
         };countDownTimer.start();
     }
 }

@@ -15,10 +15,12 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
 import com.example.duan1.fragments.HomeFragment;
+import com.example.duan1.fragments.SanPhamTHFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class  ManHinhChinh extends AppCompatActivity {
@@ -27,6 +29,10 @@ public class  ManHinhChinh extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     EditText editText;
+    Fragment fragment;
+    FragmentManager fragmentManager;
+    public static String a;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,8 @@ public class  ManHinhChinh extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
+
+        // bắt sự kiên enter
         editText.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
@@ -46,35 +54,42 @@ public class  ManHinhChinh extends AppCompatActivity {
                 return false;
             }
         });
+
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_foreground);
 
-        FragmentManager fragmentManager1 = getSupportFragmentManager();
-        Fragment fragment1 = new HomeFragment();
-        fragmentManager1.beginTransaction().replace(R.id.linearLayout, fragment1).commit();
-
-
+        fragmentManager = getSupportFragmentManager();
+        fragment = new HomeFragment();
+        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+//        SanPhamTHFragment.
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.dtSS:
+                        fragment = new SanPhamTHFragment();
+                        a= "samsung";
                         Toast.makeText(ManHinhChinh.this, "Sam sung ne", Toast.LENGTH_SHORT).show();
                         Log.d("hien thi","co du lieu");
                         break;
                     case R.id.dtVV:
+                        fragment = new SanPhamTHFragment();
+                        a= "vivo";
                         Toast.makeText(ManHinhChinh.this, "vivo ne", Toast.LENGTH_SHORT).show();
                         Log.d("hien thi","co du lieu");
-
                         break;
                     case R.id.dtIP:
+                        fragment = new SanPhamTHFragment();
+                      a= "iphone";
                         Toast.makeText(ManHinhChinh.this, "iphone ne", Toast.LENGTH_SHORT).show();
                         Log.d("hien thi","co du lieu");
-
                         break;
+
                 }
+                fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
 
                 return false;
             }
