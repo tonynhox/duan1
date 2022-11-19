@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,74 +17,36 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:id="@+id/btnHoSoCuaToi">
-
         <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
+            android:fontFamily="arial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:gravity="start|center_vertical"
-            android:text="Hồ sơ của tôi"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:drawableRight="@drawable/arrow_right"
+            android:text="Hồ sơ của tôi" />
 
-        <ImageView
-            android:id="@+id/image_1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center_vertical">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
+            android:fontFamily="arial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:gravity="start|center_vertical"
-            android:text="Tài khoản / Thẻ ngân hàng"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:drawableRight="@drawable/arrow_right"
+            android:text="Tài khoản / Thẻ ngân hàng"/>
 
-        <ImageView
-            android:id="@+id/image_2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,73 +58,39 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Cài đặt thông báo"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Cài đặt thông báo"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_3"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Cài đặt ngôn ngữ"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Cài đặt ngôn ngữ"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_4"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,176 +102,78 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Trung tâm hỗ trợ"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Trung tâm hỗ trợ"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_5"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Tiêu chuẩn cộng đồng"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Tiêu chuẩn cộng đồng"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_6"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical"
-        android:id="@+id/btnGioiThieu">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Giới thiệu"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Giới thiệu"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_7"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical"
-        android:id="@+id/btnDieuKhoan">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right"
+        android:text="Điều khoản H - Shop"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Điều khoản H - Shop"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_8"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
+        android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:gravity="center_vertical"
-        android:id="@+id/btnXoaTaiKhoan">
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:text="Xóa tài khoản"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginEnd="8dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start|center_vertical"
-            android:text="Xóa tài khoản"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:backgroundTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/image_9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/image_9"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="14dp"
-            android:src="@drawable/arrow_right"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

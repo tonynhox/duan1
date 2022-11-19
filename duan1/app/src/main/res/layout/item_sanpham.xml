@@ -26,6 +26,7 @@
             android:layout_width="260dp"
             android:layout_height="30dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/black"
             android:text="SamSung"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,11 +35,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textColor="@color/black"
+
             android:id="@+id/txtChiTiet"
             android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
-            android:text="Xem chi tiết"
+            android:text="@string/xemchitiet"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.026"
@@ -54,6 +57,8 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <TextView
+            android:textColor="@color/black"
+
             android:id="@+id/txtGiaSP"
             android:layout_width="260dp"
             android:layout_height="30dp"

@@ -22,4 +22,12 @@
                 android:icon="@drawable/ic_phone_foreground"/>
         </menu>
     </item>
+
+    <item android:title="Các hãng điện thoại">
+        <menu>
+            <item android:id="@+id/dsMember"
+                android:title="Quản lý tài khoản"
+                android:icon="@drawable/ic_member"/>
+        </menu>
+    </item>
 </menu>

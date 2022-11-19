@@ -18,7 +18,7 @@ public class SanPhamTHFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sanpham_samsung, container, false);
+        View view = inflater.inflate(R.layout.fragment_sanpham, container, false);
         textViewSanPham= view.findViewById(R.id.txtFragment);
         textViewSanPham.setText(ManHinhChinh.a);
         return view;
