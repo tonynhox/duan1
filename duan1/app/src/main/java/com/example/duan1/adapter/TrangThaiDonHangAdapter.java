@@ -46,6 +46,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
         holder.txtsoluong.setText(String.valueOf(list.get(i).getSoluongSP()));
 
 
+
     }
 
     @Override
@@ -57,7 +58,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
         TextView txtten,txtgia,txtngay,txtsoluong;
-        
+        Button btnhuy,btntrangthai;
         ImageView ivLon;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -67,6 +68,8 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
             txtgia = itemView.findViewById(R.id.txtGiaSP);
             txtngay = itemView.findViewById(R.id.txtNgayMua);
             txtsoluong = itemView.findViewById(R.id.txtSoLuongSP);
+            btnhuy = itemView.findViewById(R.id.btnHuy);
+            btntrangthai = itemView.findViewById(R.id.btnTrangThai);
 
         }
 
