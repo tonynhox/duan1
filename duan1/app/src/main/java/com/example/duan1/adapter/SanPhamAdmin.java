@@ -11,36 +11,45 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.SanPham;
 
 import java.util.ArrayList;
 
-public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.ViewHolder> {
-    ArrayList<SanPham> list;
+public class SanPhamAdmin extends RecyclerView.Adapter<SanPhamAdmin.ViewHolder> {
+
+    ArrayList<SanPham>list;
     Context context;
 
-    public SanPhamHotAdapter(ArrayList<SanPham> list, Context context) {
+    public SanPhamAdmin(ArrayList<SanPham> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
     @NonNull
     @Override
-    //Quản lý layout
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_sanpham,parent,false);
+        View view = inflater.inflate(R.layout.item_sanpham_admin,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
-        Glide.with(context).load(list.get(i).hinhAnhLon).into(holder.ivLon);
         holder.txtTen.setText(list.get(i).getTenSp());
-        holder.txtGia.setText(String.valueOf(list.get(i).getGiaSp()));
+        holder.ivsua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//...
+            }
+        });
+        holder.ivxoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//....
+            }
+        });
     }
 
     @Override
@@ -48,15 +57,16 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
         return list.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen, txtGia;
-        ImageView ivLon;
+        TextView txtTen;
+        ImageView ivsua,ivxoa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivLon = itemView.findViewById(R.id.imageView2);
-            txtTen = itemView.findViewById(R.id.txtTenSP);
-            txtGia = itemView.findViewById(R.id.txtGiaSP);
+            txtTen = itemView.findViewById(R.id.txtName);
+            ivsua = itemView.findViewById(R.id.ivEdit);
+            ivxoa = itemView.findViewById(R.id.ivDelete);
         }
     }
 }

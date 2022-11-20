@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
 //            Log.d("item",""+item.getTenSP());
 //
 //        }
-//        Log.d("chay",list.size()+"");
+//        Log.d("chay",lisct.size()+"");
 
     }
 
