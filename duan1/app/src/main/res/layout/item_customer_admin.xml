@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#E0DDDD"
+    android:backgroundTint="#E0DDDD"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="15dp"
+    android:elevation="20dp">
+    <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_customer"
+    />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="35dp"
+        android:orientation="vertical">
+        <TextView
+
+            android:layout_marginTop="20dp"
+            android:id="@+id/txtTenTK"
+            android:textColor="@color/black"
+            android:text="Tên tài khoản: tonynhox"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtHoTen"
+            android:textColor="@color/black"
+            android:text="Họ tên: Trần Anh Huy"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtNamSinh"
+            android:textColor="@color/black"
+            android:text="Năm Sinh: 27/08/2003"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtEmail"
+            android:textColor="@color/black"
+            android:text="Email: anhhuytran1470@gmail.com"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtSDT"
+            android:textColor="@color/black"
+            android:text="Số điện thoại: 093877147"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:background="@drawable/custom_button7"
+        android:src="@drawable/ic_delete_foreground"
+        android:layout_gravity="bottom|end"/>
+
+
+
+</androidx.cardview.widget.CardView>
