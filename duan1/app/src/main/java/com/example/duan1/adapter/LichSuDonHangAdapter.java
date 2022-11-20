@@ -66,8 +66,11 @@ public class LichSuDonHangAdapter extends BaseAdapter {
             viewHolder.ivNho = (ImageView) convertView.findViewById(R.id.imageView2);
             convertView.setTag(viewHolder);
 
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+        } else{
+            viewHolder = (ViewHolder) convertView.getTag();{
+        }
+
+
             LichSuDonHang lichSuDonHang = (LichSuDonHang) getItem(position);
             viewHolder.txtsoluong.setText(lichSuDonHang.getSoluongSP());
             viewHolder.txtmahoadon.setText(lichSuDonHang.getMaHoaDon());
