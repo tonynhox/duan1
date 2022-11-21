@@ -75,22 +75,7 @@ public class LichSuDonHangAdapter extends BaseAdapter {
         holder.txtngaymua.setText((CharSequence) lichSuDonHang.getNgayMua());
             Glide.with(context).load(list.get(position).hinhAnhNho).into(holder.ivNho);
 
-<<<<<<< HEAD
-        } else{
-            viewHolder = (ViewHolder) convertView.getTag();{
-        }
-
-
-            LichSuDonHang lichSuDonHang = (LichSuDonHang) getItem(position);
-            viewHolder.txtsoluong.setText(lichSuDonHang.getSoluongSP());
-            viewHolder.txtmahoadon.setText(lichSuDonHang.getMaHoaDon());
-            viewHolder.txtgiasanpham.setText((int) lichSuDonHang.getGia());
-            viewHolder.txtngaymua.setText((CharSequence) lichSuDonHang.getNgayMua());
-            Glide.with(context).load(list.get(position).hinhAnhNho).into(viewHolder.ivNho);
-
-            return convertView;
-=======
             return view;
->>>>>>> 9fece34068ce963254012b7009e2b815204daee6
+
         }
 }
