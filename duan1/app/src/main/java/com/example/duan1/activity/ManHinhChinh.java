@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,13 +32,15 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class ManHinhChinh extends AppCompatActivity {
+    public static int a;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ImageView imageView;
-
+    EditText editText;
     Button button;
-    F
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    Fragment fragment;
     GioHangFragment gioHangFragment = new GioHangFragment();
     HoSoCuaToiFragment hoSoCuaToiFragment = new HoSoCuaToiFragment();
 
@@ -46,7 +52,7 @@ public class ManHinhChinh extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, gioHangFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, gioHangFragment).commit();
             }
         });
         setContentView(R.layout.fragment_canhan);
@@ -54,7 +60,7 @@ public class ManHinhChinh extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container1,hoSoCuaToiFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout,hoSoCuaToiFragment).commit();
             }
         });
 
@@ -91,7 +97,7 @@ public class ManHinhChinh extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.dtSS:
                         fragment = new SanPhamTHFragment();
-                        a= "samsung";
+                        String a = "samsung";
                         Toast.makeText(ManHinhChinh.this, "Sam sung ne", Toast.LENGTH_SHORT).show();
                         Log.d("hien thi", "co du lieu");
                         break;
