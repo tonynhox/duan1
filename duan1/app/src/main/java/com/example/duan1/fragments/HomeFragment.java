@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeFragment extends Fragment {
 
     ArrayList<SanPham> list;
-//    SanPhamHotAdapter adapter;
+    SanPhamHotAdapter adapter;
     RecyclerView listViewSP;
 
     @Nullable
@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
     }
     private void DemoCallAPI() {
 
-        ServiceAPI requestInterface = new Retrofit.Builder()
+        ServiceAPI requestInterface = new Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -78,4 +78,8 @@ public class HomeFragment extends Fragment {
         Log.d("chay","loi");
     }
 
+    private class Builder {
+        public Object baseUrl(String base_service) {
+        }
+    }
 }

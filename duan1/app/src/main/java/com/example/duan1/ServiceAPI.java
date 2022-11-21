@@ -1,11 +1,12 @@
 package com.example.duan1;
 
+import android.database.Observable;
+
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.ThuongHieu;
 
 import java.util.ArrayList;
 
-import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 public interface ServiceAPI {
