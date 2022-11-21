@@ -57,20 +57,13 @@ public class HomeFragment extends Fragment {
     }
 
     private void handleResponse(ArrayList<SanPham> info) {
+        //Xử lý chức năng
         list=info;
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewSP.setLayoutManager(linearLayoutManager);
         SanPhamHotAdapter adapter = new SanPhamHotAdapter(list,getContext());
         listViewSP.setAdapter(adapter);
-        //khi gọi API THÀNH CÔNG thì thực hiện xử lý ở đây
-//        Log.d("chay",list.size()+"");
-//        for (SanPham item:info
-//             ) {
-//            Log.d("item",""+item.getTenSP());
-//
-//        }
-//        Log.d("chay",lisct.size()+"");
-
     }
 
     private void handleError(Throwable error) {
