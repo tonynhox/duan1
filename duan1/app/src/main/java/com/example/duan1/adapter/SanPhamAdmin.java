@@ -37,10 +37,19 @@ public class SanPhamAdmin extends RecyclerView.Adapter<SanPhamAdmin.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
-        Glide.with(context).load(list.get(i).hinhAnhNho).into(holder.ivsua);
-        Glide.with(context).load(list.get(i).hinhAnhNho).into(holder.ivxoa);
         holder.txtTen.setText(list.get(i).getTenSp());
-
+        holder.ivsua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//...
+            }
+        });
+        holder.ivxoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//....
+            }
+        });
     }
 
     @Override
