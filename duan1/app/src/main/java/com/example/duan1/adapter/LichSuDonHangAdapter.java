@@ -53,19 +53,29 @@ public class LichSuDonHangAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
-        if (convertView == null) {
-            viewHolder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_lichsudonhang, null);
-            viewHolder.txtsoluong = (TextView) convertView.findViewById(R.id.txtSoLuongSP);
-            viewHolder.txtmahoadon = (TextView) convertView.findViewById(R.id.txtMaHoaDon);
-            viewHolder.txtgiasanpham = (TextView) convertView.findViewById(R.id.txtGiaSP);
-            viewHolder.txtngaymua = (TextView) convertView.findViewById(R.id.txtNgayMua);
-            viewHolder.ivNho = (ImageView) convertView.findViewById(R.id.imageView2);
-            convertView.setTag(viewHolder);
+    public View getView(int position, View view, ViewGroup parent) {
+        ViewHolder holder ;
+        if (view == null) {
+            holder = new ViewHolder();
+            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+            view = inflater.inflate(R.layout.item_lichsudonhang, null);
+            holder.txtsoluong = (TextView) view.findViewById(R.id.txtSoLuongSP);
+            holder.txtmahoadon = (TextView) view.findViewById(R.id.txtMaHoaDon);
+            holder.txtgiasanpham = (TextView) view.findViewById(R.id.txtGiaSP);
+            holder.txtngaymua = (TextView) view.findViewById(R.id.txtNgayMua);
+            holder.ivNho = (ImageView) view.findViewById(R.id.imageView2);
+            view.setTag(holder);
+        }else {
+            holder = (ViewHolder) view.getTag();
+        }
+        LichSuDonHang lichSuDonHang = (LichSuDonHang) getItem(position);
+        holder.txtsoluong.setText(lichSuDonHang.getSoluongSP());
+        holder.txtmahoadon.setText(lichSuDonHang.getMaHoaDon());
+        holder.txtgiasanpham.setText((int) lichSuDonHang.getGia());
+        holder.txtngaymua.setText((CharSequence) lichSuDonHang.getNgayMua());
+            Glide.with(context).load(list.get(position).hinhAnhNho).into(holder.ivNho);
 
+<<<<<<< HEAD
         } else{
             viewHolder = (ViewHolder) convertView.getTag();{
         }
@@ -79,5 +89,8 @@ public class LichSuDonHangAdapter extends BaseAdapter {
             Glide.with(context).load(list.get(position).hinhAnhNho).into(viewHolder.ivNho);
 
             return convertView;
+=======
+            return view;
+>>>>>>> 9fece34068ce963254012b7009e2b815204daee6
         }
 }
