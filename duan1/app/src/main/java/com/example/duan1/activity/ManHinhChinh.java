@@ -20,6 +20,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
@@ -29,6 +30,7 @@ import com.example.duan1.fragments.HoSoCuaToiFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
+import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -42,6 +44,7 @@ public class  ManHinhChinh extends AppCompatActivity {
 
     FragmentManager fragmentManager;
     public static String a;
+    TextView txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,19 +55,9 @@ public class  ManHinhChinh extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
+        txtTitle = findViewById(R.id.txtTitle);
 
-        // bắt sự kiên enter
-        editText.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
-                        (event.getAction() == KeyEvent.ACTION_DOWN &&
-                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-                return false;
-            }
-        });
+
 
 
         setSupportActionBar(toolbar);
@@ -76,6 +69,23 @@ public class  ManHinhChinh extends AppCompatActivity {
         fragment = new HomeFragment();
         fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
 
+        //bắt sự kiên enter
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
+                        (event.getAction() == KeyEvent.ACTION_DOWN &&
+                                event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+
+                    a= editText.getText().toString();
+                    fragment = new SearchSanPhamFragment();
+                    fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -83,20 +93,44 @@ public class  ManHinhChinh extends AppCompatActivity {
                     case R.id.dtSS:
                         fragment = new SanPhamTHFragment();
                         a= "samsung";
-                        Toast.makeText(ManHinhChinh.this, "Sam sung ne", Toast.LENGTH_SHORT).show();
-                        Log.d("hien thi", "co du lieu");
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("SAMSUNG");
                         break;
                     case R.id.dtVV:
                         fragment = new SanPhamTHFragment();
                         a= "vivo";
-                        Toast.makeText(ManHinhChinh.this, "vivo ne", Toast.LENGTH_SHORT).show();
-                        Log.d("hien thi","co du lieu");
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("VIVO");
                         break;
                     case R.id.dtIP:
                         fragment = new SanPhamTHFragment();
                         a= "iphone";
-                        Toast.makeText(ManHinhChinh.this, "iphone ne", Toast.LENGTH_SHORT).show();
-                        Log.d("hien thi","co du lieu");
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("IPHONE");
+                        break;
+                    case R.id.dtOP:
+                        fragment = new SanPhamTHFragment();
+                        a= "oppo";
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("OPPO");
+                        break;
+                    case R.id.dtRM:
+                        fragment = new SanPhamTHFragment();
+                        a= "redmi";
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("REDMI");
+                        break;
+                    case R.id.dtXM:
+                        fragment = new SanPhamTHFragment();
+                        a= "xiaomi";
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("XIAOMI");
                         break;
 
                 }
@@ -118,12 +152,20 @@ public class  ManHinhChinh extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
+                        editText.setVisibility(View.VISIBLE);
+                        txtTitle.setVisibility(View.GONE);
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, homeFragment).commit();
                         break;
                     case R.id.history:
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("Trạng thái đơn hàng");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, historyFragment).commit();
                         break;
                     case R.id.me:
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("Hồ sơ của tôi");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
                         break;
                 }

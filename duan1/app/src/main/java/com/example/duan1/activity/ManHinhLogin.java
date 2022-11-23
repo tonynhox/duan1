@@ -13,9 +13,9 @@ import android.widget.Toast;
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.models.CheckTaiKhoan;
-
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -73,7 +73,7 @@ public class ManHinhLogin extends AppCompatActivity {
     }
 
     private void handleResponse(ArrayList<CheckTaiKhoan> info) {
-        ShowNotifyUser.dismissProgressDialog();
+
         if (info.size() > 0) {
             Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
             startActivity(intent);
