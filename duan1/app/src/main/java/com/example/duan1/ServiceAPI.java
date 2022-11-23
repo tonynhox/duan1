@@ -3,11 +3,13 @@ package com.example.duan1;
 import com.example.duan1.models.CheckTaiKhoan;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.ThuongHieu;
+import com.example.duan1.models.TimKiemSanPham;
 
 import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ServiceAPI {
@@ -19,10 +21,18 @@ public interface ServiceAPI {
 
     @GET("api/GetAllSanPham")
     Observable<ArrayList<SanPham>> getALLSanPham();
-    @GET("api/checkTaiKhoan")
+
+    @GET("api/GetSanPhamHot")
+    Observable<ArrayList<SanPham>> getSanPhamHot();
+
+    @POST("api/checkTaiKhoan")
     Observable<ArrayList<CheckTaiKhoan>> checkTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan,
                                                        @Query("matKhau") String matKhau);
+    @GET("api/getSPThuongHieu")
+    Observable<ArrayList<TimKiemSanPham>> timKiemThuongHieu(@Query("tenThuongHieu") String tenThuongHieu);
 
+    @GET("api/getTimKiemSanPham")
+    Observable<ArrayList<TimKiemSanPham>> timKiemSanPham(@Query("tenSanPham") String tenSanPham);
 }
 
 

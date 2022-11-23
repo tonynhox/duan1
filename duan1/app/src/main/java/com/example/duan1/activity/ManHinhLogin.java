@@ -73,7 +73,7 @@ public class ManHinhLogin extends AppCompatActivity {
     }
 
     private void handleResponse(ArrayList<CheckTaiKhoan> info) {
-        ShowNotifyUser.dismissProgressDialog();
+
         if (info.size() > 0) {
             Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
             startActivity(intent);
