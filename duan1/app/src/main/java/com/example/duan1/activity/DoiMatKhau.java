@@ -1,5 +1,7 @@
 package com.example.duan1.activity;
 
+import static com.example.duan1.activity.ManHinhLogin.taikhoan;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,7 +76,7 @@ public class DoiMatKhau extends AppCompatActivity {
                         Log.e("admin",matkhau+resmatkhau);
                         Toast.makeText(getBaseContext(),"Mật Khẩu nhập lại không đúng",Toast.LENGTH_SHORT).show();
                         doimatkhau();
-                        DemoCallAPI( resmatkhau,matkhau);
+                        DemoCallAPI(taikhoan,resmatkhau,matkhau);
                     }
 
 
@@ -88,14 +90,14 @@ public class DoiMatKhau extends AppCompatActivity {
 
             }
 
-            private void DemoCallAPI(String resmatkhau, String matkhau) {
+            private void DemoCallAPI(String taikhoan,String resmatkhau, String matkhau) {
 
                 ServiceAPI requestInterface = new Retrofit.Builder()
                         .baseUrl(ServiceAPI.BASE_Service)
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
                         .build().create(ServiceAPI.class);
-                new CompositeDisposable().add(requestInterface.CapNhatMatKhau(resmatkhau, matkhau)
+                new CompositeDisposable().add(requestInterface.CapNhatMatKhau(taikhoan,resmatkhau, matkhau)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribe(this::handleResponse, this::handleError)

@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ManHinhLogin extends AppCompatActivity {
     EditText user, pass;
-
+    public static String taikhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +76,7 @@ public class ManHinhLogin extends AppCompatActivity {
 
         if (info.size() > 0) {
             Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
+            taikhoan = user.getText().toString();
             startActivity(intent);
         } else {
             Toast.makeText(this, "Sai", Toast.LENGTH_SHORT).show();
