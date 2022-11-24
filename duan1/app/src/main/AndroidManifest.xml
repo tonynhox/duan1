@@ -18,6 +18,9 @@
             android:name=".activity.ManHinhRegister"
             android:exported="false" />
         <activity
+            android:name=".activity.DoiMatKhau"
+            android:exported="false" />
+        <activity
             android:name=".activity.MainActivity"
             android:exported="false" />
         <activity

@@ -42,8 +42,9 @@ public class DoiMatKhau extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_doimatkhau);
-        initIteminActivity();
         EventButton();
+        initIteminActivity();
+
     }
 
     private void EventButton() {
@@ -70,7 +71,7 @@ public class DoiMatKhau extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
 
             else {
-                     String resmatkhau = txtNewPassword.getText().toString();
+                     String resmatkhau = txtCurentPassword.getText().toString();
                      String matkhau = txtRePassword.getText().toString();
                     if (resmatkhau.equals(matkhau)){
                         Log.e("admin",matkhau+resmatkhau);

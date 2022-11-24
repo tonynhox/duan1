@@ -36,8 +36,8 @@ public interface ServiceAPI {
     Observable<ArrayList<TimKiemSanPham>> timKiemSanPham(@Query("tenSanPham") String tenSanPham);
 
     @POST("api/CapNhatMatKhau")
-    Observable<ArrayList<CheckTaiKhoan>> CapNhatMatKhau(@Query("maTaiKhoan") String tk ,@Query("matkhaucu") String matkhaucu,
-                                                       @Query("matKhau") String matKhau);
+    Observable<ArrayList<CheckTaiKhoan>> CapNhatMatKhau(@Query("maTaiKhoan") String tk ,@Query("matKhauCu") String matkhaucu,
+                                                       @Query("matKhauMoi") String matKhau);
 
 
 }
