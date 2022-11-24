@@ -11,18 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.SanPham;
+import com.example.duan1.models.TimKiemSanPham;
 
 import java.util.ArrayList;
 
-public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.ViewHolder> {
-    ArrayList<SanPham> list;
+public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_SearchAdapter.ViewHolder> {
+    ArrayList<TimKiemSanPham> list;
     Context context;
 
-    public SanPhamHotAdapter(ArrayList<SanPham> list, Context context) {
+    public SanPhamTH_SearchAdapter(ArrayList<TimKiemSanPham> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -41,7 +41,6 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
         Glide.with(context).load(list.get(i).getHinhAnhLon()).into(holder.ivLon);
         holder.txtTen.setText(list.get(i).getTenSp());
         holder.txtGia.setText(String.valueOf(list.get(i).getGiaSp()));
-        holder.txtSoLuongMua.setText(String.valueOf(list.get(i).getTongSoLuong()));
     }
 
     @Override
@@ -50,7 +49,7 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen, txtGia,txtSoLuongMua;
+        TextView txtTen, txtGia;
         ImageView ivLon;
 
         public ViewHolder(@NonNull View itemView) {
@@ -58,7 +57,6 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
             ivLon = itemView.findViewById(R.id.imageView2);
             txtTen = itemView.findViewById(R.id.txtTenSP);
             txtGia = itemView.findViewById(R.id.txtGiaSP);
-            txtSoLuongMua = itemView.findViewById(R.id.txtSoLuongMua);
         }
     }
 }

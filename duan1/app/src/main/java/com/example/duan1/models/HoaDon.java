@@ -9,6 +9,8 @@ public class HoaDon {
     public Date ngayMua;
     public String diaChi;
 
+
+
     public HoaDon() {
     }
 
