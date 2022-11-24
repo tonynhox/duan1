@@ -14,6 +14,7 @@ import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.models.CheckTaiKhoan;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -26,7 +27,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ManHinhLogin extends AppCompatActivity {
     EditText user, pass;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +75,16 @@ public class ManHinhLogin extends AppCompatActivity {
     private void handleResponse(ArrayList<CheckTaiKhoan> info) {
 
         if (info.size() > 0) {
-            Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
-            startActivity(intent);
+            StaticOthers.idUser= info.get(0).getMaTaiKhoan();
+            StaticOthers.username= info.get(0).getTenTaiKhoan();
+            int maLoaiTK= info.get(0).getMaLoaiTaiKhoan();
+            if(maLoaiTK!=1){
+                Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(ManHinhLogin.this, ManHinhChinhAdmin.class);
+                startActivity(intent);
+            }
         } else {
             Toast.makeText(this, "Sai", Toast.LENGTH_SHORT).show();
         }
