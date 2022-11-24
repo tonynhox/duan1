@@ -7,6 +7,7 @@ import com.example.duan1.models.TimKiemSanPham;
 
 import java.util.ArrayList;
 
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -33,6 +34,12 @@ public interface ServiceAPI {
 
     @GET("api/getTimKiemSanPham")
     Observable<ArrayList<TimKiemSanPham>> timKiemSanPham(@Query("tenSanPham") String tenSanPham);
+
+    @POST("api/CapNhatMatKhau")
+    Observable<ArrayList<CheckTaiKhoan>> CapNhatMatKhau(@Query("matkhaucu") String matkhaucu,
+                                                       @Query("matKhau") String matKhau);
+
+
 }
 
 

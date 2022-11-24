@@ -18,7 +18,7 @@ import com.example.duan1.models.TimKiemSanPham;
 
 import java.util.ArrayList;
 
-public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_SearchAdapter.ViewHolder> {
+public class      SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_SearchAdapter.ViewHolder> {
     ArrayList<TimKiemSanPham> list;
     Context context;
 
