@@ -45,6 +45,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     FragmentManager fragmentManager;
     public static String a;
     TextView txtTitle;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class  ManHinhChinh extends AppCompatActivity {
 
             }
         });
+        
 
 
 
