@@ -41,7 +41,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     NavigationView navigationView;
     EditText editText;
     Fragment fragment;
-
+    ImageView image;
     FragmentManager fragmentManager;
     public static String a;
     TextView txtTitle;
@@ -56,7 +56,15 @@ public class  ManHinhChinh extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
+        GioHangFragment gioHangFragment = new GioHangFragment();
+        image = findViewById(R.id.ivGioHang);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, gioHangFragment).commit();
 
+            }
+        });
 
 
 
