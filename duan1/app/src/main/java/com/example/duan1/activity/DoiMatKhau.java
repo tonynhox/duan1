@@ -34,7 +34,7 @@ public class DoiMatKhau extends AppCompatActivity {
     EditText txtRePassword;
     Button btnCancel;
     Button btnAccept;
-    String matKhau
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
