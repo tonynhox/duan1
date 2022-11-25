@@ -27,6 +27,9 @@
             android:name=".activity.ManHinhChinh"
             android:exported="false" />
         <activity
+            android:name=".activity.ManHinhChinhAdmin"
+            android:exported="false" />
+        <activity
             android:name=".activity.ManHinhLogin"
             android:exported="true">
             <intent-filter>

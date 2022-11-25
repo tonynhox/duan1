@@ -11,18 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.SanPham;
 
 import java.util.ArrayList;
 
-public class SanPhamAdmin extends RecyclerView.Adapter<SanPhamAdmin.ViewHolder> {
+public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapter.ViewHolder> {
 
     ArrayList<SanPham>list;
     Context context;
 
-    public SanPhamAdmin(ArrayList<SanPham> list, Context context) {
+    public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context) {
         this.list = list;
         this.context = context;
     }

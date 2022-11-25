@@ -73,8 +73,8 @@ public class LichSuDonHangAdapter extends BaseAdapter {
         holder.txtmahoadon.setText(lichSuDonHang.getMaHoaDon());
         holder.txtgiasanpham.setText((int) lichSuDonHang.getGia());
         holder.txtngaymua.setText((CharSequence) lichSuDonHang.getNgayMua());
-            Glide.with(context).load(list.get(position).hinhAnhNho).into(holder.ivNho);
+        Glide.with(context).load(list.get(position).hinhAnhNho).into(holder.ivNho);
 
-            return view;
+        return view;
         }
 }
