@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="15dp"
     android:layout_margin="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="10dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txtName"
@@ -21,6 +20,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="arial"
             android:paddingLeft="15dp"
+            android:paddingBottom="16dp"
             android:text="Iphone 13"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -33,23 +33,21 @@
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_gravity="right"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+
+            android:layout_marginEnd="4dp"
             android:background="@drawable/custom_button"
             android:src="@drawable/ic_edit_foreground"
-            app:layout_constraintStart_toEndOf="@+id/txtName"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivDelete" />
 
         <ImageView
             android:id="@+id/ivDelete"
             android:layout_width="50dp"
             android:layout_height="35dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="16dp"
             android:background="@drawable/custom_button4"
             android:src="@drawable/ic_delete_foreground"
-            app:layout_constraintStart_toEndOf="@+id/ivEdit"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
