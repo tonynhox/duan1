@@ -11,37 +11,44 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.SanPham;
 
 import java.util.ArrayList;
 
-public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.ViewHolder> {
-    ArrayList<SanPham> list;
+public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapter.ViewHolder> {
+
+    ArrayList<SanPham>list;
     Context context;
 
-    public SanPhamHotAdapter(ArrayList<SanPham> list, Context context) {
+    public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
     @NonNull
     @Override
-    //Quản lý layout
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_sanpham,parent,false);
+        View view = inflater.inflate(R.layout.item_sanpham_admin,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
-        Glide.with(context).load(list.get(i).getHinhAnhLon()).into(holder.ivLon);
         holder.txtTen.setText(list.get(i).getTenSp());
-        holder.txtGia.setText(String.valueOf(list.get(i).getGiaSp()));
-        holder.txtSoLuongMua.setText(String.valueOf(list.get(i).getTongSoLuong()));
+        holder.ivsua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//...
+            }
+        });
+        holder.ivxoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//....
+            }
+        });
     }
 
     @Override
@@ -49,16 +56,16 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
         return list.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen, txtGia,txtSoLuongMua;
-        ImageView ivLon;
+        TextView txtTen;
+        ImageView ivsua,ivxoa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivLon = itemView.findViewById(R.id.imageView2);
-            txtTen = itemView.findViewById(R.id.txtTenSP);
-            txtGia = itemView.findViewById(R.id.txtGiaSP);
-            txtSoLuongMua = itemView.findViewById(R.id.txtSoLuongMua);
+            txtTen = itemView.findViewById(R.id.txtName);
+            ivsua = itemView.findViewById(R.id.ivEdit);
+            ivxoa = itemView.findViewById(R.id.ivDelete);
         }
     }
 }

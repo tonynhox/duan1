@@ -1,17 +1,15 @@
 package com.example.duan1.models;
 
 public class SanPham {
-    public int maSp;
-    public String tenSp;
-    public long giaSp;
-    public int maThuongHieu;
-    public String motaSp;
-    public int soLuongSp;
-    public String hinhAnhLon;
-    public String hinhAnhNho;
-
-    public SanPham() {
-    }
+    private int maSp;
+    private String tenSp;
+    private long giaSp;
+    private int maThuongHieu;
+    private String motaSp;
+    private int soLuongSp;
+    private String hinhAnhLon;
+    private String hinhAnhNho;
+    private int tongSoLuong;
 
     public SanPham(int maSp, String tenSp, long giaSp, int maThuongHieu, String motaSp, int soLuongSp, String hinhAnhLon, String hinhAnhNho) {
         this.maSp = maSp;
@@ -22,6 +20,9 @@ public class SanPham {
         this.soLuongSp = soLuongSp;
         this.hinhAnhLon = hinhAnhLon;
         this.hinhAnhNho = hinhAnhNho;
+    }
+
+    public SanPham() {
     }
 
     public int getMaSp() {
@@ -86,5 +87,13 @@ public class SanPham {
 
     public void setHinhAnhNho(String hinhAnhNho) {
         this.hinhAnhNho = hinhAnhNho;
+    }
+
+    public int getTongSoLuong() {
+        return tongSoLuong;
+    }
+
+    public void setTongSoLuong(int tongSoLuong) {
+        this.tongSoLuong = tongSoLuong;
     }
 }

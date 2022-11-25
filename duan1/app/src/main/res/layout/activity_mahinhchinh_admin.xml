@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/navigationView"
-        app:menu="@menu/menu_drawer"
+        app:menu="@menu/menu_drawer_admin"
         app:itemIconSize="30dp"
         android:layout_gravity="start"
         app:headerLayout="@layout/header_layout"/>

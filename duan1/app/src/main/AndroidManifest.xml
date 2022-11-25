@@ -21,16 +21,19 @@
             android:name=".activity.ManHinhRegister"
             android:exported="false" />
         <activity
-            android:name=".activity.ManHinhChinh"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ManHinhLoading"
             android:exported="false" />
         <activity
-            android:name=".activity.ManHinhLogin"
+            android:name=".activity.ManHinhChinh"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.ManHinhChinhAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ManHinhLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
