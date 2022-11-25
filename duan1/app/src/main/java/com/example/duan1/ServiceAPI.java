@@ -40,7 +40,7 @@ public interface ServiceAPI {
     Observable<Integer> addTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan,
                                                    @Query("matKhau") String matKhau,
                                                    @Query("hoTen") String hoTen,
-                                                   @Query("namSinh")Date namSinh,
+                                                   @Query("namSinh")String namSinh,
                                                    @Query("soDienThoai") String soDienThoai,
                                                    @Query("email") String email);
 }

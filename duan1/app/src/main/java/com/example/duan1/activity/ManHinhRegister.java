@@ -32,7 +32,7 @@ public class ManHinhRegister extends AppCompatActivity {
     Button btnRegister,btnCancel;
     EditText edt_name,edt_username,edt_password,edt_birthday,edt_phone,edt_email;
     DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    String name,user,pass,phone,email;
+    String name,user,pass,phone,email,birthday;
     Date birth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,24 +44,32 @@ public class ManHinhRegister extends AppCompatActivity {
         edt_name = findViewById(R.id.edt_name);
         edt_username = findViewById(R.id.edt_username);
         edt_password = findViewById(R.id.edt_password);
+
         edt_birthday = findViewById(R.id.edt_birthday);
         edt_phone = findViewById(R.id.edt_phone);
         edt_email = findViewById(R.id.edt_email);
-        try {
-            name= edt_name.getText().toString();
-            user= edt_username.getText().toString();
-            pass= edt_password.getText().toString();
 
-            birth = formatter.parse(edt_birthday.getText().toString());
-            phone = edt_phone.getText().toString();
-            email = edt_email.getText().toString();
 
-        }catch (Exception err){
-
-        }   btnRegister.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DemoCallAPI(name,user,pass,birth,phone,email);
+
+
+                try {
+                    name= edt_name.getText().toString();
+                    user= edt_username.getText().toString();
+                    pass= edt_password.getText().toString();
+                    birthday= edt_birthday.getText().toString();
+                    birth = formatter.parse(birthday);
+                    phone = edt_phone.getText().toString();
+                    email = edt_email.getText().toString();
+
+                }catch (Exception err){
+
+                }
+                Log.d("birth", ""+birth);
+                Log.d("ed_birth", ""+birthday);
+                DemoCallAPI(name,user,pass,birthday,phone,email);
             }
         });
 
@@ -75,7 +83,7 @@ public class ManHinhRegister extends AppCompatActivity {
             }
         });
     }
-    private void DemoCallAPI(String tenTaiKhoan, String matKhau, String hoTen, Date namSinh, String soDienThoai, String email) {
+    private void DemoCallAPI(String tenTaiKhoan, String matKhau, String hoTen, String namSinh, String soDienThoai, String email) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
