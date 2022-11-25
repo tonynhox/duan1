@@ -42,6 +42,12 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
         holder.txtTen.setText(list.get(i).getTenSp());
         holder.txtGia.setText(String.valueOf(list.get(i).getGiaSp()));
         holder.txtSoLuongMua.setText(String.valueOf(list.get(i).getTongSoLuong()));
+        holder.gioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -51,7 +57,7 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView txtTen, txtGia,txtSoLuongMua;
-        ImageView ivLon;
+        ImageView ivLon,gioHang;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +65,7 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
             txtTen = itemView.findViewById(R.id.txtTenSP);
             txtGia = itemView.findViewById(R.id.txtGiaSP);
             txtSoLuongMua = itemView.findViewById(R.id.txtSoLuongMua);
+            gioHang= itemView.findViewById(R.id.themGioHang);
         }
     }
 }
