@@ -19,15 +19,17 @@ import com.example.duan1.models.LichSuDonHang;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TrangThai;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class LichSuDonHangAdapter extends BaseAdapter {
-    ArrayList<LichSuDonHang> list;
+public class LichSuHoaDonAdapter extends BaseAdapter {
+    ArrayList<HoaDon> list;
     Context context;
-
-    public LichSuDonHangAdapter(ArrayList<LichSuDonHang> list, Context context) {
+    public LichSuHoaDonAdapter(ArrayList<HoaDon> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -48,8 +50,7 @@ public class LichSuDonHangAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        public TextView txtsoluong, txtmahoadon, txtgiasanpham, txtngaymua;
-        public ImageView ivNho;
+        public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi;
     }
 
     @Override
@@ -59,22 +60,22 @@ public class LichSuDonHangAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             view = inflater.inflate(R.layout.item_lichsudonhang, null);
-            holder.txtsoluong = (TextView) view.findViewById(R.id.txtSoLuongSP);
-            holder.txtmahoadon = (TextView) view.findViewById(R.id.txtMaHoaDon);
-            holder.txtgiasanpham = (TextView) view.findViewById(R.id.txtGiaSP);
-            holder.txtngaymua = (TextView) view.findViewById(R.id.txtNgayMua);
-            holder.ivNho = (ImageView) view.findViewById(R.id.imageView2);
+            holder.txtMahoadon = (TextView) view.findViewById(R.id.txtMaHoaDon);
+            holder.txtTongSoLuong = (TextView) view.findViewById(R.id.txtSoLuongSP);
+            holder.txtTongGiaTien = (TextView) view.findViewById(R.id.GiaSP);
+            holder.txtNgaymua = (TextView) view.findViewById(R.id.txtNgayMua);
+            holder.txtDiaChi = (TextView) view.findViewById(R.id.txtDiaChi);
+
             view.setTag(holder);
         }else {
             holder = (ViewHolder) view.getTag();
         }
-        LichSuDonHang lichSuDonHang = (LichSuDonHang) getItem(position);
-        holder.txtsoluong.setText(lichSuDonHang.getSoluongSP());
-        holder.txtmahoadon.setText(lichSuDonHang.getMaHoaDon());
-        holder.txtgiasanpham.setText((int) lichSuDonHang.getGia());
-        holder.txtngaymua.setText((CharSequence) lichSuDonHang.getNgayMua());
-        Glide.with(context).load(list.get(position).hinhAnhNho).into(holder.ivNho);
-
+        HoaDon hoaDon = (HoaDon) getItem(position);
+        holder.txtTongSoLuong.setText(String.valueOf(hoaDon.getTongSoLuong()));
+        holder.txtMahoadon.setText(String.valueOf(hoaDon.getMaHoaDon()));
+        holder.txtTongGiaTien.setText(String.valueOf(hoaDon.getTongGiaTien()));
+        holder.txtNgaymua.setText(hoaDon.getNgayMua());
+        holder.txtDiaChi.setText(hoaDon.getDiaChi());
         return view;
         }
 }

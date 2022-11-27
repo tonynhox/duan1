@@ -42,13 +42,14 @@ public class ManHinhLogin extends AppCompatActivity {
                 String password = pass.getText().toString();
 
                 if (username.length() > 0 && password.length() > 0) {
-                    ShowNotifyUser.showProgressDialog(ManHinhLogin.this, "Dang dang nhap");
+                    ShowNotifyUser.showProgressDialog(ManHinhLogin.this, "Đang đăng nhập");
                     DemoCallAPI(username, password);
                 } else {
-                    Toast.makeText(ManHinhLogin.this, "Nhajap ddaafy ddut thoong tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManHinhLogin.this, "Vui lòng nhập đầy đủ thông tin.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,8 +87,10 @@ public class ManHinhLogin extends AppCompatActivity {
                 startActivity(intent);
             }
         } else {
-            Toast.makeText(this, "Sai", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
         }
+        ShowNotifyUser.dismissProgressDialog();
+
     }
 
     private void handleError(Throwable error) {

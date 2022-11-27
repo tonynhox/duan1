@@ -2,6 +2,7 @@ package com.example.duan1;
 
 import com.example.duan1.models.CheckTaiKhoan;
 import com.example.duan1.models.DonHang;
+import com.example.duan1.models.HoaDon;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.ThuongHieu;
 import com.example.duan1.models.TimKiemSanPham;
@@ -43,6 +44,16 @@ public interface ServiceAPI {
                                                    @Query("namSinh")String namSinh,
                                                    @Query("soDienThoai") String soDienThoai,
                                                    @Query("email") String email);
+    @GET("api/getAllLichSuHoaDon")
+    Observable<ArrayList<HoaDon>> getAllLichSuHoaDon();
+    @GET("api/getAllTrangThaiHoaDon")
+    Observable<ArrayList<HoaDon>> getAllTrangThaiHoaDon();
+
+    @GET("api/getLichSuHoaDonKH")
+    Observable<ArrayList<HoaDon>> getLichSuHoaDonKH(@Query("tenTaiKhoan") String tenTaiKhoan);
+    @GET("api/getTrangThaiHoaDonKH")
+    Observable<ArrayList<HoaDon>> getTrangThaiHoaDonKH(@Query("tenTaiKhoan") String tenTaiKhoan);
+
 }
 
 
