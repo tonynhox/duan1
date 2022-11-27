@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
+import com.example.duan1.fragments.HistoryAdminFragment;
 import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.fragments.HomeAdminFragment;
 import com.example.duan1.fragments.HomeFragment;
@@ -142,7 +143,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         });
         BottomNavigationView bottomNavigationView;
         HomeAdminFragment homeFragment = new HomeAdminFragment();
-        HistoryFragment historyFragment = new HistoryFragment();
+        HistoryAdminFragment historyFragment = new HistoryAdminFragment();
         MeFragment meFragment = new MeFragment();
 
         bottomNavigationView = findViewById(R.id.navigationBottom);
