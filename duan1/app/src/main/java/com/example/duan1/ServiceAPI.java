@@ -4,6 +4,7 @@ import com.example.duan1.models.CheckTaiKhoan;
 import com.example.duan1.models.DonHang;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.models.SanPham;
+import com.example.duan1.models.TaiKhoan;
 import com.example.duan1.models.ThuongHieu;
 import com.example.duan1.models.TimKiemSanPham;
 
@@ -53,6 +54,14 @@ public interface ServiceAPI {
     Observable<ArrayList<HoaDon>> getLichSuHoaDonKH(@Query("tenTaiKhoan") String tenTaiKhoan);
     @GET("api/getTrangThaiHoaDonKH")
     Observable<ArrayList<HoaDon>> getTrangThaiHoaDonKH(@Query("tenTaiKhoan") String tenTaiKhoan);
+    @GET("api/getAllTaiKhoanKH")
+    Observable<ArrayList<TaiKhoan>> getAllTaiKhoanKH();
+    @POST("api/addSanPham")
+    Observable<Integer> addSanPham(@Query("tenSP") String tenSP,@Query("giaSP") long giaSP,
+            @Query("maThuongHieu") int maThuongHieu,@Query("motaSP") String motaSP,
+            @Query("soLuong") int soLuong,
+            @Query("hinhAnhLon") String hinhAnhLon,
+            @Query("hinhAnhNho") String hinhAnhNho);
 
 }
 

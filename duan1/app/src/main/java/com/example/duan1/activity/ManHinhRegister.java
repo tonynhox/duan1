@@ -69,7 +69,7 @@ public class ManHinhRegister extends AppCompatActivity {
                 }
                 Log.d("birth", ""+birth);
                 Log.d("ed_birth", ""+birthday);
-                DemoCallAPI(name,user,pass,birthday,phone,email);
+                DemoCallAPI(user,pass,name,birthday,phone,email);
             }
         });
 
@@ -109,6 +109,7 @@ public class ManHinhRegister extends AppCompatActivity {
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay",error+"");
+        Toast.makeText(this, "Tai khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+
     }
 }

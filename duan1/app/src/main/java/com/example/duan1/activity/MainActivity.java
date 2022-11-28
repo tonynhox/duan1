@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manghinhchao);
-
         CountDownTimer countDownTimer = new CountDownTimer(2000,2000) {
             @Override
             public void onTick(long l) {
