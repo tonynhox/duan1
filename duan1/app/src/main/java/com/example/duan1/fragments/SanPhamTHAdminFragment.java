@@ -47,6 +47,7 @@ import com.example.duan1.adapter.SanPhamTHAdminAdapter;
 import com.example.duan1.adapter.SanPhamTH_SearchAdapter;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -70,7 +71,6 @@ public class SanPhamTHAdminFragment extends Fragment {
     ImageView ivHinhAnhLon,ivHinhAnhNho,ivAdd;
     private Uri imagePath,imagePath2;
     private HashMap config = new HashMap();
-    int a=0;
     HashMap<Integer,String> map=new HashMap<Integer,String>();
     @Nullable
     @Override
@@ -85,13 +85,15 @@ public class SanPhamTHAdminFragment extends Fragment {
                 showDialog();
             }
         });
-        a=0;
         DemoCallAPI(ManHinhChinhAdmin.b);
             configCloudinary();
 
         return view;
     }
 
+
+
+    //get sản phẩm theo thương hiệu
     private void DemoCallAPI(String thuongHieu) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
@@ -152,7 +154,6 @@ public class SanPhamTHAdminFragment extends Fragment {
                 chooseImage();
             }
         });
-//
         ivHinhAnhNho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,12 +167,6 @@ public class SanPhamTHAdminFragment extends Fragment {
             if(ManHinhChinhAdmin.b.equalsIgnoreCase(m.getValue()+""))
                 edtMaThuongHieu.setText("Mã thương hiệu:"+m.getKey());
         }
-//        if(a==2){
-//            upload();
-//            upload2();
-//            a=0;
-
-
 
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,7 +202,7 @@ public class SanPhamTHAdminFragment extends Fragment {
 
 
 
-
+    // thêm sản phẩm
     private void CallAPIAdd(SanPham sanPham) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
@@ -264,7 +259,6 @@ public class SanPhamTHAdminFragment extends Fragment {
 
                 hinhAnhLon = stringBuilder2.toString();
                 ShowNotifyUser.dismissProgressDialog();
-                a+=1;
             }
 
             @Override
@@ -278,7 +272,7 @@ public class SanPhamTHAdminFragment extends Fragment {
             }
         }).dispatch();
     }
-
+    //chọn ảnh 2
     private void chooseImage() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent();
@@ -304,6 +298,10 @@ public class SanPhamTHAdminFragment extends Fragment {
     });
 
 
+
+
+
+    // ảnh 2
     private void upload2() {
         MediaManager.get().upload(imagePath2).callback(new UploadCallback() {
             @Override
@@ -324,8 +322,6 @@ public class SanPhamTHAdminFragment extends Fragment {
                 stringBuilder2.insert(4, ch);
 
                 hinhAnhNho = stringBuilder2.toString();
-
-
 
                 SanPham sanPham= new SanPham();
                 sanPham.setTenSp(tenSP);
@@ -353,6 +349,7 @@ public class SanPhamTHAdminFragment extends Fragment {
         }).dispatch();
     }
 
+    //chọn ảnh 2
     private void chooseImage2() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent();

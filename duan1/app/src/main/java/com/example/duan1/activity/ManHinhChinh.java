@@ -44,7 +44,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     ImageView image;
     FragmentManager fragmentManager;
     public static String a;
-    TextView txtTitle;
+    public static TextView txtTitle;
     ImageView imageView;
 
     @Override

@@ -5,20 +5,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
-import com.example.duan1.adapter.SanPhamHotAdapter;
-import com.example.duan1.models.SanPham;
-import com.example.duan1.others.ItemOnClick;
+import com.example.duan1.activity.ManHinhChinh;
+import com.example.duan1.activity.ManHinhChinhAdmin;
+import com.example.duan1.adapter.SanPhamTHAdminAdapter;
+import com.example.duan1.adapter.SanPhamTH_SearchAdapter;
+import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -29,22 +30,20 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeFragment extends Fragment implements ItemOnClick{
-
-    ArrayList<SanPham> list;
-    //    SanPhamHotAdapter adapter;
+public class SearchSanPhamAdminFragment extends Fragment {
+    ArrayList<TimKiemSanPham> list;
     RecyclerView listViewSP;
-    public static int maSP;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sanphamhot, container, false);
-        listViewSP = view.findViewById(R.id.rcSanPhamHot);
-        DemoCallAPI();
+        View view = inflater.inflate(R.layout.fragment_sanpham, container, false);
+        listViewSP = view.findViewById(R.id.recyclerView);
+        ShowNotifyUser.showProgressDialog(view.getContext(), "Đang tìm kiếm");
+        DemoCallAPI(ManHinhChinhAdmin.b);
         return view;
     }
-    private void DemoCallAPI() {
+
+    private void DemoCallAPI(String sanPham) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
@@ -52,36 +51,28 @@ public class HomeFragment extends Fragment implements ItemOnClick{
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.getSanPhamHot()
+        new CompositeDisposable().add(requestInterface.timKiemSanPham(sanPham)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError)
         );
     }
 
-    private void handleResponse(ArrayList<SanPham> info) {
+    private void handleResponse(ArrayList<TimKiemSanPham> info) {
         //Xử lý chức năng
         list=info;
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewSP.setLayoutManager(linearLayoutManager);
-        SanPhamHotAdapter adapter = new SanPhamHotAdapter(list,getContext(), this);
+        SanPhamTHAdminAdapter adapter = new SanPhamTHAdminAdapter(list,getContext());
         listViewSP.setAdapter(adapter);
+        ShowNotifyUser.dismissProgressDialog();
+
     }
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
-    }
+        Log.d("chay",error+"");
+        ShowNotifyUser.dismissProgressDialog();
 
-
-
-    @Override
-    public void onClickItem(SanPham sanPham) {
-        maSP=sanPham.getMaSp();
-        Log.d("ma san pham", maSP+"");
-        Fragment fragment = new ChiTietSanPhamFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
     }
 }

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.QuanLyKhachHangFragment;
 import com.example.duan1.fragments.SanPhamTHAdminFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
+import com.example.duan1.fragments.SearchSanPhamAdminFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -40,8 +42,9 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
     EditText editText;
     Fragment fragment;
     FragmentManager fragmentManager;
+    LinearLayout linearLayout2;
     public static String b;
-    TextView txtTitle;
+    public static TextView txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_foreground);
 
+
         fragmentManager = getSupportFragmentManager();
         fragment = new HomeAdminFragment();
         fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
@@ -72,7 +76,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                         (event.getAction() == KeyEvent.ACTION_DOWN &&
                                 event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                     b= editText.getText().toString();
-                    fragment = new SearchSanPhamFragment();
+                    fragment = new SearchSanPhamAdminFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
                     Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
@@ -166,7 +170,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                     case R.id.me:
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
-                        txtTitle.setText("Hồ sơ của tôi");
+                        txtTitle.setText("Tôi");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
                         break;
                 }

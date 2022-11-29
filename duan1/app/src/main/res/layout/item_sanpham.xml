@@ -35,8 +35,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:textColor="@color/black"
 
+            android:textColor="@color/black"
             android:id="@+id/txtChiTiet"
             android:layout_width="200dp"
             android:layout_height="30dp"

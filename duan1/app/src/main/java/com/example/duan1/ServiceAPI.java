@@ -23,8 +23,8 @@ public interface ServiceAPI {
     @GET("api/all-ThuongHieu")
     Observable<ArrayList<ThuongHieu>> getAllThuongHieu();
 
-    @GET("api/GetAllSanPham")
-    Observable<ArrayList<SanPham>> getALLSanPham();
+    @GET("api/getSanPham")
+    Observable<ArrayList<SanPham>> getSanPham(@Query("maSP") int maSP);
 
     @GET("api/GetSanPhamHot")
     Observable<ArrayList<SanPham>> getSanPhamHot();
@@ -62,6 +62,26 @@ public interface ServiceAPI {
             @Query("soLuong") int soLuong,
             @Query("hinhAnhLon") String hinhAnhLon,
             @Query("hinhAnhNho") String hinhAnhNho);
+
+    @POST("api/capNhatSanPham")
+    Observable<Integer> capNhatSanPham(@Query("maSP") int maSP,@Query("tenSP") String tenSP,@Query("giaSP") long giaSP
+                                   ,@Query("motaSP") String motaSP,
+                                   @Query("soLuong") int soLuong,
+                                   @Query("hinhAnhLon") String hinhAnhLon,
+                                   @Query("hinhAnhNho") String hinhAnhNho);
+
+    @POST("api/xoaTaiKhoan")
+    Observable<Integer> xoaTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan,@Query("matKhau") String matKhau);
+
+    @POST("api/xoaTaiKhoanKH")
+    Observable<Integer> xoaTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan);
+
+    @POST("api/xoaSP")
+    Observable<Integer> xoaSP(@Query("maSP") int maSP);
+
+    //getTaiKhoan
+    @GET("api/getTaiKhoan")
+    Observable<ArrayList<TaiKhoan>> getTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan);
 
 }
 

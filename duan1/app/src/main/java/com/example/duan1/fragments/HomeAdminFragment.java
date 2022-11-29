@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeAdminFragment extends Fragment {
 
-    ArrayList<SanPham> list;
+    public ArrayList<SanPham> list;
     //    SanPhamHotAdapter adapter;
     RecyclerView listViewSP;
 
@@ -42,7 +42,7 @@ public class HomeAdminFragment extends Fragment {
         DemoCallAPI();
         return view;
     }
-    private void DemoCallAPI() {
+    public void DemoCallAPI() {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)

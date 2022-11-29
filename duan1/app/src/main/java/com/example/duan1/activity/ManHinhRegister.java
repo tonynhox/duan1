@@ -101,15 +101,15 @@ public class ManHinhRegister extends AppCompatActivity {
     private void handleResponse(Integer info) {
         //Xử lý chức năng
         if(info == 1){
-            Toast.makeText(this, "thanh cong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tạo thành công", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "khong thanh cong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Tạo Không thành công", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Toast.makeText(this, "Tai khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
 
     }
 }
