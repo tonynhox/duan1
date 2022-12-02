@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/appCompatButton6"
+            android:id="@+id/btnSoLuong"
             android:layout_width="48dp"
             android:layout_height="35dp"
             android:layout_marginStart="5dp"
@@ -82,7 +82,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_button2"
             android:text="+"
-            app:layout_constraintStart_toEndOf="@+id/appCompatButton6"
+            app:layout_constraintStart_toEndOf="@+id/btnSoLuong"
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <TextView

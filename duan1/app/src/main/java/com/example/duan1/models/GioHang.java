@@ -6,7 +6,7 @@ public class GioHang {
     public long giaSp;
     public String hinhAnhLon;
 
-    public GioHang(int soLuong, String tenSp, long giaSp, String hinhAnhLon) {
+    public GioHang() {
         this.soLuong = soLuong;
         this.tenSp = tenSp;
         this.giaSp = giaSp;

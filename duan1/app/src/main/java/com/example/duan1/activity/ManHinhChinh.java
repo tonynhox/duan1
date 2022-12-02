@@ -31,9 +31,12 @@ import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
+import com.example.duan1.others.StaticOthers;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class  ManHinhChinh extends AppCompatActivity {
     Toolbar toolbar;
@@ -42,6 +45,7 @@ public class  ManHinhChinh extends AppCompatActivity {
     EditText editText;
     Fragment fragment;
     ImageView image;
+
     FragmentManager fragmentManager;
     public static String a;
     TextView txtTitle;
@@ -51,7 +55,9 @@ public class  ManHinhChinh extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manhinhchinh);
-
+        if(StaticOthers.listGH == null){
+            StaticOthers.listGH = new ArrayList<>();
+        }
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
