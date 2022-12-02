@@ -64,8 +64,9 @@ public interface ServiceAPI {
             @Query("hinhAnhNho") String hinhAnhNho);
 
     @POST("api/capNhatSanPham")
-    Observable<Integer> capNhatSanPham(@Query("maSP") int maSP,@Query("tenSP") String tenSP,@Query("giaSP") long giaSP
-                                   ,@Query("motaSP") String motaSP,
+    Observable<Integer> capNhatSanPham(@Query("maSP") int maSP,@Query("tenSP") String tenSP,
+                                   @Query("giaSP") long giaSP,
+                                   @Query("motaSP") String motaSP,
                                    @Query("soLuong") int soLuong,
                                    @Query("hinhAnhLon") String hinhAnhLon,
                                    @Query("hinhAnhNho") String hinhAnhNho);

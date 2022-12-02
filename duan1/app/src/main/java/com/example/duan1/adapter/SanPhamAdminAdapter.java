@@ -18,6 +18,7 @@ import com.example.duan1.ServiceAPI;
 import com.example.duan1.fragments.HomeAdminFragment;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ItemOnClick;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -32,12 +33,16 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
 
     ArrayList<SanPham>list;
     Context context;
-
+    ItemOnClick itemClick;
     public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context) {
         this.list = list;
         this.context = context;
     }
-
+    public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context, ItemOnClick itemClick) {
+        this.list = list;
+        this.context = context;
+        this.itemClick = itemClick;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,25 +54,25 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         holder.txtTen.setText(list.get(i).getTenSp());
+        SanPham sanPham = list.get(holder.getAdapterPosition());
+
         holder.ivsua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//...
+                itemClick.onClickDialog(sanPham.getMaSp());
             }
         });
         holder.ivxoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SanPham sanPham = list.get(holder.getAdapterPosition());
-                int a= sanPham.getMaSp();
-
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
                 builder.setTitle(sanPham.getTenSp());
                 builder.setMessage("Bạn có chắc chắn?");
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        CallAPIDelte(a);
+                        itemClick.onClickXoa(sanPham.getMaSp());
                     }
                 });
                 builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -103,34 +108,6 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
 
 
     //API Xóa
-    private void CallAPIDelte(int maSP) {
 
-        ServiceAPI requestInterface = new Retrofit.Builder()
-                .baseUrl(ServiceAPI.BASE_Service)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(ServiceAPI.class);
-
-        new CompositeDisposable().add(requestInterface.xoaSP(maSP)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse, this::handleError)
-        );
-    }
-
-    private void handleResponse(Integer info) {
-        //Xử lý chức năng
-        if(info == 1){
-            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context,"Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void handleError(Throwable error) {
-        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Toast.makeText(context, "Xóa không thành công", Toast.LENGTH_SHORT).show();
-
-    }
 
 }

@@ -81,7 +81,10 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
         holder.ivsua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog();
+//                showDialog();
+                TimKiemSanPham timKiemSanPham = list.get(holder.getAdapterPosition());
+
+                itemClick.onClickDialog(timKiemSanPham.getMaSp());
             }
         });
         holder.ivxoa.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +99,8 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        CallAPIDelte(a);
+                        itemClick.onClickXoa(a);
+
                     }
                 });
                 builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -132,39 +136,7 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
     }
 
 
-    //dialog thêm
-    private void showDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_them_admin, null);
-        builder.setView(view);
-        AlertDialog alertDialog = builder.create();
 
-
-        Button btnThem = view.findViewById(R.id.btnLuu);
-        Button btnHuy = view.findViewById(R.id.btnHuy);
-
-        btnThem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-
-        alertDialog.show();
-
-
-
-
-    }
 
 
     //API Xóa

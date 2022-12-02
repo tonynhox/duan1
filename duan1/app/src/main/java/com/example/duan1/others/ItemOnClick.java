@@ -10,5 +10,7 @@ import com.example.duan1.models.TimKiemSanPham;
 
 public interface ItemOnClick {
     void onClickItem(SanPham sanPham);
+    void onClickXoa(int a);
+    void onClickDialog(int a);
 
 }

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -42,7 +43,6 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
     EditText editText;
     Fragment fragment;
     FragmentManager fragmentManager;
-    LinearLayout linearLayout2;
     public static String b;
     public static TextView txtTitle;
 
@@ -50,6 +50,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mahinhchinh_admin);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -185,4 +186,6 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
