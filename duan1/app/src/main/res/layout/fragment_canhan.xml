@@ -2,35 +2,48 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DEDEDE"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:text="Tài khoản"
         android:textColor="@color/black"
         android:textSize="16sp" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:id="@+id/btnHoSoCuaToi">
+
+
         <Button
-            android:fontFamily="arial"
+            android:id="@+id/btnHoSo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:gravity="start|center_vertical"
+            android:text="Hồ sơ của tôi"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:backgroundTint="@color/white"
             android:drawableRight="@drawable/arrow_right"
-            android:text="Hồ sơ của tôi" />
+            tools:ignore="MissingConstraints" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <Button
@@ -52,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:text="Cài đặt"
         android:textColor="@color/black"
@@ -96,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="8dp"
         android:text="Hỗ trợ"
         android:textColor="@color/black"
@@ -133,6 +146,7 @@
 
 
     <Button
+        android:id="@+id/btnGioiThieu"
         android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -163,6 +177,7 @@
 
 
     <Button
+        android:id="@+id/btnDelete"
         android:fontFamily="arial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -170,6 +185,20 @@
         android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
         android:text="Xóa tài khoản"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/white"
+        android:drawableRight="@drawable/arrow_right" />
+    <Button
+        android:id="@+id/btnDangXuat"
+        android:fontFamily="arial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:gravity="start|center_vertical"
+        android:text="Đăng xuất"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"

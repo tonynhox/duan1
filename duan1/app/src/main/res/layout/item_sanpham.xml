@@ -35,8 +35,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:textColor="@color/black"
 
+            android:textColor="@color/black"
             android:id="@+id/txtChiTiet"
             android:layout_width="200dp"
             android:layout_height="30dp"
@@ -49,6 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <ImageView
+            android:id="@+id/themGioHang"
             android:layout_width="23dp"
             android:layout_height="21dp"
             android:background="@drawable/giohang"
@@ -68,6 +69,18 @@
             app:layout_constraintHorizontal_bias="0.589"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
+
+        <TextView
+            android:id="@+id/txtSoLuongMua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#F36B99"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 

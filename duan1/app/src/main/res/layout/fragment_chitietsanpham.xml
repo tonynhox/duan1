@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="88dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivHinhAnhLon"
             android:layout_width="410dp"
             android:layout_height="280dp"
             android:background="@drawable/ic_image_foreground"
@@ -22,15 +22,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/imageFilterView"
+        <ImageView
+            android:id="@+id/ivHinhAnhNho"
             android:layout_width="180dp"
             android:layout_height="135dp"
             android:background="@drawable/ic_image_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhLon" />
 
         <TextView
             android:id="@+id/textView13"
@@ -41,7 +41,7 @@
             android:text="Hãng:"
             android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/txtTenSP"
-            app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhNho" />
 
         <TextView
             android:id="@+id/textView29"
@@ -63,7 +63,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhNho" />
 
         <TextView
             android:id="@+id/textView14"
@@ -80,10 +80,11 @@
             android:id="@+id/txtSoLuongSP"
             android:layout_width="80dp"
             android:layout_height="35dp"
-            android:textColor="@color/black"
-            android:textAlignment="center"
             android:text="1000"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView29"
             app:layout_constraintTop_toBottomOf="@+id/txtTenThuongHieu" />
 
@@ -102,13 +103,14 @@ android:textColor="@color/black"
             android:id="@+id/txtTenThuongHieu"
             android:layout_width="110dp"
             android:layout_height="35dp"
-            android:textSize="20dp"
-            android:text="samsung"
-            android:textColor="@color/black"
-            android:textAlignment="center"
             android:layout_marginTop="36dp"
+            android:text="samsung"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhNho" />
 
         <TextView
             android:id="@+id/txtTenSP"
@@ -120,26 +122,31 @@ android:textColor="@color/black"
             android:gravity="center"
             android:layout_marginTop="36dp"
             app:layout_constraintStart_toEndOf="@+id/textView12"
-            app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhNho" />
 
         <TextView
             android:id="@+id/txtMoTaSP"
             android:layout_width="370dp"
-            android:layout_height="140dp"
+            android:layout_height="130dp"
             android:layout_marginTop="16dp"
+            android:text="Huyàdfsdfsd"
+            android:padding="10dp"
             android:background="@drawable/custom_edittext"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <ImageView
+            android:id="@+id/ivGioHang"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/giohang"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMoTaSP"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

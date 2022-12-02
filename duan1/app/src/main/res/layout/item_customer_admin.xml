@@ -23,7 +23,6 @@
         android:layout_marginBottom="35dp"
         android:orientation="vertical">
         <TextView
-
             android:layout_marginTop="20dp"
             android:id="@+id/txtTenTK"
             android:textColor="@color/black"
@@ -61,6 +60,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <ImageView
+        android:id="@+id/ivDelete"
         android:layout_width="45dp"
         android:layout_height="30dp"
         android:background="@drawable/custom_button7"

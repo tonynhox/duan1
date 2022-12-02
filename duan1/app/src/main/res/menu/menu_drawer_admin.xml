@@ -23,7 +23,7 @@
         </menu>
     </item>
 
-    <item android:title="Các hãng điện thoại">
+    <item android:title="Quản lý">
         <menu>
             <item android:id="@+id/dsMember"
                 android:title="Quản lý tài khoản"
