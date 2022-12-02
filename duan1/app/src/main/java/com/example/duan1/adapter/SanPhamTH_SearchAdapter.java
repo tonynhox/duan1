@@ -2,21 +2,30 @@ package com.example.duan1.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.cloudinary.android.MediaManager;
 import com.example.duan1.R;
+import com.example.duan1.activity.ManHinhChinhAdmin;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_SearchAdapter.ViewHolder> {
     ArrayList<TimKiemSanPham> list;
@@ -59,4 +68,8 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
             txtGia = itemView.findViewById(R.id.txtGiaSP);
         }
     }
+
+
+
+
 }

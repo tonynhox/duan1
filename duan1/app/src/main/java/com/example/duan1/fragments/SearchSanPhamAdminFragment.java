@@ -2,12 +2,10 @@ package com.example.duan1.fragments;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,10 +38,6 @@ import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.activity.ManHinhChinh;
 import com.example.duan1.activity.ManHinhChinhAdmin;
-import com.example.duan1.activity.ManHinhLoading;
-import com.example.duan1.activity.ManHinhLogin;
-import com.example.duan1.adapter.SanPhamAdminAdapter;
-import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.adapter.SanPhamTHAdminAdapter;
 import com.example.duan1.adapter.SanPhamTH_SearchAdapter;
 import com.example.duan1.models.SanPham;
@@ -63,42 +56,32 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
+public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick {
     ArrayList<TimKiemSanPham> list;
-    AlertDialog alertDialogSua;
     RecyclerView listViewSP;
-    Button btnThem,btnHuy,btnSua;
-    String tenSP,mota,hinhAnhLon,hinhAnhNho;
-    int soLuong,thuongHieu;
+
+    AlertDialog alertDialogSua;
+    Button btnHuy, btnSua;
+    String tenSP, mota, hinhAnhLon, hinhAnhNho;
+    int soLuong, thuongHieu;
     long gia;
-    ImageView ivHinhAnhLon,ivHinhAnhNho,ivAdd;
-    private Uri imagePath,imagePath2;
+    ImageView ivHinhAnhLon, ivHinhAnhNho;
+    private Uri imagePath, imagePath2;
     private HashMap config = new HashMap();
-    HashMap<Integer,String> map=new HashMap<Integer,String>();
+    HashMap<Integer, String> map = new HashMap<Integer, String>();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sanpham_admin, container, false);
+        View view = inflater.inflate(R.layout.fragment_sanpham, container, false);
         listViewSP = view.findViewById(R.id.recyclerView);
-        ivAdd = view.findViewById(R.id.ivAdd);
-
-        ivAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        ShowNotifyUser.showProgressDialog(getContext(),"Loading");
+        ShowNotifyUser.showProgressDialog(view.getContext(), "Đang tìm kiếm");
         DemoCallAPI(ManHinhChinhAdmin.b);
         configCloudinary();
-
         return view;
     }
 
-
-
-    //get sản phẩm theo thương hiệu
-    private void DemoCallAPI(String thuongHieu) {
+    private void DemoCallAPI(String sanPham) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
@@ -106,7 +89,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.timKiemThuongHieu(thuongHieu)
+        new CompositeDisposable().add(requestInterface.timKiemSanPham(sanPham)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError)
@@ -115,180 +98,22 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void handleResponse(ArrayList<TimKiemSanPham> info) {
         //Xử lý chức năng
-        list=info;
+        list = info;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewSP.setLayoutManager(linearLayoutManager);
-        SanPhamTHAdminAdapter adapter = new SanPhamTHAdminAdapter(list,getContext(),this);
+        SanPhamTHAdminAdapter adapter = new SanPhamTHAdminAdapter(list, getContext(), this);
         listViewSP.setAdapter(adapter);
         ShowNotifyUser.dismissProgressDialog();
-
     }
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay",error+"");
-    }
-
-
-
-
-
-    //dialog thêm
-    private void showDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_them_admin, null);
-        builder.setView(view);
-        AlertDialog alertDialog = builder.create();
-
-        map.put(1,"IPHONE");
-        map.put(2,"SAMSUNG");
-        map.put(3,"OPPO");
-        map.put(4,"VIVO");
-        map.put(5,"XIAOMI");
-        map.put(6,"REDMI");
-        btnThem = view.findViewById(R.id.btnLuu);
-        btnHuy = view.findViewById(R.id.btnHuy);
-        EditText edtTenSP = view.findViewById(R.id.edtTenSP);
-        TextView edtMaThuongHieu = view.findViewById(R.id.edtMaThuongHieu);
-        EditText edtGiaSP = view.findViewById(R.id.edtGiaSP);
-        EditText edtSoLuongSP = view.findViewById(R.id.edtSoLuongSP);
-        EditText edtMoTaSP = view.findViewById(R.id.edtMoTaSP);
-        ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
-        ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
-        ivHinhAnhLon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chooseImage();
-            }
-        });
-        ivHinhAnhNho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chooseImage2();
-
-            }
-        });
-
-        for(Map.Entry m : map.entrySet()){
-            Log.d("key ne", m.getKey()+"-"+m.getValue());
-            if(ManHinhChinhAdmin.b.equalsIgnoreCase(m.getValue()+""))
-                edtMaThuongHieu.setText("Mã thương hiệu:"+m.getKey());
-        }
-
-        btnThem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                tenSP = edtTenSP.getText().toString();
-                mota = edtMoTaSP.getText().toString();
-                soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
-                thuongHieu = Integer.parseInt(edtMaThuongHieu.getText().toString().substring(edtMaThuongHieu.getText().toString().length()-1));
-                gia = Long.parseLong(edtGiaSP.getText().toString());
-
-                try {
-                    upload();
-
-                }catch (Exception e){
-                    Toast.makeText(getContext(), "Vui lòng chọn đầy đủ ảnh", Toast.LENGTH_SHORT).show();
-                }
-//                upload2();
-
-
-                    }
-        });
-
-        btnHuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-
-        alertDialog.show();
-
+        Log.d("chay", error + "");
+        ShowNotifyUser.dismissProgressDialog();
 
     }
 
 
-
-    // thêm sản phẩm
-    private void CallAPIAdd(SanPham sanPham) {
-
-        ServiceAPI requestInterface = new Retrofit.Builder()
-                .baseUrl(ServiceAPI.BASE_Service)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(ServiceAPI.class);
-
-        new CompositeDisposable().add(requestInterface.addSanPham(sanPham.getTenSp(),sanPham.getGiaSp(),sanPham.getMaThuongHieu()
-                        ,sanPham.getMotaSp(),sanPham.getSoLuongSp(),sanPham.getHinhAnhLon(), sanPham.getHinhAnhNho())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse2, this::handleError2)
-        );
-    }
-
-    private void handleResponse2(int info) {
-        //Xử lý chức năng
-        if(info == 1){
-            Toast.makeText(getContext(), "thành công", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getContext(), "không thành công", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void handleError2(Throwable error) {
-        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay",error+"");
-    }
-
-
-    //Ảnh
-    private void upload() {
-        MediaManager.get().upload(imagePath).callback(new UploadCallback() {
-            @Override
-            public void onStart(String requestId) {
-                Log.d("CHECK", "onStart");
-                ShowNotifyUser.dismissProgressDialog();
-                ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
-
-            }
-
-            @Override
-            public void onProgress(String requestId, long bytes, long totalBytes) {
-                Log.d("CHECK", "onProgress");
-
-            }
-
-            @Override
-            public void onSuccess(String requestId, Map resultData) {
-                hinhAnhLon=null;
-                StringBuilder stringBuilder2 = new StringBuilder(resultData.get("url").toString());
-                char ch = 's';
-                stringBuilder2.insert(4, ch);
-                hinhAnhLon = stringBuilder2.toString();
-
-                try {
-                    upload2();
-
-                }catch (Exception e){
-                    Toast.makeText(getContext(), "Chọn ảnh đầy đủ", Toast.LENGTH_SHORT).show();
-                }
-                ShowNotifyUser.dismissProgressDialog();
-            }
-            @Override
-            public void onError(String requestId, ErrorInfo error) {
-                Log.d("CHECK", "onError: " + error);
-            }
-
-            @Override
-            public void onReschedule(String requestId, ErrorInfo error) {
-                Log.d("CHECK", "onReschedule: " + error);
-            }
-        }).dispatch();
-    }
-    //chọn ảnh
     private void chooseImage() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent();
@@ -313,63 +138,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         }
     });
 
-
-
-
-
-    // ảnh 2
-    private void upload2() {
-        MediaManager.get().upload(imagePath2).callback(new UploadCallback() {
-            @Override
-            public void onStart(String requestId) {
-                Log.d("CHECK", "onStart");
-                hinhAnhNho=null;
-                ShowNotifyUser.dismissProgressDialog();
-                ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 2");
-
-            }
-
-            @Override
-            public void onProgress(String requestId, long bytes, long totalBytes) {
-                Log.d("CHECK", "onProgress");
-            }
-
-            @Override
-            public void onSuccess(String requestId, Map resultData) {
-                Log.d("CHECK", "onSuccess");
-                StringBuilder stringBuilder2 = new StringBuilder(resultData.get("url").toString());
-                char ch = 's';
-                stringBuilder2.insert(4, ch);
-
-                hinhAnhNho = stringBuilder2.toString();
-
-                SanPham sanPham= new SanPham();
-                sanPham.setTenSp(tenSP);
-                sanPham.setMotaSp(mota);
-                sanPham.setSoLuongSp(soLuong);
-                sanPham.setMaThuongHieu(thuongHieu);
-                sanPham.setGiaSp(gia);
-                sanPham.setHinhAnhLon(hinhAnhLon);
-                sanPham.setHinhAnhNho(hinhAnhNho);
-                CallAPIAdd(sanPham);
-                ShowNotifyUser.dismissProgressDialog();
-
-
-            }
-
-            @Override
-            public void onError(String requestId, ErrorInfo error) {
-                Log.d("CHECK", "onError: " + error);
-            }
-
-            @Override
-            public void onReschedule(String requestId, ErrorInfo error) {
-                Log.d("CHECK", "onReschedule: " + error);
-            }
-        }).dispatch();
-    }
-
-    //chọn ảnh 2
     private void chooseImage2() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent();
@@ -394,16 +162,13 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         }
     });
 
-
-
-
     //load ảnh 3 Sửa
     private void upload3(int a) {
         MediaManager.get().upload(imagePath2).constrain(TimeWindow.getDefault()).callback(new UploadCallback() {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
-                ShowNotifyUser.showProgressDialog(getContext(),"đợi load ảnh thứ 2");
+                ShowNotifyUser.showProgressDialog(getContext(), "đợi load ảnh thứ 2");
             }
 
             @Override
@@ -419,7 +184,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 stringBuilder2.insert(4, ch);
                 hinhAnhNho = stringBuilder2.toString();
                 ShowNotifyUser.dismissProgressDialog();
-                SanPham sanPham= new SanPham();
+                SanPham sanPham = new SanPham();
                 sanPham.setMaSp(a);
                 sanPham.setTenSp(tenSP);
                 sanPham.setMotaSp(mota);
@@ -450,7 +215,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
-                ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
+                ShowNotifyUser.showProgressDialog(getContext(), "Đợi load ảnh 1");
 
             }
 
@@ -462,16 +227,16 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
             @Override
             public void onSuccess(String requestId, Map resultData) {
-                hinhAnhLon=null;
+                hinhAnhLon = null;
                 StringBuilder stringBuilder2 = new StringBuilder(resultData.get("url").toString());
                 char ch = 's';
                 stringBuilder2.insert(4, ch);
                 hinhAnhLon = stringBuilder2.toString();
                 ShowNotifyUser.dismissProgressDialog();
-                SanPham sanPham= new SanPham();
-                if (imagePath2!=null){
+                SanPham sanPham = new SanPham();
+                if (imagePath2 != null) {
                     upload3(a);
-                }else {
+                } else {
                     sanPham.setMaSp(a);
                     sanPham.setTenSp(tenSP);
                     sanPham.setMotaSp(mota);
@@ -485,6 +250,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
 
             }
+
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onError: " + error);
@@ -499,16 +265,17 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void configCloudinary() {
 
-    try {
-        config.put("cloud_name", "tonynhox");
-        config.put("api_key", "963587178662998");
-        config.put("api_secret", "BEBgWDeGvrlKoZYQcu71S5p1j6A");
-        MediaManager.init(getActivity(), config);
-    }catch (Exception a){
+        try {
+            config.put("cloud_name", "tonynhox");
+            config.put("api_key", "963587178662998");
+            config.put("api_secret", "BEBgWDeGvrlKoZYQcu71S5p1j6A");
+            MediaManager.init(getActivity(), config);
+        } catch (Exception a) {
         }
 
 
     }
+
 
     @Override
     public void onClickItem(SanPham sanPham) {
@@ -517,13 +284,11 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     @Override
     public void onClickXoa(int a) {
-
         CallAPIDelete(a);
         ShowNotifyUser.showProgressDialog(getContext(), "Loading");
         DemoCallAPI(ManHinhChinhAdmin.b);
 
     }
-
 
     private void CallAPIDelete(int maSP) {
 
@@ -542,10 +307,10 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void handleResponse1(Integer info) {
         //Xử lý chức năng
-        if(info == 1){
+        if (info == 1) {
             Toast.makeText(getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getContext(),"Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -556,15 +321,12 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
     }
 
 
-
     @Override
     public void onClickDialog(int maSP) {
-//        ShowNotifyUser.showProgressDialog(getContext(),"Đợi tí");
         CallAPIAllSP(maSP);
-
     }
 
-//full sản phẩm để lấy theo mã sp
+
     public void CallAPIAllSP(int maSP) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
@@ -589,12 +351,12 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         builder.setView(view);
         alertDialogSua = builder.create();
 
-        map.put(1,"IPHONE");
-        map.put(2,"SAMSUNG");
-        map.put(3,"OPPO");
-        map.put(4,"VIVO");
-        map.put(5,"XIAOMI");
-        map.put(6,"REDMI");
+        map.put(1, "IPHONE");
+        map.put(2, "SAMSUNG");
+        map.put(3, "OPPO");
+        map.put(4, "VIVO");
+        map.put(5, "XIAOMI");
+        map.put(6, "REDMI");
         btnSua = view.findViewById(R.id.btnLuu);
         btnHuy = view.findViewById(R.id.btnHuy);
         EditText edtTenSP = view.findViewById(R.id.edtTenSP);
@@ -605,11 +367,11 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
         ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
         edtTenSP.setText(listAllSP.get(0).getTenSp());
-        edtGiaSP.setText(listAllSP.get(0).getGiaSp()+"");
-        edtSoLuongSP.setText(listAllSP.get(0).getSoLuongSp()+"");
+        edtGiaSP.setText(listAllSP.get(0).getGiaSp() + "");
+        edtSoLuongSP.setText(listAllSP.get(0).getSoLuongSp() + "");
         edtMoTaSP.setText(listAllSP.get(0).getMotaSp());
-        hinhAnhLon=listAllSP.get(0).getHinhAnhLon();
-        hinhAnhNho=listAllSP.get(0).getHinhAnhNho();
+        hinhAnhLon = listAllSP.get(0).getHinhAnhLon();
+        hinhAnhNho = listAllSP.get(0).getHinhAnhNho();
         Glide.with(getContext()).load(listAllSP.get(0).getHinhAnhNho()).into(ivHinhAnhNho);
         Glide.with(getContext()).load(listAllSP.get(0).getHinhAnhLon()).into(ivHinhAnhLon);
 
@@ -627,30 +389,29 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             }
         });
 
-        for(Map.Entry m : map.entrySet()){
-            Log.d("key ne", m.getKey()+"-"+m.getValue());
-            if(ManHinhChinhAdmin.b.equalsIgnoreCase(m.getValue()+""))
-                edtMaThuongHieu.setText("Mã thương hiệu:"+m.getKey());
+        for (Map.Entry m : map.entrySet()) {
+            Log.d("key ne", m.getKey() + "-" + m.getValue());
+            if (listAllSP.get(0).getMaThuongHieu() == Integer.parseInt(m.getKey().toString()))
+                edtMaThuongHieu.setText(m.getValue().toString());
         }
-
 
 
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ShowNotifyUser.dismissProgressDialog();
 
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
                 soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
-                thuongHieu = Integer.parseInt(edtMaThuongHieu.getText().toString().substring(edtMaThuongHieu.getText().toString().length()-1));
                 gia = Long.parseLong(edtGiaSP.getText().toString());
                 try {
                     uploadSua(listAllSP.get(0).getMaSp());
-                }catch (Exception e){
-                    if(imagePath2!=null){
+                } catch (Exception e) {
+                    if (imagePath2 != null) {
                         upload3(listAllSP.get(0).getMaSp());
-                    }else {
-                        SanPham sanPham= new SanPham();
+                    } else {
+                        SanPham sanPham = new SanPham();
                         sanPham.setMaSp(listAllSP.get(0).getMaSp());
                         sanPham.setTenSp(tenSP);
                         sanPham.setMotaSp(mota);
@@ -679,7 +440,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void handleErrorn(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
+        Log.d("chay", "loi");
     }
 
     private void CallAPIEdit(SanPham sanPham) {
@@ -691,7 +452,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 .build().create(ServiceAPI.class);
 
         new CompositeDisposable().add(requestInterface.capNhatSanPham(
-                        sanPham.getMaSp(), sanPham.getTenSp(),sanPham.getGiaSp(),sanPham.getMotaSp(),sanPham.getSoLuongSp(),sanPham.getHinhAnhLon(),sanPham.getHinhAnhNho())
+                        sanPham.getMaSp(), sanPham.getTenSp(), sanPham.getGiaSp(), sanPham.getMotaSp(), sanPham.getSoLuongSp(), sanPham.getHinhAnhLon(), sanPham.getHinhAnhNho())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse3, this::handleError3)
@@ -700,15 +461,15 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void handleResponse3(int info) {
         //Xử lý chức năng
-        if(info == 1){
+        if (info == 1) {
             Toast.makeText(getContext(), "thành công", Toast.LENGTH_SHORT).show();
             alertDialogSua.dismiss();
-            imagePath=null;
-            imagePath2=null;
+            imagePath = null;
+            imagePath2 = null;
             DemoCallAPI(ManHinhChinhAdmin.b);
             ShowNotifyUser.dismissProgressDialog();
 
-        }else{
+        } else {
             ShowNotifyUser.dismissProgressDialog();
             Toast.makeText(getContext(), "không thành công", Toast.LENGTH_SHORT).show();
         }
@@ -716,7 +477,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
     private void handleError3(Throwable error) {
         ShowNotifyUser.dismissProgressDialog();
-        Log.d("chay",error+"");
+        Log.d("chay", error + "");
     }
-
 }
