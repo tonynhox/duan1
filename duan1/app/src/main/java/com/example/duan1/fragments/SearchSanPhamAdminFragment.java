@@ -286,7 +286,7 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
     public void onClickXoa(int a) {
         CallAPIDelete(a);
         ShowNotifyUser.showProgressDialog(getContext(), "Loading");
-        DemoCallAPI(ManHinhChinhAdmin.b);
+
 
     }
 
@@ -309,6 +309,7 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
         //Xử lý chức năng
         if (info == 1) {
             Toast.makeText(getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
+            DemoCallAPI(ManHinhChinhAdmin.b);
         } else {
             Toast.makeText(getContext(), "Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
         }
@@ -466,8 +467,8 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
             alertDialogSua.dismiss();
             imagePath = null;
             imagePath2 = null;
-            DemoCallAPI(ManHinhChinhAdmin.b);
             ShowNotifyUser.dismissProgressDialog();
+            DemoCallAPI(ManHinhChinhAdmin.b);
 
         } else {
             ShowNotifyUser.dismissProgressDialog();

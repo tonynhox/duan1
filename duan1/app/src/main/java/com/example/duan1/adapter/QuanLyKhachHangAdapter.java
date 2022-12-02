@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.models.HoaDon;
+import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TaiKhoan;
+import com.example.duan1.others.ItemOnClickDel;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,10 +26,17 @@ public class QuanLyKhachHangAdapter extends RecyclerView.Adapter<QuanLyKhachHang
 
     ArrayList<TaiKhoan> list;
     Context context;
+    ItemOnClickDel itemOnClickDel;
 //    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     public QuanLyKhachHangAdapter(ArrayList<TaiKhoan> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+
+    public QuanLyKhachHangAdapter(ArrayList<TaiKhoan> list, Context context, ItemOnClickDel itemOnClickDel) {
+        this.list = list;
+        this.context = context;
+        this.itemOnClickDel = itemOnClickDel;
     }
 
     @NonNull
@@ -50,7 +59,8 @@ public class QuanLyKhachHangAdapter extends RecyclerView.Adapter<QuanLyKhachHang
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                TaiKhoan taiKhoan = list.get(holder.getAdapterPosition());
+                itemOnClickDel.ItemClickDel(taiKhoan.getTenTaiKhoan());
             }
         });
 
