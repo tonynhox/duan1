@@ -20,11 +20,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
+import com.example.duan1.fragments.HistoryAdminFragment;
 import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.fragments.HomeAdminFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.QuanLyKhachHangFragment;
+import com.example.duan1.fragments.SanPhamTHAdminFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,7 +40,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
     EditText editText;
     Fragment fragment;
     FragmentManager fragmentManager;
-    public static String a;
+    public static String b;
     TextView txtTitle;
 
     @Override
@@ -69,8 +71,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                 if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
                         (event.getAction() == KeyEvent.ACTION_DOWN &&
                                 event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-
-                    a= editText.getText().toString();
+                    b= editText.getText().toString();
                     fragment = new SearchSanPhamFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
                     Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
@@ -85,43 +86,43 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.dtSS:
-                        fragment = new SanPhamTHFragment();
-                        a= "samsung";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "samsung";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("SAMSUNG");
                         break;
                     case R.id.dtVV:
-                        fragment = new SanPhamTHFragment();
-                        a= "vivo";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "vivo";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("VIVO");
                         break;
                     case R.id.dtIP:
-                        fragment = new SanPhamTHFragment();
-                        a= "iphone";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "iphone";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("IPHONE");
                         break;
                     case R.id.dtOP:
-                        fragment = new SanPhamTHFragment();
-                        a= "oppo";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "oppo";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("OPPO");
                         break;
                     case R.id.dtRM:
-                        fragment = new SanPhamTHFragment();
-                        a= "redmi";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "redmi";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("REDMI");
                         break;
                     case R.id.dtXM:
-                        fragment = new SanPhamTHFragment();
-                        a= "xiaomi";
+                        fragment = new SanPhamTHAdminFragment();
+                        b= "xiaomi";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("XIAOMI");
@@ -142,7 +143,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         });
         BottomNavigationView bottomNavigationView;
         HomeAdminFragment homeFragment = new HomeAdminFragment();
-        HistoryFragment historyFragment = new HistoryFragment();
+        HistoryAdminFragment historyFragment = new HistoryAdminFragment();
         MeFragment meFragment = new MeFragment();
 
         bottomNavigationView = findViewById(R.id.navigationBottom);

@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@color/white"
-        android:backgroundTint="@color/white"
         android:gravity="start|center_vertical"
         android:text="Họ Tên:"
         android:paddingLeft="10dp"

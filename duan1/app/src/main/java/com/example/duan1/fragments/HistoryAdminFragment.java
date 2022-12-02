@@ -17,11 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.adapter.LichSuHoaDonAdapter;
-import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.adapter.TrangThaiDonHangAdapter;
+import com.example.duan1.adapter.TrangThaiDonHangAdminAdapter;
 import com.example.duan1.models.HoaDon;
-import com.example.duan1.models.SanPham;
-import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -33,7 +31,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HistoryFragment extends Fragment {
+public class HistoryAdminFragment extends Fragment {
     ArrayList<HoaDon> listHD;
     RecyclerView listViewTTHD;
     ArrayList<HoaDon> listTTHD;
@@ -45,12 +43,11 @@ public class HistoryFragment extends Fragment {
 
         listViewTTHD = view.findViewById(R.id.list_trangthaidonhang);
         listViewHD = view.findViewById(R.id.lvLichsudonhang);
-        CallAPI(StaticOthers.username);
-        Log.d("us",StaticOthers.username+"");
-        CallAPI2(StaticOthers.username);
+        CallAPI();
+        CallAPI2();
         return view;
     }
-    private void CallAPI(String username) {
+    private void CallAPI() {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
@@ -58,7 +55,7 @@ public class HistoryFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.getTrangThaiHoaDonKH(username)
+        new CompositeDisposable().add(requestInterface.getAllTrangThaiHoaDon()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError)
@@ -73,7 +70,7 @@ public class HistoryFragment extends Fragment {
         if (info.size() > 0) {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             listViewTTHD.setLayoutManager(linearLayoutManager);
-            TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD,getContext());
+            TrangThaiDonHangAdminAdapter adapter = new TrangThaiDonHangAdminAdapter(listTTHD,getContext());
             listViewTTHD.setAdapter(adapter);
             Toast.makeText(getContext(), "hú", Toast.LENGTH_SHORT).show();
 
@@ -88,7 +85,7 @@ public class HistoryFragment extends Fragment {
         Log.d("chay","loi");
     }
 
-    private void CallAPI2(String username) {
+    private void CallAPI2(){
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
@@ -96,7 +93,7 @@ public class HistoryFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.getLichSuHoaDonKH(username)
+        new CompositeDisposable().add(requestInterface.getAllLichSuHoaDon()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse2, this::handleError2)

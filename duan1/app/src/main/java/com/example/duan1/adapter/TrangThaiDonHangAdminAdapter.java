@@ -2,7 +2,6 @@ package com.example.duan1.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,22 +12,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.HoaDon;
-import com.example.duan1.models.TrangThai;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
 
-public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHangAdapter.MyViewHolder>{
+public class TrangThaiDonHangAdminAdapter extends RecyclerView.Adapter<TrangThaiDonHangAdminAdapter.MyViewHolder>{
 
     ArrayList<HoaDon> list;
     Context context;
 //    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    public TrangThaiDonHangAdapter(ArrayList<HoaDon> list, Context context) {
+    public TrangThaiDonHangAdminAdapter(ArrayList<HoaDon> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -37,7 +31,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_trangthaidonhang,parent,false);
+        View view = inflater.inflate(R.layout.item_trangthaidonhang_admin,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -47,9 +41,13 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
         holder.txtGia.setText(String.valueOf(list.get(i).getTongGiaTien()));
         holder.txtNgay.setText(list.get(i).getNgayMua());
         holder.txtSoLuong.setText(String.valueOf(list.get(i).getTongSoLuong()));
-        holder.txtTrangThai.setText(list.get(i).getTrangThaiHD());
         holder.txtDiaChi.setText(list.get(i).getDiaChi());
+        holder.btnXacNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
         holder.btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,8 +66,8 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
 
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
-        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi;
-        Button btnHuy;
+        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtDiaChi;
+        Button btnHuy,btnXacNhan;
         ImageView ivLon;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -79,8 +77,8 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
             txtGia = itemView.findViewById(R.id.txtGiaSP);
             txtNgay = itemView.findViewById(R.id.txtNgayMua);
             txtSoLuong = itemView.findViewById(R.id.txtSoLuongSP);
-            btnHuy = itemView.findViewById(R.id.btnHuy);
-            txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
+            btnHuy = itemView.findViewById(R.id.btnHuyDon);
+            btnXacNhan = itemView.findViewById(R.id.btnXacNhan);
             txtDiaChi = itemView.findViewById(R.id.txtDiaChi);
 
         }
