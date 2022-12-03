@@ -108,8 +108,10 @@ public class ManHinhRegister extends AppCompatActivity {
                     name= edt_name.getText().toString();
                     user= edt_username.getText().toString();
                     pass= edt_password.getText().toString();
+
                     birthday= edt_birthday.getText().toString();
                     birth = formatter.parse(birthday);
+
                     phone = edt_phone.getText().toString();
                     email = edt_email.getText().toString();
 

@@ -75,7 +75,7 @@ public interface ServiceAPI {
     Observable<Integer> xoaTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan,@Query("matKhau") String matKhau);
 
     @POST("api/xoaTaiKhoanKH")
-    Observable<Integer> xoaTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan);
+    Observable<Integer> xoaTaiKhoanKH(@Query("tenTaiKhoan") String tenTaiKhoan);
 
     @POST("api/xoaSP")
     Observable<Integer> xoaSP(@Query("maSP") int maSP);
