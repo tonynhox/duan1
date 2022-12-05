@@ -41,8 +41,8 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChiTietSanPhamFragment extends AppCompatActivity {
-    ImageView ivHinhAnhLon,ivHinhAnhNho,ivGioHang;
+public class ChiTietSanPhamActivity extends AppCompatActivity {
+    ImageView ivHinhAnhLon,ivHinhAnhNho,ivGioHang,icBack;
     TextView txtTenSP,txtGiaSP,txtSoLuongSP,txtTenThuongHieu,txtMoTaSP;
     HashMap<Integer,String> map=new HashMap<Integer,String>();
     int a=-1;
@@ -60,6 +60,13 @@ public class ChiTietSanPhamFragment extends AppCompatActivity {
         ivHinhAnhLon = findViewById(R.id.ivHinhAnhLon);
         ivHinhAnhNho = findViewById(R.id.ivHinhAnhNho);
         ivGioHang = findViewById(R.id.ivGioHang);
+        icBack = findViewById(R.id.ic_back);
+        icBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         txtMoTaSP.setMovementMethod(new ScrollingMovementMethod());
         DemoCallAPI(HomeFragment.maSP);
         DemoCallAPI(SearchSanPhamFragment.maSP);

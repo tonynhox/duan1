@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
-import com.example.duan1.activity.ChiTietSanPhamFragment;
+import com.example.duan1.activity.ChiTietSanPhamActivity;
 import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
@@ -89,7 +88,7 @@ public class HomeFragment extends Fragment implements ItemOnClick{
 //        Fragment fragment = new ChiTietSanPhamFragment();
 //        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 //        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-        Intent intent = new Intent(getContext(),ChiTietSanPhamFragment.class);
+        Intent intent = new Intent(getContext(), ChiTietSanPhamActivity.class);
         startActivity(intent);
     }
 

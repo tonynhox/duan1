@@ -1,5 +1,6 @@
 package com.example.duan1.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.activity.DoiMatKhauActivity;
 import com.example.duan1.adapter.SanPhamTH_SearchAdapter;
 import com.example.duan1.models.TaiKhoan;
 import com.example.duan1.models.TimKiemSanPham;
@@ -43,6 +45,13 @@ public class HoSoCuaToiFragment extends Fragment {
         txtEmail = view.findViewById(R.id.txtEmail);
         txtDoiMK = view.findViewById(R.id.txtDoiMK);
         DemoCallAPI(StaticOthers.username);
+        txtDoiMK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), DoiMatKhauActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

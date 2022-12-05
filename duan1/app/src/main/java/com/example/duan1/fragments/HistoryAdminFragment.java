@@ -1,5 +1,6 @@
 package com.example.duan1.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,14 +12,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.activity.ChiTietDonHangActivity;
 import com.example.duan1.adapter.LichSuHoaDonAdapter;
-import com.example.duan1.adapter.TrangThaiDonHangAdapter;
 import com.example.duan1.adapter.TrangThaiDonHangAdminAdapter;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.others.ItemOnClickHD;
@@ -106,7 +106,7 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
         //Xử lý chức năng
         if (info.size() > 0) {
             listHD = info;
-            LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD, getContext());
+            LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD, getContext(),this);
             listViewHD.setAdapter(lichSuHoaDonAdapter);
             ShowNotifyUser.dismissProgressDialog();
         }
@@ -121,9 +121,11 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     @Override
     public void OnClickHoaDon(int maHD) {
         this.maHD=maHD;
-        Fragment fragment = new ChiTietHoaDonAdminFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+//        Fragment fragment = new ChiTietHoaDonAdminFragment();
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+        Intent intent= new Intent(getContext(), ChiTietDonHangActivity.class);
+        startActivity(intent);
     }
 
     @Override

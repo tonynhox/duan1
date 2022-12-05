@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -18,6 +19,7 @@ import com.example.duan1.models.HoaDon;
 import com.example.duan1.models.LichSuDonHang;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TrangThai;
+import com.example.duan1.others.ItemOnClickHD;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -29,11 +31,16 @@ import java.util.List;
 public class LichSuHoaDonAdapter extends BaseAdapter {
     ArrayList<HoaDon> list;
     Context context;
+    ItemOnClickHD itemOnClickHD;
     public LichSuHoaDonAdapter(ArrayList<HoaDon> list, Context context) {
         this.list = list;
         this.context = context;
     }
-
+    public LichSuHoaDonAdapter(ArrayList<HoaDon> list, Context context, ItemOnClickHD itemOnClickHD) {
+        this.list = list;
+        this.context = context;
+        this.itemOnClickHD = itemOnClickHD;
+    }
     @Override
     public int getCount() {
         return list.size();
@@ -51,6 +58,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
 
     public class ViewHolder {
         public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi,txtTrangThai;
+        CardView cvItem;
     }
 
     @Override
@@ -66,6 +74,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
             holder.txtNgaymua = (TextView) view.findViewById(R.id.txtNgayMua);
             holder.txtDiaChi = (TextView) view.findViewById(R.id.txtDiaChi);
             holder.txtTrangThai= (TextView) view.findViewById(R.id.txtTrangThai);
+            holder.cvItem = view.findViewById(R.id.cvItem);
 
             view.setTag(holder);
         }else {
@@ -79,7 +88,12 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
         holder.txtNgaymua.setText(hoaDon.getNgayMua());
         holder.txtDiaChi.setText(hoaDon.getDiaChi());
         holder.txtTrangThai.setText(hoaDon.getTrangThaiHD());
-
+        holder.cvItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemOnClickHD.OnClickHoaDon(hoaDon.getMaHoaDon());
+            }
+        });
         return view;
         }
 }

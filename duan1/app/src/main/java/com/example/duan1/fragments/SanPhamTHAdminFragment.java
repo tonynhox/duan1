@@ -526,7 +526,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
         CallAPIDelete(a);
         ShowNotifyUser.showProgressDialog(getContext(), "Loading");
-        DemoCallAPI(ManHinhChinhAdmin.b);
 
     }
 
@@ -550,6 +549,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         //Xử lý chức năng
         if(info == 1){
             Toast.makeText(getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
+            DemoCallAPI(ManHinhChinhAdmin.b);
         }else{
             Toast.makeText(getContext(),"Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
         }

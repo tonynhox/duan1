@@ -1,14 +1,16 @@
-package com.example.duan1.fragments;
+package com.example.duan1.activity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,8 @@ import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.adapter.ChiTietHoaDonAdapter;
 import com.example.duan1.adapter.SanPhamAdminAdapter;
+import com.example.duan1.fragments.HistoryAdminFragment;
+import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.models.ChiTietHoaDon;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.others.ShowNotifyUser;
@@ -33,29 +37,58 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChiTietHoaDonAdminFragment extends Fragment {
+public class ChiTietDonHangActivity extends AppCompatActivity {
     ArrayList<ChiTietHoaDon> list;
     RecyclerView listViewSP;
-    TextView textView;
+    TextView textView,btnThoat;
     int a = 0;
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chitietdonhang, container, false);
-        listViewSP = view.findViewById(R.id.list_chitietsanpham);
-        textView= view.findViewById(R.id.txtTongTien);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_chitietdonhang);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        listViewSP = findViewById(R.id.list_chitietsanpham);
+        textView= findViewById(R.id.txtTongTien);
+        btnThoat = findViewById(R.id.btnThoat);
         int maHD;
+
         if(StaticOthers.username.equalsIgnoreCase("admin")){
-            maHD=HistoryAdminFragment.maHD;
+            maHD= HistoryAdminFragment.maHD;
 
         }else {
-            maHD=HistoryFragment.maHD;
+            maHD= HistoryFragment.maHD;
 
         }
-
+        btnThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         CallAPI(maHD);
-        return view;
     }
+
+
+    //    @Nullable
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.fragment_chitietdonhang, container, false);
+//        listViewSP = view.findViewById(R.id.list_chitietsanpham);
+//        textView= view.findViewById(R.id.txtTongTien);
+//        int maHD;
+//
+//        if(StaticOthers.username.equalsIgnoreCase("admin")){
+//            maHD=HistoryAdminFragment.maHD;
+//
+//        }else {
+//            maHD=HistoryFragment.maHD;
+//
+//        }
+//
+//        CallAPI(maHD);
+//        return view;
+//    }
 
     public void CallAPI(int a) {
 
@@ -81,9 +114,9 @@ public class ChiTietHoaDonAdminFragment extends Fragment {
         }
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         textView.setText(formatter.format(a)+" VND");
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         listViewSP.setLayoutManager(linearLayoutManager);
-        ChiTietHoaDonAdapter adapter = new ChiTietHoaDonAdapter(list,getContext());
+        ChiTietHoaDonAdapter adapter = new ChiTietHoaDonAdapter(list,this);
         listViewSP.setAdapter(adapter);
         ShowNotifyUser.dismissProgressDialog();
 

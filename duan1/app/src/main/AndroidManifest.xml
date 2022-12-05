@@ -37,8 +37,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.GioHangActivity" />
-        <activity android:name=".activity.ChiTietSanPhamFragment" />
+        <activity android:name=".activity.GioHangActivity" android:exported="false"/>
+        <activity android:name=".activity.ChiTietSanPhamActivity" android:exported="false"/>
+        <activity android:name=".activity.ChiTietDonHangActivity" android:exported="false"/>
+        <activity android:name=".activity.DoiMatKhauActivity" android:exported="false"/>
     </application>
 
 </manifest>
