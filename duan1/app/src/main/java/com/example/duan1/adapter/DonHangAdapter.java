@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ import com.example.duan1.R;
 import com.example.duan1.models.DonHang;
 import com.example.duan1.models.SanPham;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +43,8 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         Glide.with(context).load(list.get(i).hinhAnhLon).into(holder.ivLon);
         holder.txtten.setText(list.get(i).getTenSp());
-        holder.txtgia.setText(String.valueOf(list.get(i).getGiaSp()));
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        holder.txtgia.setText(formatter.format(list.get(i).getGiaSp()));
 
     }
 
@@ -54,11 +57,14 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.MyViewHo
 
         TextView txtten, txtgia;
         ImageView ivLon;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txtten = itemView.findViewById(R.id.txtTenSP);
             txtgia = itemView.findViewById(R.id.txtGiaSP);
             ivLon = itemView.findViewById(R.id.ivHinhAnhLon);
+
+
         }
     }
 }

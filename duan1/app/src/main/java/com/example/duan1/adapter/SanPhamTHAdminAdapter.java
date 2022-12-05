@@ -81,7 +81,6 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
         holder.ivsua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                showDialog();
                 TimKiemSanPham timKiemSanPham = list.get(holder.getAdapterPosition());
 
                 itemClick.onClickDialog(timKiemSanPham.getMaSp());

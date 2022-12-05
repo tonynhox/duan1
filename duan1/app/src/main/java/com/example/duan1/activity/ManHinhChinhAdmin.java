@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,14 +58,14 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
+        ImageView ivGH = findViewById(R.id.ivGioHang);
+//        ivGH.setVisibility(View.GONE);
 
-
-
+        ivGH.setImageResource(R.drawable.ic_white);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_foreground);
-
 
         fragmentManager = getSupportFragmentManager();
         fragment = new HomeAdminFragment();
@@ -78,7 +79,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                                 event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                     b= editText.getText().toString();
                     fragment = new SearchSanPhamAdminFragment();
-                    fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+                    fragmentManager.beginTransaction().add(R.id.linearLayout, fragment).commit();
                     Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }

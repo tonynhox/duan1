@@ -1,26 +1,27 @@
 package com.example.duan1.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.activity.ChiTietSanPhamFragment;
 import com.example.duan1.activity.ManHinhChinh;
-import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.adapter.SanPhamTH_SearchAdapter;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
-import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.ItemOnClick;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -31,9 +32,11 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SanPhamTHFragment extends Fragment {
+public class SanPhamTHFragment extends Fragment implements ItemOnClick {
     ArrayList<TimKiemSanPham> list;
     RecyclerView listViewSP;
+    public static int maSP;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,13 +66,39 @@ public class SanPhamTHFragment extends Fragment {
         list=info;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewSP.setLayoutManager(linearLayoutManager);
-        SanPhamTH_SearchAdapter adapter = new SanPhamTH_SearchAdapter(list,getContext());
+        SanPhamTH_SearchAdapter adapter = new SanPhamTH_SearchAdapter(list,getContext(),this);
         listViewSP.setAdapter(adapter);
     }
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay",error+"");
+    }
+
+    @Override
+    public void onClickItem(TimKiemSanPham timKiemSanPham) {
+        maSP=timKiemSanPham.getMaSp();
+        Log.d("ma san pham", maSP+"");
+//        Fragment fragment = new ChiTietSanPhamFragment();
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+        Intent intent = new Intent(getContext(),ChiTietSanPhamFragment.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onClickItem(SanPham sanPham) {
+
+    }
+
+    @Override
+    public void onClickXoa(int a) {
+
+    }
+
+    @Override
+    public void onClickDialog(int a) {
+
     }
 }
 

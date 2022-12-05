@@ -1,13 +1,11 @@
 package com.example.duan1.fragments;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,8 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.activity.ChiTietSanPhamFragment;
 import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.models.SanPham;
+import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ItemOnClick;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -77,14 +77,20 @@ public class HomeFragment extends Fragment implements ItemOnClick{
     }
 
 
+    @Override
+    public void onClickItem(TimKiemSanPham timKiemSanPham) {
+
+    }
 
     @Override
     public void onClickItem(SanPham sanPham) {
         maSP=sanPham.getMaSp();
         Log.d("ma san pham", maSP+"");
-        Fragment fragment = new ChiTietSanPhamFragment();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+//        Fragment fragment = new ChiTietSanPhamFragment();
+//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+        Intent intent = new Intent(getContext(),ChiTietSanPhamFragment.class);
+        startActivity(intent);
     }
 
     @Override

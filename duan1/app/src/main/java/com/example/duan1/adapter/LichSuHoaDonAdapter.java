@@ -50,7 +50,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi;
+        public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi,txtTrangThai;
     }
 
     @Override
@@ -65,6 +65,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
             holder.txtTongGiaTien = (TextView) view.findViewById(R.id.GiaSP);
             holder.txtNgaymua = (TextView) view.findViewById(R.id.txtNgayMua);
             holder.txtDiaChi = (TextView) view.findViewById(R.id.txtDiaChi);
+            holder.txtTrangThai= (TextView) view.findViewById(R.id.txtTrangThai);
 
             view.setTag(holder);
         }else {
@@ -73,9 +74,12 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
         HoaDon hoaDon = (HoaDon) getItem(position);
         holder.txtTongSoLuong.setText(String.valueOf(hoaDon.getTongSoLuong()));
         holder.txtMahoadon.setText(String.valueOf(hoaDon.getMaHoaDon()));
-        holder.txtTongGiaTien.setText(String.valueOf(hoaDon.getTongGiaTien()));
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        holder.txtTongGiaTien.setText(String.valueOf(formatter.format(hoaDon.getTongGiaTien())));
         holder.txtNgaymua.setText(hoaDon.getNgayMua());
         holder.txtDiaChi.setText(hoaDon.getDiaChi());
+        holder.txtTrangThai.setText(hoaDon.getTrangThaiHD());
+
         return view;
         }
 }

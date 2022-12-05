@@ -52,7 +52,6 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:layout_marginStart="5dp"
-
             android:text="30000000"
             android:textColor="@color/black"
             android:textSize="14dp"
@@ -142,6 +141,28 @@
             app:layout_constraintStart_toEndOf="@+id/tDiaChi"
             app:layout_constraintTop_toBottomOf="@+id/txtNgayMua"
             app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:text="Trạng thái:"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+        <TextView
+            android:id="@+id/txtTrangThai"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginStart="5dp"
+            android:text="Đã giao"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/textView22"
+            app:layout_constraintTop_toBottomOf="@+id/GiaSP" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

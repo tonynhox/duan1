@@ -10,24 +10,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
-import com.example.duan1.fragments.GioHangFragment;
 import com.example.duan1.fragments.HistoryFragment;
-import com.example.duan1.fragments.HoSoCuaToiFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
@@ -59,12 +54,13 @@ public class  ManHinhChinh extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
-        GioHangFragment gioHangFragment = new GioHangFragment();
+//        GioHangFragment gioHangFragment = new GioHangFragment();
         image = findViewById(R.id.ivGioHang);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, gioHangFragment).commit();
+                Intent intent = new Intent(ManHinhChinh.this, GioHangActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -177,7 +173,7 @@ public class  ManHinhChinh extends AppCompatActivity {
                     case R.id.me:
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
-                        txtTitle.setText("Hồ sơ của tôi");
+                        txtTitle.setText("Tôi");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
                         break;
                 }

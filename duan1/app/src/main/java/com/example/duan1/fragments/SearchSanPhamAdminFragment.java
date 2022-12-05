@@ -278,6 +278,11 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
 
 
     @Override
+    public void onClickItem(TimKiemSanPham timKiemSanPham) {
+
+    }
+
+    @Override
     public void onClickItem(SanPham sanPham) {
 
     }

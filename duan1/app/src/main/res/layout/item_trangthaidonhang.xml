@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    android:id="@+id/cvItem">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,6 +53,19 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/background_button"
             android:text="Hủy đơn"
+            android:textAllCaps="false"
+            android:textColor="#FDF8F8"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSanPham" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDaGiao"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_button"
+            android:text="Đã giao"
             android:textAllCaps="false"
             android:textColor="#FDF8F8"
             android:textSize="16sp"
@@ -189,7 +203,7 @@
             android:background="@drawable/custom_button"
             android:fontFamily="arial"
             android:gravity="center"
-            android:text="Đang giao hàng"
+            android:text="Đang xác nhận"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,8 @@ import com.example.duan1.adapter.TrangThaiDonHangAdapter;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ItemOnClickHD;
+import com.example.duan1.others.ShowNotifyUser;
 import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -33,11 +36,12 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment implements ItemOnClickHD {
     ArrayList<HoaDon> listHD;
     RecyclerView listViewTTHD;
     ArrayList<HoaDon> listTTHD;
     ListView listViewHD;
+    public static int maHD;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,8 +50,6 @@ public class HistoryFragment extends Fragment {
         listViewTTHD = view.findViewById(R.id.list_trangthaidonhang);
         listViewHD = view.findViewById(R.id.lvLichsudonhang);
         CallAPI(StaticOthers.username);
-        Log.d("us",StaticOthers.username+"");
-        CallAPI2(StaticOthers.username);
         return view;
     }
     private void CallAPI(String username) {
@@ -70,15 +72,12 @@ public class HistoryFragment extends Fragment {
         listTTHD=info;
         Log.d("us",StaticOthers.username+"");
 
-        if (info.size() > 0) {
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-            listViewTTHD.setLayoutManager(linearLayoutManager);
-            TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD,getContext());
-            listViewTTHD.setAdapter(adapter);
-            Toast.makeText(getContext(), "hú", Toast.LENGTH_SHORT).show();
-
-        }else
-            Toast.makeText(getContext(), "huy loi", Toast.LENGTH_SHORT).show();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        listViewTTHD.setLayoutManager(linearLayoutManager);
+        TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD,getContext(),this);
+        listViewTTHD.setAdapter(adapter);
+        ShowNotifyUser.dismissProgressDialog();
+        CallAPI2(StaticOthers.username);
 
 
     }
@@ -108,9 +107,61 @@ public class HistoryFragment extends Fragment {
         listHD=info;
         LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD,getContext());
         listViewHD.setAdapter(lichSuHoaDonAdapter);
+        ShowNotifyUser.dismissProgressDialog();
     }
 
     private void handleError2(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("chay","loi");
+    }
+
+    @Override
+    public void OnClickHoaDon(int maHD) {
+        this.maHD=maHD;
+        Fragment fragment = new ChiTietHoaDonAdminFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+    }
+
+    @Override
+    public void OnClickBtnNhan(int maHD) {
+        ShowNotifyUser.showProgressDialog(getContext(),"Loading");
+        CallAPIEditTrangThai(maHD,"Đã giao");
+    }
+
+    @Override
+    public void OnClickBtnHuy(int maHD) {
+        ShowNotifyUser.showProgressDialog(getContext(),"Loading");
+        CallAPIEditTrangThai(maHD,"Đã Hủy");
+    }
+
+    private void CallAPIEditTrangThai(int maHD,String ttHD){
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.capNhatTrangThaiHD(maHD,ttHD)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse3, this::handleError3)
+        );
+    }
+
+    private void handleResponse3(int info) {
+        //Xử lý chức năng
+        if(info==1){
+            Toast.makeText(getContext(),"Nhấn thành công", Toast.LENGTH_SHORT).show();
+        }else
+            Toast.makeText(getContext(), "Nhấn thất bại", Toast.LENGTH_SHORT).show();
+        CallAPI(StaticOthers.username);
+
+
+    }
+
+    private void handleError3(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay","loi");
     }

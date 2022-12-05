@@ -22,7 +22,9 @@ import com.example.duan1.R;
 import com.example.duan1.activity.ManHinhChinhAdmin;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ItemOnClick;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,11 +32,14 @@ import java.util.Map;
 public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_SearchAdapter.ViewHolder> {
     ArrayList<TimKiemSanPham> list;
     Context context;
+    ItemOnClick itemOnClick;
 
-    public SanPhamTH_SearchAdapter(ArrayList<TimKiemSanPham> list, Context context) {
+    public SanPhamTH_SearchAdapter(ArrayList<TimKiemSanPham> list, Context context,ItemOnClick itemOnClick) {
         this.list = list;
         this.context = context;
+        this.itemOnClick=itemOnClick;
     }
+
 
     @NonNull
     @Override
@@ -49,7 +54,20 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         Glide.with(context).load(list.get(i).getHinhAnhLon()).into(holder.ivLon);
         holder.txtTen.setText(list.get(i).getTenSp());
-        holder.txtGia.setText(String.valueOf(list.get(i).getGiaSp()));
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        holder.txtGia.setText(String.valueOf(formatter.format(list.get(i).getGiaSp())));
+        holder.gioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        holder.txtChiTiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemOnClick.onClickItem(list.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -58,14 +76,16 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen, txtGia;
-        ImageView ivLon;
+        TextView txtTen, txtGia,txtChiTiet;
+        ImageView ivLon,gioHang;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivLon = itemView.findViewById(R.id.imageView2);
             txtTen = itemView.findViewById(R.id.txtTenSP);
             txtGia = itemView.findViewById(R.id.txtGiaSP);
+            gioHang= itemView.findViewById(R.id.themGioHang);
+            txtChiTiet= itemView.findViewById(R.id.txtChiTiet);
         }
     }
 

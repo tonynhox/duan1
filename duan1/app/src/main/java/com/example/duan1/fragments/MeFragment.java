@@ -44,17 +44,16 @@ public class MeFragment extends Fragment {
         btnHoSo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment= new HoSoCuaToiFragment();
+                fragment = new HoSoCuaToiFragment();
                 fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
 
-                try {
-                    ManHinhChinh.txtTitle.setText("Hồ sơ của tôi");
-                }catch (Exception e){
+                if (StaticOthers.username.equalsIgnoreCase("admin"))
                     ManHinhChinhAdmin.txtTitle.setText("Hồ sơ của tôi");
-                }
+                else
 
-
+                    ManHinhChinh.txtTitle.setText("Hồ sơ của tôi");
             }
+
         });
 
         btnXoa.setOnClickListener(new View.OnClickListener() {

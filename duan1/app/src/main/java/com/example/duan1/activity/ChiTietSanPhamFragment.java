@@ -1,4 +1,4 @@
-package com.example.duan1.fragments;
+package com.example.duan1.activity;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -6,12 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -20,11 +22,15 @@ import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.activity.ManHinhChinhAdmin;
 import com.example.duan1.adapter.SanPhamTHAdminAdapter;
+import com.example.duan1.fragments.HomeFragment;
+import com.example.duan1.fragments.SanPhamTHFragment;
+import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,27 +41,51 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ChiTietSanPhamFragment extends Fragment {
+public class ChiTietSanPhamFragment extends AppCompatActivity {
     ImageView ivHinhAnhLon,ivHinhAnhNho,ivGioHang;
     TextView txtTenSP,txtGiaSP,txtSoLuongSP,txtTenThuongHieu,txtMoTaSP;
     HashMap<Integer,String> map=new HashMap<Integer,String>();
+    int a=-1;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chitietsanpham, container, false);
-        txtTenSP = view.findViewById(R.id.txtTenSP);
-        txtGiaSP = view.findViewById(R.id.txtGiaSP);
-        txtSoLuongSP = view.findViewById(R.id.txtSoLuongSP);
-        txtTenThuongHieu = view.findViewById(R.id.txtTenThuongHieu);
-        txtMoTaSP = view.findViewById(R.id.txtMoTaSP);
-        ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
-        ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
-        ivGioHang = view.findViewById(R.id.ivGioHang);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_chitietsanpham);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        txtTenSP = findViewById(R.id.txtTenSP);
+        txtGiaSP = findViewById(R.id.txtGiaSP);
+        txtSoLuongSP = findViewById(R.id.txtSoLuongSP);
+        txtTenThuongHieu = findViewById(R.id.txtTenThuongHieu);
+        txtMoTaSP = findViewById(R.id.txtMoTaSP);
+        ivHinhAnhLon = findViewById(R.id.ivHinhAnhLon);
+        ivHinhAnhNho = findViewById(R.id.ivHinhAnhNho);
+        ivGioHang = findViewById(R.id.ivGioHang);
         txtMoTaSP.setMovementMethod(new ScrollingMovementMethod());
         DemoCallAPI(HomeFragment.maSP);
-        return view;
+        DemoCallAPI(SearchSanPhamFragment.maSP);
+        DemoCallAPI(SanPhamTHFragment.maSP);
+
     }
+
+//    @Nullable
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.fragment_chitietsanpham, container, false);
+//        txtTenSP = view.findViewById(R.id.txtTenSP);
+//        txtGiaSP = view.findViewById(R.id.txtGiaSP);
+//        txtSoLuongSP = view.findViewById(R.id.txtSoLuongSP);
+//        txtTenThuongHieu = view.findViewById(R.id.txtTenThuongHieu);
+//        txtMoTaSP = view.findViewById(R.id.txtMoTaSP);
+//        ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
+//        ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
+//        ivGioHang = view.findViewById(R.id.ivGioHang);
+//        txtMoTaSP.setMovementMethod(new ScrollingMovementMethod());
+//        DemoCallAPI(HomeFragment.maSP);
+//        DemoCallAPI(SearchSanPhamFragment.maSP);
+//        DemoCallAPI(SanPhamTHFragment.maSP);
+//
+//        return view;
+//    }
 
     private void DemoCallAPI(int maSP) {
 
@@ -90,14 +120,20 @@ public class ChiTietSanPhamFragment extends Fragment {
                     txtTenThuongHieu.setText(m.getValue().toString());
             }
             txtTenSP.setText(info.get(0).getTenSp());
-            txtGiaSP.setText(info.get(0).getGiaSp()+"");
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
+
+            txtGiaSP.setText(formatter.format(info.get(0).getGiaSp()));
             txtSoLuongSP.setText(info.get(0).getSoLuongSp()+"");
             txtMoTaSP.setText(info.get(0).getMotaSp()+"");
-            Glide.with(getContext()).load(info.get(0).getHinhAnhLon()).into(ivHinhAnhLon);
-            Glide.with(getContext()).load(info.get(0).getHinhAnhNho()).into(ivHinhAnhNho);
+            Glide.with(this).load(info.get(0).getHinhAnhLon()).into(ivHinhAnhLon);
+            Glide.with(this).load(info.get(0).getHinhAnhNho()).into(ivHinhAnhNho);
 
 //            ivHinhAnhLon.setText(info.get(0).getTenSp());
 //            ivHinhAnhNho.setText(info.get(0).getTenSp());
+            HomeFragment.maSP=-1;
+            SanPhamTHFragment.maSP=-1;
+            SearchSanPhamFragment.maSP=-1;
+
 
         }
 

@@ -11,14 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.models.TrangThai;
+import com.example.duan1.others.ItemOnClickHD;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +30,17 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
 
     ArrayList<HoaDon> list;
     Context context;
+    ItemOnClickHD itemOnClickHD;
 //    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     public TrangThaiDonHangAdapter(ArrayList<HoaDon> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+
+    public TrangThaiDonHangAdapter(ArrayList<HoaDon> list, Context context, ItemOnClickHD itemOnClickHD) {
+        this.list = list;
+        this.context = context;
+        this.itemOnClickHD = itemOnClickHD;
     }
 
     @NonNull
@@ -44,16 +54,41 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         holder.txtTen.setText(list.get(i).getTenTaiKhoan());
-        holder.txtGia.setText(String.valueOf(list.get(i).getTongGiaTien()));
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        holder.txtGia.setText(String.valueOf(formatter.format(list.get(i).getTongGiaTien())));
         holder.txtNgay.setText(list.get(i).getNgayMua());
         holder.txtSoLuong.setText(String.valueOf(list.get(i).getTongSoLuong()));
         holder.txtTrangThai.setText(list.get(i).getTrangThaiHD());
+        HoaDon hoaDon= list.get(holder.getAdapterPosition());
+        if(list.get(i).getTrangThaiHD().equalsIgnoreCase("Đang giao hàng")){
+            holder.btnHuy.setVisibility(View.GONE);
+            holder.btnDaNhan.setVisibility(View.VISIBLE);
+
+        }
+        if(list.get(i).getTrangThaiHD().equalsIgnoreCase("Đang xác nhận")){
+            holder.btnHuy.setVisibility(View.VISIBLE);
+            holder.btnDaNhan.setVisibility(View.GONE);
+
+        }
         holder.txtDiaChi.setText(list.get(i).getDiaChi());
+        holder.cvItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemOnClickHD.OnClickHoaDon(hoaDon.getMaHoaDon());
+            }
+        });
+
+        holder.btnDaNhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemOnClickHD.OnClickBtnNhan(hoaDon.getMaHoaDon());
+            }
+        });
 
         holder.btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                itemOnClickHD.OnClickBtnHuy(hoaDon.getMaHoaDon());
             }
         });
 
@@ -69,8 +104,9 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
         TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi;
-        Button btnHuy;
+        Button btnHuy,btnDaNhan;
         ImageView ivLon;
+        CardView cvItem;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,10 +114,12 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
             txtTen = itemView.findViewById(R.id.txtTenSP);
             txtGia = itemView.findViewById(R.id.txtGiaSP);
             txtNgay = itemView.findViewById(R.id.txtNgayMua);
-            txtSoLuong = itemView.findViewById(R.id.txtSoLuongSP);
-            btnHuy = itemView.findViewById(R.id.btnHuy);
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
             txtDiaChi = itemView.findViewById(R.id.txtDiaChi);
+            cvItem = itemView.findViewById(R.id.cvItem);
+            btnHuy = itemView.findViewById(R.id.btnHuy);
+            txtSoLuong = itemView.findViewById(R.id.txtSoLuongSP);
+            btnDaNhan = itemView.findViewById(R.id.btnDaGiao);
 
         }
 

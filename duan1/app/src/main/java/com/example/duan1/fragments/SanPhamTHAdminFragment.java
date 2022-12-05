@@ -53,6 +53,7 @@ import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -507,6 +508,11 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
     }catch (Exception a){
         }
 
+
+    }
+
+    @Override
+    public void onClickItem(TimKiemSanPham timKiemSanPham) {
 
     }
 

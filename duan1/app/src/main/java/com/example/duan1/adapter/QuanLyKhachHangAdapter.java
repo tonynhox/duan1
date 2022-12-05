@@ -2,12 +2,14 @@ package com.example.duan1.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,7 +62,25 @@ public class QuanLyKhachHangAdapter extends RecyclerView.Adapter<QuanLyKhachHang
             @Override
             public void onClick(View view) {
                 TaiKhoan taiKhoan = list.get(holder.getAdapterPosition());
-                itemOnClickDel.ItemClickDel(taiKhoan.getTenTaiKhoan());
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
+                builder.setTitle(taiKhoan.getTenTaiKhoan());
+                builder.setMessage("Bạn có chắc chắn?");
+                builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        itemOnClickDel.ItemClickDel(taiKhoan.getTenTaiKhoan());
+
+                    }
+                });
+                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(context,"Đã hủy",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                android.app.AlertDialog alertDialog= builder.create();
+                alertDialog.show();
+
             }
         });
 

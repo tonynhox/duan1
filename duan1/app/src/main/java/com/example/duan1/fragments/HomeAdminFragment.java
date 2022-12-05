@@ -45,6 +45,7 @@ import com.example.duan1.activity.ManHinhLogin;
 import com.example.duan1.adapter.SanPhamAdminAdapter;
 import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.models.SanPham;
+import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -280,6 +281,11 @@ public class HomeAdminFragment extends Fragment implements ItemOnClick {
 
     }
 
+
+    @Override
+    public void onClickItem(TimKiemSanPham timKiemSanPham) {
+
+    }
 
     @Override
     public void onClickItem(SanPham sanPham) {
