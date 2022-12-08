@@ -35,7 +35,6 @@
 
         <TextView
             android:textSize="16sp"
-
             android:id="@+id/textView17"
             android:layout_width="40dp"
             android:layout_height="35dp"
@@ -89,7 +88,6 @@
 
         <TextView
             android:textSize="16sp"
-
             android:id="@+id/textView18"
             android:layout_width="40dp"
             android:layout_height="35dp"

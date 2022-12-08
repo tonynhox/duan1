@@ -92,7 +92,6 @@
                 android:gravity="center"
                 android:hint="Tên tài khoản"
                 android:textSize="18sp"
-
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/username"
