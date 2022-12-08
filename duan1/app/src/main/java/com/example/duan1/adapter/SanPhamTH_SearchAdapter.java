@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -20,9 +21,11 @@ import com.bumptech.glide.Glide;
 import com.cloudinary.android.MediaManager;
 import com.example.duan1.R;
 import com.example.duan1.activity.ManHinhChinhAdmin;
+import com.example.duan1.models.GioHang;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ItemOnClick;
+import com.example.duan1.others.StaticOthers;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -59,6 +62,30 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
         holder.gioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TimKiemSanPham timKiemSanPham = list.get(holder.getAdapterPosition());
+                GioHang gioHang= new GioHang();
+                gioHang.setTenSp(timKiemSanPham.getTenSp());
+                gioHang.setGiaSp(timKiemSanPham.getGiaSp());
+                gioHang.setSoLuong(1);
+                gioHang.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
+                gioHang.setMaSP(timKiemSanPham.getMaSp());
+                int count=0;
+                int a=-1;
+                for (GioHang item :StaticOthers.listGH) {
+                    a++;
+                    if(item.getMaSP()==(gioHang.getMaSP())){
+                        GioHang gioHang2;
+                        gioHang2=gioHang;
+                        gioHang2.setSoLuong(item.getSoLuong()+1);
+                        gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
+                        StaticOthers.listGH.set(a,gioHang2);
+                        count=1;
+                    }
+                }
+                if (count==0){
+                    StaticOthers.listGH.add(gioHang);
+                }
+                Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
 
             }
         });

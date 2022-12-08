@@ -101,6 +101,7 @@ public class MeFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         getActivity().finish();
+                        StaticOthers.listGH.clear();
                     }
                 });
                 builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {

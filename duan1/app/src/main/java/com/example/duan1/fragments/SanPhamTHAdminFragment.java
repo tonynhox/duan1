@@ -66,7 +66,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
     ArrayList<TimKiemSanPham> list;
-    AlertDialog alertDialogSua;
+    AlertDialog alertDialogSua,alertDialog;
     RecyclerView listViewSP;
     Button btnThem,btnHuy,btnSua;
     String tenSP,mota,hinhAnhLon,hinhAnhNho;
@@ -121,6 +121,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         listViewSP.setLayoutManager(linearLayoutManager);
         SanPhamTHAdminAdapter adapter = new SanPhamTHAdminAdapter(list,getContext(),this);
         listViewSP.setAdapter(adapter);
+
         ShowNotifyUser.dismissProgressDialog();
 
     }
@@ -140,7 +141,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_them_admin, null);
         builder.setView(view);
-        AlertDialog alertDialog = builder.create();
+        alertDialog = builder.create();
 
         map.put(1,"IPHONE");
         map.put(2,"SAMSUNG");
@@ -183,10 +184,25 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
-                soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
-                thuongHieu = Integer.parseInt(edtMaThuongHieu.getText().toString().substring(edtMaThuongHieu.getText().toString().length()-1));
-                gia = Long.parseLong(edtGiaSP.getText().toString());
 
+                if(tenSP.equals("")||mota.equals("")){
+                    Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                try {
+                    soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
+                    gia = Long.parseLong(edtGiaSP.getText().toString());
+
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Số ko được nhập chữ hoặc để trống!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                thuongHieu = Integer.parseInt(edtMaThuongHieu.getText().toString().substring(edtMaThuongHieu.getText().toString().length()-1));
+                if (soLuong<0||gia<0){
+                    Toast.makeText(getContext(), "Không được nhập số âm", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 try {
                     upload();
 
@@ -234,6 +250,8 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         //Xử lý chức năng
         if(info == 1){
             Toast.makeText(getContext(), "thành công", Toast.LENGTH_SHORT).show();
+            DemoCallAPI(ManHinhChinhAdmin.b);
+
         }else{
             Toast.makeText(getContext(), "không thành công", Toast.LENGTH_SHORT).show();
         }
@@ -254,6 +272,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
 
+
             }
 
             @Override
@@ -269,7 +288,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 char ch = 's';
                 stringBuilder2.insert(4, ch);
                 hinhAnhLon = stringBuilder2.toString();
-
+                imagePath=null;
                 try {
                     upload2();
 
@@ -353,7 +372,10 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 sanPham.setHinhAnhLon(hinhAnhLon);
                 sanPham.setHinhAnhNho(hinhAnhNho);
                 CallAPIAdd(sanPham);
+                imagePath2=null;
                 ShowNotifyUser.dismissProgressDialog();
+
+                alertDialog.dismiss();
 
 
             }
@@ -608,6 +630,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         EditText edtGiaSP = view.findViewById(R.id.edtGiaSP);
         EditText edtSoLuongSP = view.findViewById(R.id.edtSoLuongSP);
         EditText edtMoTaSP = view.findViewById(R.id.edtMoTaSP);
+
         ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
         ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
         edtTenSP.setText(listAllSP.get(0).getTenSp());
@@ -647,9 +670,33 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
-                soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
+
+
+
+
+
+
+                if(tenSP.equals("")||mota.equals("")){
+                    Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                try {
+                    soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
+                    gia = Long.parseLong(edtGiaSP.getText().toString());
+
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Số ko được nhập chữ hoặc để trống!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 thuongHieu = Integer.parseInt(edtMaThuongHieu.getText().toString().substring(edtMaThuongHieu.getText().toString().length()-1));
-                gia = Long.parseLong(edtGiaSP.getText().toString());
+                if (soLuong<0||gia<0){
+                    Toast.makeText(getContext(), "Không được nhập số âm", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
                 try {
                     uploadSua(listAllSP.get(0).getMaSp());
                 }catch (Exception e){

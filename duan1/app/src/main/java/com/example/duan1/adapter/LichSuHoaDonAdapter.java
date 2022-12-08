@@ -32,10 +32,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
     ArrayList<HoaDon> list;
     Context context;
     ItemOnClickHD itemOnClickHD;
-    public LichSuHoaDonAdapter(ArrayList<HoaDon> list, Context context) {
-        this.list = list;
-        this.context = context;
-    }
+
     public LichSuHoaDonAdapter(ArrayList<HoaDon> list, Context context, ItemOnClickHD itemOnClickHD) {
         this.list = list;
         this.context = context;
@@ -57,7 +54,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi,txtTrangThai;
+        public TextView txtMahoadon,txtNgaymua,txtTongSoLuong, txtTongGiaTien,txtDiaChi,txtTrangThai,txtSDT;
         CardView cvItem;
     }
 
@@ -74,6 +71,7 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
             holder.txtNgaymua = (TextView) view.findViewById(R.id.txtNgayMua);
             holder.txtDiaChi = (TextView) view.findViewById(R.id.txtDiaChi);
             holder.txtTrangThai= (TextView) view.findViewById(R.id.txtTrangThai);
+            holder.txtSDT= (TextView) view.findViewById(R.id.txtSDT);
             holder.cvItem = view.findViewById(R.id.cvItem);
 
             view.setTag(holder);
@@ -84,10 +82,12 @@ public class LichSuHoaDonAdapter extends BaseAdapter {
         holder.txtTongSoLuong.setText(String.valueOf(hoaDon.getTongSoLuong()));
         holder.txtMahoadon.setText(String.valueOf(hoaDon.getMaHoaDon()));
         DecimalFormat formatter = new DecimalFormat("###,###,###");
-        holder.txtTongGiaTien.setText(String.valueOf(formatter.format(hoaDon.getTongGiaTien())));
+        holder.txtTongGiaTien.setText(formatter.format(hoaDon.getTongGiaTien()));
         holder.txtNgaymua.setText(hoaDon.getNgayMua());
         holder.txtDiaChi.setText(hoaDon.getDiaChi());
         holder.txtTrangThai.setText(hoaDon.getTrangThaiHD());
+        holder.txtSDT.setText(hoaDon.getSoDienThoai());
+
         holder.cvItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

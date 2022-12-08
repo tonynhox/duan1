@@ -7,8 +7,9 @@ public class HoaDon {
     private String tenTaiKhoan;
     private String ngayMua;
     private int tongSoLuong;
-    private int tongGiaTien;
+    private long tongGiaTien;
     private String trangThaiHD;
+    private String soDienThoai;
     private String diaChi;
 
     public HoaDon() {
@@ -22,6 +23,14 @@ public class HoaDon {
         this.tongGiaTien = tongGiaTien;
         this.trangThaiHD = trangThaiHD;
         this.diaChi = diaChi;
+    }
+
+    public String getSoDienThoai() {
+        return soDienThoai;
+    }
+
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
     }
 
     public int getMaHoaDon() {
@@ -56,7 +65,7 @@ public class HoaDon {
         this.tongSoLuong = tongSoLuong;
     }
 
-    public int getTongGiaTien() {
+    public long getTongGiaTien() {
         return tongGiaTien;
     }
 

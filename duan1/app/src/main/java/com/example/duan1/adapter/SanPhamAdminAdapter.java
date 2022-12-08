@@ -34,10 +34,7 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
     ArrayList<SanPham>list;
     Context context;
     ItemOnClick itemClick;
-    public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context) {
-        this.list = list;
-        this.context = context;
-    }
+
     public SanPhamAdminAdapter(ArrayList<SanPham> list, Context context, ItemOnClick itemClick) {
         this.list = list;
         this.context = context;

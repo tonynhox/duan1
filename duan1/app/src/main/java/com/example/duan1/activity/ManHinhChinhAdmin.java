@@ -79,7 +79,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                                 event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
                     b= editText.getText().toString();
                     fragment = new SearchSanPhamAdminFragment();
-                    fragmentManager.beginTransaction().add(R.id.linearLayout, fragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
                     Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }

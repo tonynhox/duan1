@@ -30,10 +30,6 @@ public class QuanLyKhachHangAdapter extends RecyclerView.Adapter<QuanLyKhachHang
     Context context;
     ItemOnClickDel itemOnClickDel;
 //    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-    public QuanLyKhachHangAdapter(ArrayList<TaiKhoan> list, Context context) {
-        this.list = list;
-        this.context = context;
-    }
 
     public QuanLyKhachHangAdapter(ArrayList<TaiKhoan> list, Context context, ItemOnClickDel itemOnClickDel) {
         this.list = list;

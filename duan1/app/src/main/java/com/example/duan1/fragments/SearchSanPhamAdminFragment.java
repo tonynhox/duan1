@@ -36,6 +36,7 @@ import com.cloudinary.android.callback.UploadCallback;
 import com.cloudinary.android.policy.TimeWindow;
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.activity.ChiTietSanPhamActivity;
 import com.example.duan1.activity.ManHinhChinh;
 import com.example.duan1.activity.ManHinhChinhAdmin;
 import com.example.duan1.adapter.SanPhamTHAdminAdapter;
@@ -215,6 +216,7 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
+                ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(), "Đợi load ảnh 1");
 
             }
@@ -279,7 +281,8 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
 
     @Override
     public void onClickItem(TimKiemSanPham timKiemSanPham) {
-
+        Intent intent = new Intent(getContext(), ChiTietSanPhamActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -406,7 +409,7 @@ public class SearchSanPhamAdminFragment extends Fragment implements ItemOnClick 
             @Override
             public void onClick(View view) {
                 ShowNotifyUser.dismissProgressDialog();
-
+                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
                 soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());

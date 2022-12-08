@@ -56,11 +56,6 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
     ItemOnClick itemClick;
 
 
-    public SanPhamTHAdminAdapter(ArrayList<TimKiemSanPham> list, Context context) {
-        this.list = list;
-        this.context = context;
-    }
-
     public SanPhamTHAdminAdapter(ArrayList<TimKiemSanPham> list, Context context, ItemOnClick itemClick) {
         this.list = list;
         this.context = context;

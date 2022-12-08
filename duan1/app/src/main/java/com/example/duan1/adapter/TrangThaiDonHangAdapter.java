@@ -32,10 +32,6 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
     Context context;
     ItemOnClickHD itemOnClickHD;
 //    DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    public TrangThaiDonHangAdapter(ArrayList<HoaDon> list, Context context) {
-        this.list = list;
-        this.context = context;
-    }
 
     public TrangThaiDonHangAdapter(ArrayList<HoaDon> list, Context context, ItemOnClickHD itemOnClickHD) {
         this.list = list;
@@ -59,6 +55,8 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
         holder.txtNgay.setText(list.get(i).getNgayMua());
         holder.txtSoLuong.setText(String.valueOf(list.get(i).getTongSoLuong()));
         holder.txtTrangThai.setText(list.get(i).getTrangThaiHD());
+        holder.txtSDT.setText(list.get(i).getSoDienThoai());
+
         HoaDon hoaDon= list.get(holder.getAdapterPosition());
         if(list.get(i).getTrangThaiHD().equalsIgnoreCase("Đang giao hàng")){
             holder.btnHuy.setVisibility(View.GONE);
@@ -103,7 +101,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
 
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
-        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi;
+        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi,txtSDT;
         Button btnHuy,btnDaNhan;
         ImageView ivLon;
         CardView cvItem;
@@ -116,6 +114,8 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
             txtNgay = itemView.findViewById(R.id.txtNgayMua);
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
             txtDiaChi = itemView.findViewById(R.id.txtDiaChi);
+            txtSDT = itemView.findViewById(R.id.txtSDT);
+
             cvItem = itemView.findViewById(R.id.cvItem);
             btnHuy = itemView.findViewById(R.id.btnHuy);
             txtSoLuong = itemView.findViewById(R.id.txtSoLuongSP);

@@ -7,5 +7,6 @@ import java.util.ArrayList;
 public class StaticOthers {
     static public int idUser;
     static public String username;
-    static public ArrayList<GioHang> listGH;
+    static public ArrayList<GioHang> listGH= new ArrayList<>();
+
 }

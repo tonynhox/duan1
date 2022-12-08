@@ -103,20 +103,33 @@ public class ManHinhRegister extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                String numPhone="0\\d{9}";
+                String pEmail="\\w+@\\w+(.\\w+){1,2}";//anhhuytran@fpt.edu.vn
                 try {
                     name= edt_name.getText().toString();
                     user= edt_username.getText().toString();
                     pass= edt_password.getText().toString();
-
                     birthday= edt_birthday.getText().toString();
                     birth = formatter.parse(birthday);
-
                     phone = edt_phone.getText().toString();
                     email = edt_email.getText().toString();
 
-                }catch (Exception err){
+                    if(name.equals("")||user.equals("")||pass.equals("")||phone.equals("")||email.equals("")){
+                        Toast.makeText(ManHinhRegister.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if(!phone.matches(numPhone)){
+                        Toast.makeText(ManHinhRegister.this, "Số điện thoại không đúng", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if(!email.matches(pEmail)){
+                        Toast.makeText(ManHinhRegister.this, "Email không đúng", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
+                }catch (Exception err){
+                    Toast.makeText(ManHinhRegister.this, "Không được để trống", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 Log.d("birth", ""+birth);
                 Log.d("ed_birth", ""+birthday);

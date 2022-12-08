@@ -1,16 +1,34 @@
 package com.example.duan1.models;
 
 public class GioHang {
+    private int maSP;
     private int soLuong;
     private String tenSp;
-    public long giaSp;
-    public String hinhAnhLon;
+    private long giaSp;
+    private String hinhAnhLon;
+
+    public int getMaSP() {
+        return maSP;
+    }
+
+    public void setMaSP(int maSP) {
+        this.maSP = maSP;
+    }
 
     public GioHang(int soLuong, String tenSp, long giaSp, String hinhAnhLon) {
         this.soLuong = soLuong;
         this.tenSp = tenSp;
         this.giaSp = giaSp;
         this.hinhAnhLon = hinhAnhLon;
+    }
+
+    public GioHang(String tenSp, long giaSp, String hinhAnhLon) {
+        this.tenSp = tenSp;
+        this.giaSp = giaSp;
+        this.hinhAnhLon = hinhAnhLon;
+    }
+
+    public GioHang() {
     }
 
     public int getSoLuong() {

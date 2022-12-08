@@ -16,17 +16,16 @@
         <ImageView
             android:id="@+id/ivHinhAnhLon"
             android:layout_width="410dp"
-            android:layout_height="270dp"
-            android:layout_marginBottom="5dp"
+            android:layout_height="250dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivHinhAnhNho"
-            android:layout_width="180dp"
-            android:layout_height="135dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="200dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhLon" />
@@ -73,16 +72,17 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toTopOf="@+id/txtGiaSP" />
 
         <TextView
             android:id="@+id/txtSoLuongSP"
             android:layout_width="80dp"
             android:layout_height="35dp"
             android:text="1000"
-            android:textAlignment="center"
+            android:gravity="center"
+
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView29"
             app:layout_constraintTop_toBottomOf="@+id/txtTenThuongHieu" />
@@ -91,10 +91,11 @@
             android:id="@+id/txtGiaSP"
             android:layout_width="190dp"
             android:layout_height="35dp"
-android:textColor="@color/black"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="30.000.000"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="18dp"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
 
@@ -104,9 +105,9 @@ android:textColor="@color/black"
             android:layout_height="35dp"
             android:layout_marginTop="36dp"
             android:text="samsung"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/ivHinhAnhNho" />
@@ -114,10 +115,10 @@ android:textColor="@color/black"
         <TextView
             android:id="@+id/txtTenSP"
             android:layout_width="190dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:text="Sam sung galaxy"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:gravity="center"
             android:layout_marginTop="36dp"
             app:layout_constraintStart_toEndOf="@+id/textView12"
@@ -126,14 +127,16 @@ android:textColor="@color/black"
         <TextView
             android:id="@+id/txtMoTaSP"
             android:layout_width="370dp"
-            android:layout_height="130dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Huyàdfsdfsd"
-            android:padding="10dp"
             android:background="@drawable/custom_edittext"
+            android:padding="10dp"
+            android:text="Huyàdfsdfsd"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
+            app:layout_constraintTop_toBottomOf="@+id/txtGiaSP"
+            app:layout_constraintVertical_bias="0.106" />
 
         <ImageView
             android:id="@+id/ivGioHang"
