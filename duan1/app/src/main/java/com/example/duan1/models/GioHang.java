@@ -3,9 +3,18 @@ package com.example.duan1.models;
 public class GioHang {
     private int maSP;
     private int soLuong;
+    private int soLuongTon;
     private String tenSp;
     private long giaSp;
     private String hinhAnhLon;
+
+    public int getSoLuongTon() {
+        return soLuongTon;
+    }
+
+    public void setSoLuongTon(int soLuongTon) {
+        this.soLuongTon = soLuongTon;
+    }
 
     public int getMaSP() {
         return maSP;

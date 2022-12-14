@@ -4,6 +4,7 @@ public class TimKiemSanPham {
     private int maSp;
     private String tenSp;
     private long giaSp;
+    private int soLuong;
     private String hinhAnhLon;
 
     public TimKiemSanPham() {
@@ -14,6 +15,14 @@ public class TimKiemSanPham {
         this.tenSp = tenSp;
         this.giaSp = giaSp;
         this.hinhAnhLon = hinhAnhLon;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
     public int getMaSp() {

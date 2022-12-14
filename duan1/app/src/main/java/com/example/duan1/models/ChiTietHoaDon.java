@@ -6,6 +6,7 @@ public class ChiTietHoaDon {
     private String tenSP;
     private int giaSP;
     private int soLuong;
+    private int soLuongSP;
     private String hinhAnhNho;
 
 
@@ -15,6 +16,22 @@ public class ChiTietHoaDon {
         this.tenSP = tenSP;
         this.giaSP = giaSP;
         this.soLuong = soLuong;
+    }
+
+    public int getSoLuongSP() {
+        return soLuongSP;
+    }
+
+    public void setSoLuongSP(int soLuongSP) {
+        this.soLuongSP = soLuongSP;
+    }
+
+    public String getHinhAnhNho() {
+        return hinhAnhNho;
+    }
+
+    public void setHinhAnhNho(String hinhAnhNho) {
+        this.hinhAnhNho = hinhAnhNho;
     }
 
     public String getIvNho() {

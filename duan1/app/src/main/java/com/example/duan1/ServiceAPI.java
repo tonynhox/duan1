@@ -64,6 +64,12 @@ public interface ServiceAPI {
     @POST("api/capNhatTrangThaiHD")
     Observable<Integer> capNhatTrangThaiHD(@Query("maHoaDon") int maHoaDon,
                                        @Query("trangThaiHD") String trangThaiHD);
+
+    //7.5
+    @POST("api/capNhatSoLuongSP")
+    Observable<Integer> capNhatSoLuongSP(@Query("maSP") int maSP,
+                                           @Query("soLuong") int soLuong);
+    
     //8
     @POST("api/checkTaiKhoan")
     Observable<ArrayList<CheckTaiKhoan>> checkTaiKhoan(@Query("tenTaiKhoan") String tenTaiKhoan,

@@ -70,26 +70,6 @@ public class ChiTietDonHangActivity extends AppCompatActivity {
     }
 
 
-    //    @Nullable
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_chitietdonhang, container, false);
-//        listViewSP = view.findViewById(R.id.list_chitietsanpham);
-//        textView= view.findViewById(R.id.txtTongTien);
-//        int maHD;
-//
-//        if(StaticOthers.username.equalsIgnoreCase("admin")){
-//            maHD=HistoryAdminFragment.maHD;
-//
-//        }else {
-//            maHD=HistoryFragment.maHD;
-//
-//        }
-//
-//        CallAPI(maHD);
-//        return view;
-//    }
-
     public void CallAPI(int a) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
@@ -110,7 +90,7 @@ public class ChiTietDonHangActivity extends AppCompatActivity {
         list=info;
         for (ChiTietHoaDon item:info
              ) {
-            a+=item.getGiaSP();
+            a+=item.getGiaSP()* item.getSoLuong();
         }
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         textView.setText(formatter.format(a)+" VND");

@@ -63,12 +63,15 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
             @Override
             public void onClick(View v) {
                 TimKiemSanPham timKiemSanPham = list.get(holder.getAdapterPosition());
+
                 GioHang gioHang= new GioHang();
                 gioHang.setTenSp(timKiemSanPham.getTenSp());
                 gioHang.setGiaSp(timKiemSanPham.getGiaSp());
                 gioHang.setSoLuong(1);
                 gioHang.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
                 gioHang.setMaSP(timKiemSanPham.getMaSp());
+                gioHang.setSoLuongTon(timKiemSanPham.getSoLuong());
+
                 int count=0;
                 int a=-1;
                 for (GioHang item :StaticOthers.listGH) {

@@ -63,6 +63,8 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
                 gioHang.setSoLuong(1);
                 gioHang.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
                 gioHang.setMaSP(timKiemSanPham.getMaSp());
+                gioHang.setSoLuongTon(timKiemSanPham.getSoLuongSp());
+
                 int count=0;
                 int a=-1;
                 for (GioHang item : StaticOthers.listGH) {

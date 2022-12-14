@@ -59,7 +59,6 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
         ImageView ivGH = findViewById(R.id.ivGioHang);
-//        ivGH.setVisibility(View.GONE);
 
         ivGH.setImageResource(R.drawable.ic_white);
         setSupportActionBar(toolbar);
@@ -143,7 +142,6 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                 }
                 fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
-
                 return true;
             }
         });

@@ -41,7 +41,6 @@ public class  ManHinhChinh extends AppCompatActivity {
     FragmentManager fragmentManager;
     public static String a;
     public static TextView txtTitle;
-    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +53,6 @@ public class  ManHinhChinh extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
-//        GioHangFragment gioHangFragment = new GioHangFragment();
         image = findViewById(R.id.ivGioHang);
         image.setOnClickListener(new View.OnClickListener() {
             @Override

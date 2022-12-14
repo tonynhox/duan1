@@ -10,6 +10,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,9 +26,12 @@ import com.example.duan1.adapter.SanPhamTHAdminAdapter;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
+import com.example.duan1.models.GioHang;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
+import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.text.DecimalFormat;
@@ -45,8 +49,9 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
     ImageView ivHinhAnhLon,ivHinhAnhNho,ivGioHang,icBack;
     TextView txtTenSP,txtGiaSP,txtSoLuongSP,txtTenThuongHieu,txtMoTaSP;
     HashMap<Integer,String> map=new HashMap<Integer,String>();
-    int a=-1;
-
+    ArrayList<SanPham> list;
+    int backup=-1;
+    ItemOnClick itemOnClick;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +72,44 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         txtMoTaSP.setMovementMethod(new ScrollingMovementMethod());
         DemoCallAPI(HomeFragment.maSP);
         DemoCallAPI(SearchSanPhamFragment.maSP);
         DemoCallAPI(SanPhamTHFragment.maSP);
+
+        ivGioHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GioHang gioHang= new GioHang();
+                gioHang.setTenSp(list.get(0).getTenSp());
+                gioHang.setGiaSp(list.get(0).getGiaSp());
+                gioHang.setSoLuong(1);
+                gioHang.setHinhAnhLon(list.get(0).getHinhAnhLon());
+                gioHang.setMaSP(list.get(0).getMaSp());
+                gioHang.setSoLuongTon(list.get(0).getSoLuongSp());
+
+                int count=0;
+                int a=-1;
+                for (GioHang item : StaticOthers.listGH) {
+                    a++;
+                    if(item.getMaSP()==(gioHang.getMaSP())){
+                        GioHang gioHang2;
+                        gioHang2=gioHang;
+                        gioHang2.setSoLuong(item.getSoLuong()+1);
+                        gioHang2.setHinhAnhLon(list.get(0).getHinhAnhLon());
+                        StaticOthers.listGH.set(a,gioHang2);
+                        count=1;
+                    }
+                }
+                if (count==0){
+                    StaticOthers.listGH.add(gioHang);
+                }
+                Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
 
     }
 
@@ -112,7 +151,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
     private void handleResponse(ArrayList<SanPham> info) {
         //Xử lý chức năng
         if (info.size()>0){
-
+            list=info;
             map.put(1,"IPHONE");
             map.put(2,"SAMSUNG");
             map.put(3,"OPPO");
@@ -135,8 +174,14 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
             Glide.with(this).load(info.get(0).getHinhAnhLon()).into(ivHinhAnhLon);
             Glide.with(this).load(info.get(0).getHinhAnhNho()).into(ivHinhAnhNho);
 
-//            ivHinhAnhLon.setText(info.get(0).getTenSp());
-//            ivHinhAnhNho.setText(info.get(0).getTenSp());
+
+
+
+
+
+
+
+
             HomeFragment.maSP=-1;
             SanPhamTHFragment.maSP=-1;
             SearchSanPhamFragment.maSP=-1;

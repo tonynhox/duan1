@@ -24,9 +24,6 @@
             android:name=".activity.ManHinhLogin"
             android:exported="false" />
         <activity
-            android:name=".activity.ManHinhLoading"
-            android:exported="false" />
-        <activity
             android:name=".activity.ManHinhChinh"
             android:exported="false" />
         <activity

@@ -20,6 +20,7 @@ import com.example.duan1.ServiceAPI;
 import com.example.duan1.activity.ChiTietDonHangActivity;
 import com.example.duan1.adapter.LichSuHoaDonAdapter;
 import com.example.duan1.adapter.TrangThaiDonHangAdminAdapter;
+import com.example.duan1.models.ChiTietHoaDon;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.others.ItemOnClickHD;
 import com.example.duan1.others.ShowNotifyUser;
@@ -138,6 +139,7 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     public void OnClickBtnHuy(int maHD) {
         ShowNotifyUser.showProgressDialog(getContext(),"Loading");
         CallAPIEditTrangThai(maHD,"Đã hủy");
+        CallAPISl(maHD);
     }
 
     private void CallAPIEditTrangThai(int maHD,String ttHD){
@@ -169,5 +171,61 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     private void handleError3(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay","loi");
+    }
+
+    public void CallAPISl(int a) {
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.getSanPhamHD(a)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse4, this::handleError4)
+        );
+    }
+
+    private void handleResponse4(ArrayList<ChiTietHoaDon> info) {
+        //Xử lý chức năng
+        for (ChiTietHoaDon item:info
+        ) {
+            CallAPIFixSL(item.getMaSP(),item.getSoLuongSP()+item.getSoLuong());
+        }
+
+    }
+
+    private void handleError4(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("chay", "loi");
+    }
+
+    //uploadSoLuong
+    private void CallAPIFixSL(int maSP, int soLuong) {
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+        new CompositeDisposable().add(requestInterface.capNhatSoLuongSP(maSP,soLuong)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse5, this::handleError5)
+        );
+    }
+
+    private void handleResponse5(int info) {
+
+        Log.d("vo roi",  "so luong ok");
+
+    }
+
+    private void handleError5(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("loi", error + "");
+        ShowNotifyUser.dismissProgressDialog();
     }
 }

@@ -86,6 +86,7 @@
             app:layout_constraintStart_toEndOf="@+id/ivSanPham"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
 
+
         <TextView
             android:id="@+id/txtNgayMua"
             android:layout_width="120dp"
@@ -95,6 +96,8 @@
             android:text="2/2/2022"
             android:textColor="@color/black"
             android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
@@ -107,9 +110,10 @@
             android:text="30000000"
             android:textColor="@color/black"
             android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
-
 
         <TextView
             android:id="@+id/txtSoLuongSP"
@@ -120,6 +124,8 @@
             android:text="10"
             android:textColor="@color/black"
             android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/txtNgayMua" />
 
@@ -198,6 +204,7 @@
             android:id="@+id/txtDiaChi"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_marginRight="2dp"
             android:fontFamily="arial"
             android:text="Quận Gò Vấp, 7 thống nhất"
@@ -214,7 +221,6 @@
             android:layout_height="40dp"
             android:layout_marginStart="70dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/background_button_black"
             android:text="Hủy đơn"
@@ -223,10 +229,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/ivSanPham"
+            app:layout_constraintHorizontal_bias="0.83"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDiaChi"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

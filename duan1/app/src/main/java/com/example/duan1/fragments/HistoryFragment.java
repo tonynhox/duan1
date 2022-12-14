@@ -18,14 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.activity.ChiTietDonHangActivity;
+import com.example.duan1.adapter.ChiTietHoaDonAdapter;
 import com.example.duan1.adapter.LichSuHoaDonAdapter;
 import com.example.duan1.adapter.TrangThaiDonHangAdapter;
+import com.example.duan1.models.ChiTietHoaDon;
 import com.example.duan1.models.HoaDon;
 import com.example.duan1.others.ItemOnClickHD;
 import com.example.duan1.others.ShowNotifyUser;
 import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -40,6 +43,7 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
     ArrayList<HoaDon> listTTHD;
     ListView listViewHD;
     public static int maHD;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
         CallAPI(StaticOthers.username);
         return view;
     }
+
     private void CallAPI(String username) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
@@ -67,12 +72,12 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     private void handleResponse(ArrayList<HoaDon> info) {
         //Xử lý chức năng
-        listTTHD=info;
-        Log.d("us",StaticOthers.username+"");
+        listTTHD = info;
+        Log.d("us", StaticOthers.username + "");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewTTHD.setLayoutManager(linearLayoutManager);
-        TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD,getContext(),this);
+        TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD, getContext(), this);
         listViewTTHD.setAdapter(adapter);
         ShowNotifyUser.dismissProgressDialog();
         CallAPI2(StaticOthers.username);
@@ -82,7 +87,7 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
+        Log.d("chay", "loi");
     }
 
     private void CallAPI2(String username) {
@@ -102,40 +107,38 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     private void handleResponse2(ArrayList<HoaDon> info) {
         //Xử lý chức năng
-        listHD=info;
-        LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD,getContext(),this);
+        listHD = info;
+        LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD, getContext(), this);
         listViewHD.setAdapter(lichSuHoaDonAdapter);
         ShowNotifyUser.dismissProgressDialog();
     }
 
     private void handleError2(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
+        Log.d("chay", "loi");
     }
 
     @Override
     public void OnClickHoaDon(int maHD) {
-        this.maHD=maHD;
-//        Fragment fragment = new ChiTietHoaDonAdminFragment();
-//        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//        fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-        Intent intent= new Intent(getContext(), ChiTietDonHangActivity.class);
+        this.maHD = maHD;
+        Intent intent = new Intent(getContext(), ChiTietDonHangActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void OnClickBtnNhan(int maHD) {
-        ShowNotifyUser.showProgressDialog(getContext(),"Loading");
-        CallAPIEditTrangThai(maHD,"Đã giao");
+        ShowNotifyUser.showProgressDialog(getContext(), "Loading");
+        CallAPIEditTrangThai(maHD, "Đã giao");
     }
 
     @Override
     public void OnClickBtnHuy(int maHD) {
-        ShowNotifyUser.showProgressDialog(getContext(),"Loading");
-        CallAPIEditTrangThai(maHD,"Đã Hủy");
+        ShowNotifyUser.showProgressDialog(getContext(), "Loading");
+        CallAPIEditTrangThai(maHD, "Đã Hủy");
+        CallAPISl(maHD);
     }
 
-    private void CallAPIEditTrangThai(int maHD,String ttHD){
+    private void CallAPIEditTrangThai(int maHD, String ttHD) {
 
         ServiceAPI requestInterface = new Retrofit.Builder()
                 .baseUrl(ServiceAPI.BASE_Service)
@@ -143,7 +146,7 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ServiceAPI.class);
 
-        new CompositeDisposable().add(requestInterface.capNhatTrangThaiHD(maHD,ttHD)
+        new CompositeDisposable().add(requestInterface.capNhatTrangThaiHD(maHD, ttHD)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse3, this::handleError3)
@@ -152,9 +155,9 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     private void handleResponse3(int info) {
         //Xử lý chức năng
-        if(info==1){
-            Toast.makeText(getContext(),"Nhấn thành công", Toast.LENGTH_SHORT).show();
-        }else
+        if (info == 1) {
+            Toast.makeText(getContext(), "Nhấn thành công", Toast.LENGTH_SHORT).show();
+        } else
             Toast.makeText(getContext(), "Nhấn thất bại", Toast.LENGTH_SHORT).show();
         CallAPI(StaticOthers.username);
 
@@ -163,6 +166,64 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     private void handleError3(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
+        Log.d("chay", "loi");
+    }
+
+
+    //ChiTietHoaDon
+    public void CallAPISl(int a) {
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.getSanPhamHD(a)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse4, this::handleError4)
+        );
+    }
+
+    private void handleResponse4(ArrayList<ChiTietHoaDon> info) {
+        //Xử lý chức năng
+        for (ChiTietHoaDon item:info
+        ) {
+            CallAPIFixSL(item.getMaSP(),item.getSoLuongSP()+item.getSoLuong());
+        }
+
+    }
+
+    private void handleError4(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("chay", "loi");
+    }
+
+    //uploadSoLuong
+    private void CallAPIFixSL(int maSP, int soLuong) {
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+        new CompositeDisposable().add(requestInterface.capNhatSoLuongSP(maSP,soLuong)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse5, this::handleError5)
+        );
+    }
+
+    private void handleResponse5(int info) {
+
+        Log.d("vo roi",  "so luong ok");
+
+    }
+
+    private void handleError5(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("loi", error + "");
+        ShowNotifyUser.dismissProgressDialog();
     }
 }

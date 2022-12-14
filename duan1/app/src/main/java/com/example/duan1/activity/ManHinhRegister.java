@@ -51,8 +51,6 @@ public class ManHinhRegister extends AppCompatActivity {
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-
-
         btnRegister =  findViewById(R.id.register);
         btnCancel = findViewById(R.id.cancel);
         edt_name = findViewById(R.id.edt_name);
