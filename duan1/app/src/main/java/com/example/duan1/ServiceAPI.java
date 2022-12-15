@@ -38,8 +38,13 @@ public interface ServiceAPI {
     Observable<ArrayList<TimKiemSanPham>> timKiemSanPham(@Query("tenSanPham") String tenSanPham);
 
     @POST("api/CapNhatMatKhau")
+<<<<<<< HEAD
     Observable<ArrayList<CapNhatMK>> CapNhatMatKhau (@Query("maTaiKhoan") int tk , @Query("matKhauCu") String matkhaucu,
                                                     @Query("matKhauMoi") String matKhau);
+=======
+    Observable<ArrayList<CheckTaiKhoan>> CapNhatMatKhau(@Query("maTaiKhoan") Integer maTaiKhoan ,@Query("matKhauCu") String matKhauCu,
+                                                       @Query("matKhauMoi") String matKhau);
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
 
     // trả về int mà ??
 

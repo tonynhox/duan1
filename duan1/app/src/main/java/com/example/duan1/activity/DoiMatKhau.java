@@ -14,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+<<<<<<< HEAD
 import com.example.duan1.models.CapNhatMK;
+=======
+import com.example.duan1.models.CheckTaiKhoan;
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
 import com.example.duan1.others.ShowNotifyUser;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -63,15 +67,21 @@ public class DoiMatKhau extends AppCompatActivity {
                 if (txtCurentPassword.getText().length() == 0 || txtNewPassword.getText().length() == 0 || txtRePassword.getText().length() == 0)
                     Toast.makeText(getBaseContext(), "vui lòng nhập đầy đủ", Toast.LENGTH_SHORT).show();
 
-            else {
-                     String resmatkhau = txtCurentPassword.getText().toString();
-                     String matkhau = txtRePassword.getText().toString();
-                    if (resmatkhau.equals(matkhau)){
-                        Log.e("admin",matkhau+resmatkhau);
+                else {
+                    String matKhauCu = txtCurentPassword.getText().toString();
+                    String matkhau = txtCurentPassword.getText().toString();
+                    String nhapLai = txtRePassword.getText().toString();
+
+                    if (matKhauCu.equals(matkhau)){
+                        Log.e("admin",matkhau+matKhauCu);
                         Toast.makeText(getBaseContext(),"Mật Khẩu nhập lại không đúng",Toast.LENGTH_SHORT).show();
                         doimatkhau();
+<<<<<<< HEAD
                         int taikhoan = getSharedPreferences("THONGTIN",MODE_PRIVATE).getInt("taikhoang",-1);
                         DemoCallAPI(taikhoan,resmatkhau,matkhau);
+=======
+                        DemoCallAPI(matKhauCu,matkhau,nhapLai);
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
                     }
 
 
@@ -86,22 +96,37 @@ public class DoiMatKhau extends AppCompatActivity {
 
             }
 
+<<<<<<< HEAD
             private void DemoCallAPI(int taikhoan, String resmatkhau, String matkhau) {
+=======
+            private void DemoCallAPI(Integer maTaiKhoan, String matKhauCu, String matKhau) {
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
 
                 ServiceAPI requestInterface = new Retrofit.Builder()
                         .baseUrl(ServiceAPI.BASE_Service)
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
                         .build().create(ServiceAPI.class);
+<<<<<<< HEAD
                 new CompositeDisposable().add(requestInterface.CapNhatMatKhau(taikhoan,resmatkhau,matkhau)
+=======
+                new CompositeDisposable().add(requestInterface.CapNhatMatKhau(maTaiKhoan,matKhauCu,matKhau)
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeOn(Schedulers.io())
                         .subscribe(this::handleError, this::handleError)
                 );
             }
 
+<<<<<<< HEAD
             private void handleError(ArrayList<CapNhatMK> capNhatMKS) {
                 if (capNhatMKS.size() > 0) {
+=======
+
+            private void handleResponse(Integer info) {
+
+                if (info == 1) {
+>>>>>>> 01ed573fa2ea5b032312d64aea0f80503a9c8060
                     Intent intent = new Intent(DoiMatKhau.this, ManHinhChinh.class);
                     startActivity(intent);
                 } else {
@@ -115,8 +140,6 @@ public class DoiMatKhau extends AppCompatActivity {
             }
         });
 
-        }
-
     }
 
-
+}
