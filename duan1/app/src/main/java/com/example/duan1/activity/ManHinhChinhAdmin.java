@@ -9,64 +9,48 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
-import com.example.duan1.fragments.GioHangFragment;
 import com.example.duan1.fragments.HistoryFragment;
-import com.example.duan1.fragments.HoSoCuaToiFragment;
+import com.example.duan1.fragments.HomeAdminFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
+import com.example.duan1.fragments.QuanLyKhachHangFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
-public class  ManHinhChinh extends AppCompatActivity {
+public class  ManHinhChinhAdmin extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     EditText editText;
     Fragment fragment;
-    ImageView image;
     FragmentManager fragmentManager;
     public static String a;
     TextView txtTitle;
-    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manhinhchinh);
+        setContentView(R.layout.activity_mahinhchinh_admin);
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
-        GioHangFragment gioHangFragment = new GioHangFragment();
-        image = findViewById(R.id.ivGioHang);
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, gioHangFragment).commit();
-
-            }
-        });
-        
 
 
 
@@ -76,7 +60,7 @@ public class  ManHinhChinh extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_foreground);
 
         fragmentManager = getSupportFragmentManager();
-        fragment = new HomeFragment();
+        fragment = new HomeAdminFragment();
         fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
 
         //bắt sự kiên enter
@@ -89,7 +73,7 @@ public class  ManHinhChinh extends AppCompatActivity {
                     a= editText.getText().toString();
                     fragment = new SearchSanPhamFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
@@ -142,6 +126,12 @@ public class  ManHinhChinh extends AppCompatActivity {
                         editText.setVisibility(View.GONE);
                         txtTitle.setText("XIAOMI");
                         break;
+                    case R.id.dsMember:
+                        fragment = new QuanLyKhachHangFragment();
+                        txtTitle.setVisibility(View.VISIBLE);
+                        editText.setVisibility(View.GONE);
+                        txtTitle.setText("Quản lý khách hàng");
+                        break;
 
                 }
                 fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
@@ -151,7 +141,7 @@ public class  ManHinhChinh extends AppCompatActivity {
             }
         });
         BottomNavigationView bottomNavigationView;
-        HomeFragment homeFragment = new HomeFragment();
+        HomeAdminFragment homeFragment = new HomeAdminFragment();
         HistoryFragment historyFragment = new HistoryFragment();
         MeFragment meFragment = new MeFragment();
 

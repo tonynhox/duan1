@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
+import com.example.duan1.adapter.SanPhamAdminAdapter;
 import com.example.duan1.adapter.SanPhamHotAdapter;
 import com.example.duan1.models.SanPham;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -27,7 +28,7 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeFragment extends Fragment {
+public class HomeAdminFragment extends Fragment {
 
     ArrayList<SanPham> list;
     //    SanPhamHotAdapter adapter;
@@ -62,7 +63,7 @@ public class HomeFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listViewSP.setLayoutManager(linearLayoutManager);
-        SanPhamHotAdapter adapter = new SanPhamHotAdapter(list,getContext());
+        SanPhamAdminAdapter adapter = new SanPhamAdminAdapter(list,getContext());
         listViewSP.setAdapter(adapter);
     }
 

@@ -3,6 +3,7 @@ package com.example.duan1.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
 import com.example.duan1.models.CheckTaiKhoan;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -26,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ManHinhLogin extends AppCompatActivity {
     EditText user, pass;
-    public static String taikhoan;
+    public String taikhoan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,9 +77,25 @@ public class ManHinhLogin extends AppCompatActivity {
     private void handleResponse(ArrayList<CheckTaiKhoan> info) {
 
         if (info.size() > 0) {
+
             Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
             taikhoan = user.getText().toString();
             startActivity(intent);
+            StaticOthers.idUser= info.get(0).getMaTaiKhoan();
+            StaticOthers.username= info.get(0).getTenTaiKhoan();
+            int maLoaiTK= info.get(0).getMaLoaiTaiKhoan();
+            if(maLoaiTK!=1){
+                SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("taikhoang",info.get(0).getMaTaiKhoan());
+                editor.apply();
+                Intent intent1 = new Intent(ManHinhLogin.this, ManHinhChinh.class);
+                startActivity(intent1);
+            } else {
+                Intent intent1 = new Intent(ManHinhLogin.this, ManHinhChinhAdmin.class);
+                startActivity(intent1);
+            }
+
         } else {
             Toast.makeText(this, "Sai", Toast.LENGTH_SHORT).show();
         }

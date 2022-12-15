@@ -49,6 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <ImageView
+            android:id="@+id/themGioHang"
             android:layout_width="23dp"
             android:layout_height="21dp"
             android:background="@drawable/giohang"

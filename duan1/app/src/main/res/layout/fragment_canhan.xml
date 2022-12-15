@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DEDEDE"
@@ -17,21 +18,45 @@
         android:textColor="@color/black"
         android:textSize="16sp" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:id="@+id/btnHoSoCuaToi">
+
+
         <Button
-            android:id="@+id/doimk"
+            android:id  ="@+id/doimk"
             android:fontFamily="arial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:backgroundTint="@color/white"
             android:gravity="start|center_vertical"
+            android:text="Hồ sơ của tôi"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:backgroundTint="@color/white"
-            android:drawableRight="@drawable/arrow_right"
-            android:text="Hồ sơ của tôi" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
+
+        <ImageView
+            android:id="@+id/image_1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="14dp"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <Button
