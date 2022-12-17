@@ -1,6 +1,8 @@
 package com.example.duan1.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DoiMatKhauActivity extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +84,12 @@ public class DoiMatKhauActivity extends AppCompatActivity {
     }
 
     private void handleResponse(int info) {
+        sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         if(info==1){
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.clear();
+            editor.commit();
             Toast.makeText(this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
             finish();
         }else

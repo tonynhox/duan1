@@ -43,7 +43,10 @@ public class SearchSanPhamFragment extends Fragment implements ItemOnClick {
         View view = inflater.inflate(R.layout.fragment_sanpham, container, false);
         listViewSP = view.findViewById(R.id.recyclerView);
         ShowNotifyUser.showProgressDialog(view.getContext(), "Đang tìm kiếm");
-        DemoCallAPI(ManHinhChinh.a);
+        if(ManHinhChinh.a==null){
+            CallAPIFiller(Integer.parseInt(ManHinhChinh.gia1),Integer.parseInt(ManHinhChinh.gia2));
+        }else
+            DemoCallAPI(ManHinhChinh.a);
         return view;
     }
 
@@ -70,6 +73,7 @@ public class SearchSanPhamFragment extends Fragment implements ItemOnClick {
         listViewSP.setLayoutManager(linearLayoutManager);
         SanPhamTH_SearchAdapter adapter = new SanPhamTH_SearchAdapter(list,getContext(),this);
         listViewSP.setAdapter(adapter);
+        ManHinhChinh.a=null;
         ShowNotifyUser.dismissProgressDialog();
     }
 
@@ -78,6 +82,40 @@ public class SearchSanPhamFragment extends Fragment implements ItemOnClick {
         Log.d("chay",error+"");
         ShowNotifyUser.dismissProgressDialog();
     }
+
+    //locsp
+    private void CallAPIFiller(int gia1,int gia2) {
+
+        ServiceAPI requestInterface = new Retrofit.Builder()
+                .baseUrl(ServiceAPI.BASE_Service)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build().create(ServiceAPI.class);
+
+        new CompositeDisposable().add(requestInterface.getLocSanPham(gia1,gia2)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse2, this::handleError2)
+        );
+    }
+
+    private void handleResponse2(ArrayList<TimKiemSanPham> info) {
+        //Xử lý chức năng
+        list=info;
+        info.size();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        listViewSP.setLayoutManager(linearLayoutManager);
+        SanPhamTH_SearchAdapter adapter = new SanPhamTH_SearchAdapter(list,getContext(),this);
+        listViewSP.setAdapter(adapter);
+        ShowNotifyUser.dismissProgressDialog();
+    }
+
+    private void handleError2(Throwable error) {
+        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Log.d("chay",error+"");
+        ShowNotifyUser.dismissProgressDialog();
+    }
+
 
     @Override
     public void onClickItem(TimKiemSanPham timKiemSanPham) {

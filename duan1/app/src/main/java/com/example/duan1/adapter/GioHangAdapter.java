@@ -96,9 +96,14 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
         holder.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gioHang.setSoLuong(gioHang.getSoLuong()+1);
-                holder.txtSoLuong.setText((gioHang.getSoLuong())+"");
-                LoadTongTien();
+                if(gioHang.getSoLuong()<gioHang.getSoLuongTon()){
+                    gioHang.setSoLuong(gioHang.getSoLuong()+1);
+                    holder.txtSoLuong.setText((gioHang.getSoLuong())+"");
+                    LoadTongTien();
+                }else {
+                    Toast.makeText(context, "Số lượng sản phẩm không đủ", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });

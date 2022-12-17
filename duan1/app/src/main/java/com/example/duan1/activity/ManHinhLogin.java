@@ -2,8 +2,11 @@ package com.example.duan1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -28,31 +31,45 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ManHinhLogin extends AppCompatActivity {
 
-
+    SharedPreferences sharedPreferences;
+    String typeU,typePass ;
+    int typeId;
     EditText user, pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
+        typeU = sharedPreferences.getString("user", "");
+        typePass= sharedPreferences.getString("pass", "");
+        typeId=sharedPreferences.getInt("idUser", 0);
         Button btnLogin = findViewById(R.id.login);
         Button btnRegister = findViewById(R.id.register);
         user = findViewById(R.id.edt_username);
         pass = findViewById(R.id.edt_password);
+
+        if(typeU.isEmpty()){
+            Toast.makeText(this, "Hello bà già", Toast.LENGTH_SHORT).show();
+        }else {
+            DemoCallAPI(typeU,typePass);
+        }
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = user.getText().toString();
                 String password = pass.getText().toString();
 
+
                 if (username.length() > 0 && password.length() > 0) {
-                    ShowNotifyUser.showProgressDialog(ManHinhLogin.this, "Đang đăng nhập");
+                    ShowNotifyUser.showProgressDialog(ManHinhLogin.this,"Loading");
                     DemoCallAPI(username, password);
                 } else {
                     Toast.makeText(ManHinhLogin.this, "Vui lòng nhập đầy đủ thông tin.", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
@@ -85,6 +102,11 @@ public class ManHinhLogin extends AppCompatActivity {
             StaticOthers.idUser= info.get(0).getMaTaiKhoan();
             StaticOthers.username= info.get(0).getTenTaiKhoan();
             int maLoaiTK= info.get(0).getMaLoaiTaiKhoan();
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.putInt("idUser",StaticOthers.idUser);
+            editor.putString("user",user.getText().toString());
+            editor.putString("pass",pass.getText().toString());
+            editor.commit();
             if(maLoaiTK!=1){
                 Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
                 startActivity(intent);
@@ -102,7 +124,11 @@ public class ManHinhLogin extends AppCompatActivity {
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
-        ShowNotifyUser.dismissProgressDialog();
+        try {
+            ShowNotifyUser.dismissProgressDialog();
+        }catch (Exception e){
+
+        }
     }
 
 

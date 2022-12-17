@@ -1,7 +1,9 @@
 package com.example.duan1.fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +30,11 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 public class MeFragment extends Fragment {
     static public Button btnXoa,btnHoSo,btnDangXuat;
     Fragment fragment;
+    SharedPreferences  sharedPreferences;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -50,7 +53,6 @@ public class MeFragment extends Fragment {
                 if (StaticOthers.username.equalsIgnoreCase("admin"))
                     ManHinhChinhAdmin.txtTitle.setText("Hồ sơ của tôi");
                 else
-
                     ManHinhChinh.txtTitle.setText("Hồ sơ của tôi");
             }
 
@@ -90,7 +92,7 @@ public class MeFragment extends Fragment {
         });
 
 
-
+        SharedPreferences  sharedPreferences = getActivity().getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +102,9 @@ public class MeFragment extends Fragment {
                 builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        SharedPreferences.Editor editor= sharedPreferences.edit();
+                        editor.clear();
+                        editor.commit();
                         getActivity().finish();
                         StaticOthers.listGH.clear();
                     }

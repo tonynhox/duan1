@@ -42,6 +42,7 @@ import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -194,6 +195,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                     return;
                 }
                 try {
+                    ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                     upload();
 
                 }catch (Exception e){
@@ -261,8 +263,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 Log.d("CHECK", "onStart");
                 ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
-
-
             }
 
             @Override
@@ -290,11 +290,15 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onError: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
 
             @Override
             public void onReschedule(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onReschedule: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
         }).dispatch();
     }
@@ -325,8 +329,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
 
 
-
-
     // ảnh 2
     private void upload2() {
         MediaManager.get().upload(imagePath2).callback(new UploadCallback() {
@@ -350,9 +352,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 StringBuilder stringBuilder2 = new StringBuilder(resultData.get("url").toString());
                 char ch = 's';
                 stringBuilder2.insert(4, ch);
-
                 hinhAnhNho = stringBuilder2.toString();
-
                 SanPham sanPham= new SanPham();
                 sanPham.setTenSp(tenSP);
                 sanPham.setMotaSp(mota);
@@ -364,7 +364,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 CallAPIAdd(sanPham);
                 imagePath2=null;
                 ShowNotifyUser.dismissProgressDialog();
-
                 alertDialog.dismiss();
 
 
@@ -373,11 +372,15 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onError: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
 
             @Override
             public void onReschedule(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onReschedule: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
         }).dispatch();
     }
@@ -416,7 +419,8 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
-                ShowNotifyUser.showProgressDialog(getContext(),"đợi load ảnh thứ 2");
+                ShowNotifyUser.dismissProgressDialog();
+                ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 2");
             }
 
             @Override
@@ -448,11 +452,15 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onError: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
 
             @Override
             public void onReschedule(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onReschedule: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
         }).dispatch();
     }
@@ -463,6 +471,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
+                ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
 
             }
@@ -501,11 +510,15 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onError(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onError: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
 
             @Override
             public void onReschedule(String requestId, ErrorInfo error) {
                 Log.d("CHECK", "onReschedule: " + error);
+                Toast.makeText(getContext(), "Lỗi vui lòng thử lại", Toast.LENGTH_SHORT).show();
+                ShowNotifyUser.dismissProgressDialog();
             }
         }).dispatch();
     }
@@ -606,7 +619,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
         View view = inflater.inflate(R.layout.dialog_sua_admin, null);
         builder.setView(view);
         alertDialogSua = builder.create();
-
         map.put(1,"IPHONE");
         map.put(2,"SAMSUNG");
         map.put(3,"OPPO");
@@ -661,11 +673,6 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
 
-
-
-
-
-
                 if(tenSP.equals("")||mota.equals("")){
                     Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
                     return;
@@ -686,7 +693,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                 }
 
 
-
+                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                 try {
                     uploadSua(listAllSP.get(0).getMaSp());
                 }catch (Exception e){

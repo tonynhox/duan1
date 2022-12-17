@@ -16,13 +16,41 @@
         tools:layout_editor_absoluteX="-18dp"
         tools:layout_editor_absoluteY="-132dp">
 
+        <TextView
+            android:id="@+id/textView4p2"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="Hóa đơn:"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/ivSanPham"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtMaHoaDon"
+            android:layout_width="120dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="arial"
+            android:gravity="bottom"
+            android:text="43"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="80dp"
             android:layout_height="25dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="30dp"
             android:fontFamily="arial"
             android:gravity="bottom"
             android:text="Tên:"
@@ -30,7 +58,7 @@
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivSanPham"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4p2" />
 
 
         <ImageView
@@ -61,7 +89,6 @@
             android:id="@+id/txtTenSP"
             android:layout_width="120dp"
             android:layout_height="25dp"
-            android:layout_marginTop="30dp"
             android:fontFamily="arial"
             android:gravity="bottom"
             android:text="abc"
@@ -70,7 +97,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txtMaHoaDon" />
 
         <TextView
             android:id="@+id/textView4"
@@ -84,7 +111,7 @@
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivSanPham"
-            app:layout_constraintTop_toBottomOf="@+id/txtTenSP" />
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
         <TextView
@@ -230,6 +257,28 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDiaChi"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/txtTrangThai"
+            android:layout_width="174dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/custom_button8"
+            android:fontFamily="arial"
+            android:gravity="center"
+            android:text="Chưa thanh toán"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView0"
+            app:layout_constraintHorizontal_bias="0.881"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDiaChi"
             app:layout_constraintVertical_bias="1.0" />

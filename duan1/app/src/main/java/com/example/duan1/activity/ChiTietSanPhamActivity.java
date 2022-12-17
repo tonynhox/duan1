@@ -81,57 +81,49 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
         ivGioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GioHang gioHang= new GioHang();
-                gioHang.setTenSp(list.get(0).getTenSp());
-                gioHang.setGiaSp(list.get(0).getGiaSp());
-                gioHang.setSoLuong(1);
-                gioHang.setHinhAnhLon(list.get(0).getHinhAnhLon());
-                gioHang.setMaSP(list.get(0).getMaSp());
-                gioHang.setSoLuongTon(list.get(0).getSoLuongSp());
 
-                int count=0;
-                int a=-1;
-                for (GioHang item : StaticOthers.listGH) {
-                    a++;
-                    if(item.getMaSP()==(gioHang.getMaSP())){
-                        GioHang gioHang2;
-                        gioHang2=gioHang;
-                        gioHang2.setSoLuong(item.getSoLuong()+1);
-                        gioHang2.setHinhAnhLon(list.get(0).getHinhAnhLon());
-                        StaticOthers.listGH.set(a,gioHang2);
-                        count=1;
+                if (Integer.parseInt(txtSoLuongSP.getText().toString())>0) {
+                    GioHang gioHang = new GioHang();
+                    gioHang.setTenSp(list.get(0).getTenSp());
+                    gioHang.setGiaSp(list.get(0).getGiaSp());
+                    gioHang.setSoLuong(1);
+                    gioHang.setHinhAnhLon(list.get(0).getHinhAnhLon());
+                    gioHang.setMaSP(list.get(0).getMaSp());
+                    gioHang.setSoLuongTon(list.get(0).getSoLuongSp());
+
+                    int count = 0;
+                    int a = -1;
+                    for (GioHang item : StaticOthers.listGH) {
+                        a++;
+                        if (item.getMaSP() == (gioHang.getMaSP()) && item.getSoLuong() == item.getSoLuongTon()) {
+                            Toast.makeText(ChiTietSanPhamActivity.this, "Số lượng sản phẩm không đủ", Toast.LENGTH_SHORT).show();
+                            count = 1;
+                            continue;
+                        }
+                        if (item.getMaSP() == (gioHang.getMaSP())) {
+                            GioHang gioHang2;
+                            gioHang2 = gioHang;
+                            gioHang2.setSoLuong(item.getSoLuong() + 1);
+                            gioHang2.setHinhAnhLon(list.get(0).getHinhAnhLon());
+                            StaticOthers.listGH.set(a, gioHang2);
+                            count = 1;
+                            Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
-                }
-                if (count==0){
-                    StaticOthers.listGH.add(gioHang);
-                }
-                Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                    if (count == 0) {
+                        StaticOthers.listGH.add(gioHang);
+                        Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
 
+                    }
+                }else {
+                    Toast.makeText(ChiTietSanPhamActivity.this, "Hết hàng", Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
 
     }
-
-//    @Nullable
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_chitietsanpham, container, false);
-//        txtTenSP = view.findViewById(R.id.txtTenSP);
-//        txtGiaSP = view.findViewById(R.id.txtGiaSP);
-//        txtSoLuongSP = view.findViewById(R.id.txtSoLuongSP);
-//        txtTenThuongHieu = view.findViewById(R.id.txtTenThuongHieu);
-//        txtMoTaSP = view.findViewById(R.id.txtMoTaSP);
-//        ivHinhAnhLon = view.findViewById(R.id.ivHinhAnhLon);
-//        ivHinhAnhNho = view.findViewById(R.id.ivHinhAnhNho);
-//        ivGioHang = view.findViewById(R.id.ivGioHang);
-//        txtMoTaSP.setMovementMethod(new ScrollingMovementMethod());
-//        DemoCallAPI(HomeFragment.maSP);
-//        DemoCallAPI(SearchSanPhamFragment.maSP);
-//        DemoCallAPI(SanPhamTHFragment.maSP);
-//
-//        return view;
-//    }
 
     private void DemoCallAPI(int maSP) {
 

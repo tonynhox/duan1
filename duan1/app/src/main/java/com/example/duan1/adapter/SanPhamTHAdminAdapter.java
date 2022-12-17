@@ -73,6 +73,8 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         holder.txtTen.setText(list.get(i).getTenSp());
+        holder.txtSoLuong.setText(String.valueOf(list.get(i).getSoLuong()));
+
         holder.ivsua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -118,12 +120,14 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen;
+        TextView txtTen,txtSoLuong;
         ImageView ivsua,ivxoa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTen = itemView.findViewById(R.id.txtName);
+            txtSoLuong = itemView.findViewById(R.id.txtSoLuong);
+
             ivsua = itemView.findViewById(R.id.ivEdit);
             ivxoa = itemView.findViewById(R.id.ivDelete);
         }
@@ -133,36 +137,6 @@ public class SanPhamTHAdminAdapter extends RecyclerView.Adapter<SanPhamTHAdminAd
 
 
 
-    //API Xóa
-    private void CallAPIDelte(int maSP) {
-
-        ServiceAPI requestInterface = new Retrofit.Builder()
-                .baseUrl(ServiceAPI.BASE_Service)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(ServiceAPI.class);
-
-        new CompositeDisposable().add(requestInterface.xoaSP(maSP)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse, this::handleError)
-        );
-    }
-
-    private void handleResponse(Integer info) {
-        //Xử lý chức năng
-        if(info == 1){
-            Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(context,"Sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void handleError(Throwable error) {
-        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Toast.makeText(context, "Xóa không thành công", Toast.LENGTH_SHORT).show();
-
-    }
 
 
 

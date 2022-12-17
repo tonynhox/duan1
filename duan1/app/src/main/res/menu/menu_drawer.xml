@@ -19,7 +19,7 @@
                 android:title="Xiaomi"
                 android:icon="@drawable/ic_phone_foreground"/>
             <item android:id="@+id/dtRM"
-                android:title="Redmi"
+                android:title="Asus"
                 android:icon="@drawable/ic_phone_foreground"/>
         </menu>
     </item>

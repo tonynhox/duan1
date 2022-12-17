@@ -60,8 +60,12 @@ public class TrangThaiDonHangAdminAdapter extends RecyclerView.Adapter<TrangThai
         holder.txtSoLuong.setText(String.valueOf(list.get(i).getTongSoLuong()));
         holder.txtDiaChi.setText(list.get(i).getDiaChi());
         holder.txtSDT.setText(list.get(i).getSoDienThoai());
+        holder.txtThanhToan.setText(list.get(i).getThanhToan());
+        holder.txtMaHoaDon.setText(String.valueOf(list.get(i).getMaHoaDon()));
+
 
         HoaDon hoaDon= list.get(holder.getAdapterPosition());
+
         holder.cvItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,16 +77,17 @@ public class TrangThaiDonHangAdminAdapter extends RecyclerView.Adapter<TrangThai
             @Override
             public void onClick(View view) {
                 itemOnClickHD.OnClickBtnNhan(hoaDon.getMaHoaDon());
-                holder.btnXacNhan.setVisibility(View.GONE);
-                holder.btnHuy.setVisibility(View.GONE);
             }
         });
+        if(list.get(i).getTrangThaiHD().equalsIgnoreCase("Đang giao hàng")){
+            holder.btnXacNhan.setVisibility(View.GONE);
+            holder.txtThanhToan.setVisibility(View.VISIBLE);
+        }
         holder.btnHuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 itemOnClickHD.OnClickBtnHuy(hoaDon.getMaHoaDon());
-                holder.btnXacNhan.setVisibility(View.GONE);
-                holder.btnHuy.setVisibility(View.GONE);
+
             }
         });
 
@@ -97,7 +102,7 @@ public class TrangThaiDonHangAdminAdapter extends RecyclerView.Adapter<TrangThai
 
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
-        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtDiaChi,txtSDT;
+        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtDiaChi,txtSDT,txtThanhToan,txtMaHoaDon;
         Button btnHuy,btnXacNhan;
         ImageView ivLon;
         CardView cvItem;
@@ -113,6 +118,8 @@ public class TrangThaiDonHangAdminAdapter extends RecyclerView.Adapter<TrangThai
             btnXacNhan = itemView.findViewById(R.id.btnXacNhan);
             txtDiaChi = itemView.findViewById(R.id.txtDiaChi);
             txtSDT = itemView.findViewById(R.id.txtSDT);
+            txtThanhToan = itemView.findViewById(R.id.txtTrangThai);
+            txtMaHoaDon = itemView.findViewById(R.id.txtMaHoaDon);
 
             cvItem = itemView.findViewById(R.id.cvItem);
 

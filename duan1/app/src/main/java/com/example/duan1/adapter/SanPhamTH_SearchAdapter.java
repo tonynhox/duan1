@@ -62,33 +62,46 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
         holder.gioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 TimKiemSanPham timKiemSanPham = list.get(holder.getAdapterPosition());
+                if (timKiemSanPham.getSoLuong()>0){
+                    GioHang gioHang= new GioHang();
+                    gioHang.setTenSp(timKiemSanPham.getTenSp());
+                    gioHang.setGiaSp(timKiemSanPham.getGiaSp());
+                    gioHang.setSoLuong(1);
+                    gioHang.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
+                    gioHang.setMaSP(timKiemSanPham.getMaSp());
+                    gioHang.setSoLuongTon(timKiemSanPham.getSoLuong());
 
-                GioHang gioHang= new GioHang();
-                gioHang.setTenSp(timKiemSanPham.getTenSp());
-                gioHang.setGiaSp(timKiemSanPham.getGiaSp());
-                gioHang.setSoLuong(1);
-                gioHang.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
-                gioHang.setMaSP(timKiemSanPham.getMaSp());
-                gioHang.setSoLuongTon(timKiemSanPham.getSoLuong());
+                    int count=0;
+                    int a=-1;
+                    for (GioHang item :StaticOthers.listGH) {
+                        a++;
+                        if (item.getMaSP()==(gioHang.getMaSP())&&item.getSoLuong()==item.getSoLuongTon()){
+                            Toast.makeText(context, "Số lượng sản phẩm không đủ", Toast.LENGTH_SHORT).show();
+                            count=1;
+                            continue;
+                        }
+                        if(item.getMaSP()==(gioHang.getMaSP())){
+                            GioHang gioHang2;
+                            gioHang2=gioHang;
+                            gioHang2.setSoLuong(item.getSoLuong()+1);
+                            gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
+                            StaticOthers.listGH.set(a,gioHang2);
+                            Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                            count=1;
+                        }
 
-                int count=0;
-                int a=-1;
-                for (GioHang item :StaticOthers.listGH) {
-                    a++;
-                    if(item.getMaSP()==(gioHang.getMaSP())){
-                        GioHang gioHang2;
-                        gioHang2=gioHang;
-                        gioHang2.setSoLuong(item.getSoLuong()+1);
-                        gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
-                        StaticOthers.listGH.set(a,gioHang2);
-                        count=1;
                     }
+                    if (count==0){
+                        StaticOthers.listGH.add(gioHang);
+                        Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context, "Hết hàng", Toast.LENGTH_SHORT).show();
+
                 }
-                if (count==0){
-                    StaticOthers.listGH.add(gioHang);
-                }
-                Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+
 
             }
         });

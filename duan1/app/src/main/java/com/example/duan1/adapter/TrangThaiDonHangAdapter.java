@@ -56,6 +56,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
         holder.txtSoLuong.setText(String.valueOf(list.get(i).getTongSoLuong()));
         holder.txtTrangThai.setText(list.get(i).getTrangThaiHD());
         holder.txtSDT.setText(list.get(i).getSoDienThoai());
+        holder.txtMaHoaDon.setText(String.valueOf(list.get(i).getMaHoaDon()));
 
         HoaDon hoaDon= list.get(holder.getAdapterPosition());
         if(list.get(i).getTrangThaiHD().equalsIgnoreCase("Đang giao hàng")){
@@ -101,7 +102,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
 
     public class MyViewHolder extends  RecyclerView.ViewHolder{
 
-        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi,txtSDT;
+        TextView txtTen,txtGia,txtNgay,txtSoLuong,txtTrangThai,txtDiaChi,txtSDT,txtMaHoaDon;
         Button btnHuy,btnDaNhan;
         ImageView ivLon;
         CardView cvItem;
@@ -115,7 +116,7 @@ public class TrangThaiDonHangAdapter extends RecyclerView.Adapter<TrangThaiDonHa
             txtTrangThai = itemView.findViewById(R.id.txtTrangThai);
             txtDiaChi = itemView.findViewById(R.id.txtDiaChi);
             txtSDT = itemView.findViewById(R.id.txtSDT);
-
+            txtMaHoaDon= itemView.findViewById(R.id.txtMaHoaDon);
             cvItem = itemView.findViewById(R.id.cvItem);
             btnHuy = itemView.findViewById(R.id.btnHuy);
             txtSoLuong = itemView.findViewById(R.id.txtSoLuongSP);

@@ -2,6 +2,7 @@ package com.example.duan1.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -11,25 +12,33 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.duan1.R;
 import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
+import com.example.duan1.models.SanPham;
+import com.example.duan1.others.ShowNotifyUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Map;
 
 public class  ManHinhChinh extends AppCompatActivity {
     Toolbar toolbar;
@@ -37,10 +46,14 @@ public class  ManHinhChinh extends AppCompatActivity {
     NavigationView navigationView;
     EditText editText;
     Fragment fragment;
-    ImageView image;
+    public static ImageView image;
     FragmentManager fragmentManager;
-    public static String a;
+    public static String a,gia1,gia2;
     public static TextView txtTitle;
+    public static TextView txtSua;
+    public static ImageView ivFiller;
+    public EditText edtGia1,edtGia2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +67,8 @@ public class  ManHinhChinh extends AppCompatActivity {
         editText = findViewById(R.id.edtTim);
         txtTitle = findViewById(R.id.txtTitle);
         image = findViewById(R.id.ivGioHang);
+        ivFiller = findViewById(R.id.ivFiller);
+        txtSua= findViewById(R.id.txtEdit);
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +77,12 @@ public class  ManHinhChinh extends AppCompatActivity {
 
             }
         });
-        
+        ivFiller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialogFiller();
+            }
+        });
 
 
 
@@ -70,7 +90,6 @@ public class  ManHinhChinh extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_foreground);
-
         fragmentManager = getSupportFragmentManager();
         fragment = new HomeFragment();
         fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
@@ -99,43 +118,37 @@ public class  ManHinhChinh extends AppCompatActivity {
                     case R.id.dtSS:
                         fragment = new SanPhamTHFragment();
                         a= "samsung";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
                         txtTitle.setText("SAMSUNG");
                         break;
                     case R.id.dtVV:
                         fragment = new SanPhamTHFragment();
                         a= "vivo";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
                         txtTitle.setText("VIVO");
                         break;
                     case R.id.dtIP:
                         fragment = new SanPhamTHFragment();
                         a= "iphone";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
                         txtTitle.setText("IPHONE");
                         break;
                     case R.id.dtOP:
                         fragment = new SanPhamTHFragment();
                         a= "oppo";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
                         txtTitle.setText("OPPO");
                         break;
                     case R.id.dtRM:
                         fragment = new SanPhamTHFragment();
-                        a= "redmi";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
-                        txtTitle.setText("REDMI");
+                        a= "asus";
+                        changToolbar();
+                        txtTitle.setText("Asus");
                         break;
                     case R.id.dtXM:
                         fragment = new SanPhamTHFragment();
                         a= "xiaomi";
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
                         txtTitle.setText("XIAOMI");
                         break;
 
@@ -160,17 +173,21 @@ public class  ManHinhChinh extends AppCompatActivity {
                     case R.id.home:
                         editText.setVisibility(View.VISIBLE);
                         txtTitle.setVisibility(View.GONE);
+                        txtSua.setVisibility(View.GONE);
+                        image.setVisibility(View.VISIBLE);
+                        ivFiller.setVisibility(View.VISIBLE);
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, homeFragment).commit();
                         break;
                     case R.id.history:
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
+
                         txtTitle.setText("Trạng thái đơn hàng");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, historyFragment).commit();
                         break;
                     case R.id.me:
-                        txtTitle.setVisibility(View.VISIBLE);
-                        editText.setVisibility(View.GONE);
+                        changToolbar();
+
                         txtTitle.setText("Tôi");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
                         break;
@@ -187,13 +204,57 @@ public class  ManHinhChinh extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        View decorView = getWindow().getDecorView();
-// Hide the status bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
+    private void changToolbar(){
+        txtTitle.setVisibility(View.VISIBLE);
+        editText.setVisibility(View.GONE);
+        txtSua.setVisibility(View.GONE);
+        image.setVisibility(View.VISIBLE);
+        ivFiller.setVisibility(View.GONE);
+
     }
+
+    private void showDialogFiller(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_locsanpham, null);
+        builder.setView(view);
+        AlertDialog alertDialogLoc = builder.create();
+        edtGia1= view.findViewById(R.id.edtGia1);
+        edtGia2= view.findViewById(R.id.edtGia2);
+        Button btnTim=view.findViewById(R.id.btnSearch);
+        Button btnCancel=view.findViewById(R.id.btnHuy);
+
+        btnTim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                String pGia1=edtGia1.getText().toString();
+//                String pGia2=edtGia2.getText().toString();
+
+                    gia1 = edtGia1.getText().toString();
+                    gia2 = edtGia2.getText().toString();
+                    String isNum= "\\d+";
+                if(!gia1.matches(isNum)||!gia2.matches(isNum)){
+                    Toast.makeText(ManHinhChinh.this, "Vui lòng nhập số", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    fragment = new SearchSanPhamFragment();
+                    fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
+                    alertDialogLoc.dismiss();
+                }
+
+
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialogLoc.dismiss();
+            }
+        });
+
+        alertDialogLoc.show();
+    }
+
 
 }

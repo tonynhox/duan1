@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,6 +62,9 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
         ImageView ivGH = findViewById(R.id.ivGioHang);
 
         ivGH.setImageResource(R.drawable.ic_white);
+        ImageView ivFiller = findViewById(R.id.ivFiller);
+        ivFiller.setBackground(getDrawable(R.drawable.ic_white));
+
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -120,10 +124,10 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                         break;
                     case R.id.dtRM:
                         fragment = new SanPhamTHAdminFragment();
-                        b= "redmi";
+                        b= "asus";
                         txtTitle.setVisibility(View.VISIBLE);
                         editText.setVisibility(View.GONE);
-                        txtTitle.setText("REDMI");
+                        txtTitle.setText("Asus");
                         break;
                     case R.id.dtXM:
                         fragment = new SanPhamTHAdminFragment();

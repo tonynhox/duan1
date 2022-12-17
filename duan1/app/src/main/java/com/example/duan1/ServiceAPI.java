@@ -23,8 +23,11 @@ public interface ServiceAPI {
 
     //2
     @POST("api/addHoaDon")
-    Observable<MaHoaDon> addHoaDon(@Query("maTaiKhoan") int maTaiKhoan,@Query("ngayMua") String ngayMua,
-                                              @Query("diaChi") String diaChi,@Query("soDienThoai") String soDienThoai);
+    Observable<MaHoaDon> addHoaDon(@Query("maTaiKhoan") int maTaiKhoan,
+                                   @Query("ngayMua") String ngayMua,
+                                   @Query("diaChi") String diaChi,
+                                   @Query("soDienThoai") String soDienThoai,
+                                   @Query("thanhToan") String thanhToan);
 
     //3
     @POST("api/addSanPham")
@@ -59,6 +62,11 @@ public interface ServiceAPI {
                                        @Query("soLuong") int soLuong,
                                        @Query("hinhAnhLon") String hinhAnhLon,
                                        @Query("hinhAnhNho") String hinhAnhNho);
+    //6.5
+    @POST("api/capNhatThanhToanHD")
+    Observable<Integer> capNhatThanhToanHD(@Query("maHoaDon") int maHoaDon,
+                                           @Query("thanhToan") String thanhToan);
+
 
     //7
     @POST("api/capNhatTrangThaiHD")
@@ -69,6 +77,14 @@ public interface ServiceAPI {
     @POST("api/capNhatSoLuongSP")
     Observable<Integer> capNhatSoLuongSP(@Query("maSP") int maSP,
                                            @Query("soLuong") int soLuong);
+
+    //
+    @POST("api/capNhatTaiKhoan")
+    Observable<Integer> capNhatTaiKhoan(@Query("maTaiKhoan") int maTaiKhoan,
+                                    @Query("hoTen") String hoTen,
+                                    @Query("namSinh")String namSinh,
+                                    @Query("soDienThoai") String soDienThoai,
+                                    @Query("email") String email);
     
     //8
     @POST("api/checkTaiKhoan")
@@ -90,7 +106,9 @@ public interface ServiceAPI {
     //12
     @GET("api/getLichSuHoaDonKH")
     Observable<ArrayList<HoaDon>> getLichSuHoaDonKH(@Query("tenTaiKhoan") String tenTaiKhoan);
-
+    //12.5
+    @GET("api/getLocSanPham")
+    Observable<ArrayList<TimKiemSanPham>> getLocSanPham(@Query("gia1") int gia1,@Query("gia2") int gia2);
     //13
     @GET("api/getSanPham")
     Observable<ArrayList<SanPham>> getSanPham(@Query("maSP") int maSP);

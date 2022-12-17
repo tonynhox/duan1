@@ -174,6 +174,7 @@ public class HomeAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
+                ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(),"đợi load ảnh thứ 2");
             }
 
@@ -221,6 +222,7 @@ public class HomeAdminFragment extends Fragment implements ItemOnClick {
             @Override
             public void onStart(String requestId) {
                 Log.d("CHECK", "onStart");
+                ShowNotifyUser.dismissProgressDialog();
                 ShowNotifyUser.showProgressDialog(getContext(),"Đợi load ảnh 1");
 
             }
@@ -413,7 +415,7 @@ public class HomeAdminFragment extends Fragment implements ItemOnClick {
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShowNotifyUser.dismissProgressDialog();
+                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
 
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();

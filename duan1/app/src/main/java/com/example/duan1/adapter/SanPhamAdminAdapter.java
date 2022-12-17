@@ -51,6 +51,8 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
         holder.txtTen.setText(list.get(i).getTenSp());
+        holder.txtSoLuong.setText(String.valueOf(list.get(i).getSoLuongSp()));
+
         SanPham sanPham = list.get(holder.getAdapterPosition());
 
         holder.ivsua.setOnClickListener(new View.OnClickListener() {
@@ -91,12 +93,14 @@ public class SanPhamAdminAdapter extends RecyclerView.Adapter<SanPhamAdminAdapte
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtTen;
+        TextView txtTen,txtSoLuong;
         ImageView ivsua,ivxoa;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtTen = itemView.findViewById(R.id.txtName);
+            txtSoLuong = itemView.findViewById(R.id.txtSoLuong);
+
             ivsua = itemView.findViewById(R.id.ivEdit);
             ivxoa = itemView.findViewById(R.id.ivDelete);
         }

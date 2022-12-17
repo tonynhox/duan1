@@ -56,7 +56,9 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
         holder.gioHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Để ý models và tên biến do coppy làm biếng sửa
                 SanPham timKiemSanPham = list.get(holder.getAdapterPosition());
+                if (timKiemSanPham.getSoLuongSp()>0){
                 GioHang gioHang= new GioHang();
                 gioHang.setTenSp(timKiemSanPham.getTenSp());
                 gioHang.setGiaSp(timKiemSanPham.getGiaSp());
@@ -69,6 +71,11 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
                 int a=-1;
                 for (GioHang item : StaticOthers.listGH) {
                     a++;
+                    if (item.getMaSP()==(gioHang.getMaSP())&&item.getSoLuong()==item.getSoLuongTon()){
+                        Toast.makeText(context, "Số lượng sản phẩm không đủ", Toast.LENGTH_SHORT).show();
+                        count=1;
+                        continue;
+                    }
                     if(item.getTenSp().equals(gioHang.getTenSp())){
                         GioHang gioHang2;
                         gioHang2=gioHang;
@@ -76,13 +83,17 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
                         gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
                         StaticOthers.listGH.set(a,gioHang2);
                         count=1;
+                        Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
                 if (count==0){
                     StaticOthers.listGH.add(gioHang);
-                }
-                Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context, "Hết hàng", Toast.LENGTH_SHORT).show();
 
+                }
             }
         });
         holder.txtChiTiet.setOnClickListener(new View.OnClickListener() {

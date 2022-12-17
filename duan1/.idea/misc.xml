@@ -112,6 +112,7 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_button5.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_button6.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_button7.xml" value="0.155" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_button8.xml" value="0.142" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_edittext.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_line.xml" value="0.1415" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/custom_tv.xml" value="0.142" />
@@ -120,8 +121,11 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.155" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_cart.xml" value="0.1465" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_cart_red.xml" value="0.1465" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_delete_foreground.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_edit_foreground.xml" value="0.155" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_filler.xml" value="0.1465" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_home_foreground.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_icon.xml" value="0.183" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_image_foreground.xml" value="0.155" />
@@ -134,6 +138,9 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_phone_foreground.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_search_foreground.xml" value="0.155" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/ic_white.xml" value="0.183" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/loc.xml" value="0.1465" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/vt_background.xml" value="0.1465" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/drawable/vt_fill.xml" value="0.1465" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/font-v26/my_font.xml" value="0.26296296296296295" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/font/my_font.xml" value="0.26296296296296295" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/activity_doimatkhau.xml" value="0.25416666666666665" />
@@ -142,7 +149,9 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/activity_manhinhchinh.xml" value="0.17028985507246377" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/activity_thanh_toan.xml" value="0.2" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_add.xml" value="0.12473958333333333" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_locsanpham.xml" value="0.22592592592592592" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_sua_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_sua_hosocanhan.xml" value="0.22592592592592592" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_them_admin.xml" value="0.176" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/dialog_xacnhantaikhoan.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/fragment_canhan.xml" value="0.264" />
@@ -164,7 +173,7 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_lichsudonhang.xml" value="0.264" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanpham.xml" value="0.264" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_sanpham_admin.xml" value="0.4" />
-        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang.xml" value="0.264" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang.xml" value="0.2" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/item_trangthaidonhang_admin.xml" value="0.264" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/loading.xml" value="0.22592592592592592" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/layout/login.xml" value="0.17028985507246377" />
@@ -176,8 +185,11 @@
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/menu/menu_context.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/menu/menu_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/menu/menu_drawer_admin.xml" value="0.253125" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_add.xml" value="0.124" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_add_round.xml" value="0.1415" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_delete.xml" value="0.124" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_delete_round.xml" value="0.1415" />
+        <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_huy_round.xml" value="0.1465" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1415" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1415" />
         <entry key="..\:/team_duan1/duan1/duan1/app/src/main/res/mipmap-anydpi-v26/ic_member.xml" value="0.1415" />

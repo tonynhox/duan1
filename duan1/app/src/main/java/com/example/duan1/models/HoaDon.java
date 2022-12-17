@@ -11,6 +11,7 @@ public class HoaDon {
     private String trangThaiHD;
     private String soDienThoai;
     private String diaChi;
+    private  String thanhToan;
 
     public HoaDon() {
     }
@@ -23,6 +24,18 @@ public class HoaDon {
         this.tongGiaTien = tongGiaTien;
         this.trangThaiHD = trangThaiHD;
         this.diaChi = diaChi;
+    }
+
+    public void setTongGiaTien(long tongGiaTien) {
+        this.tongGiaTien = tongGiaTien;
+    }
+
+    public String getThanhToan() {
+        return thanhToan;
+    }
+
+    public void setThanhToan(String thanhToan) {
+        this.thanhToan = thanhToan;
     }
 
     public String getSoDienThoai() {

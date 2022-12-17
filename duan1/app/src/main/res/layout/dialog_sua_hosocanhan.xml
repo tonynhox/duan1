@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="arial"
+            android:text="Sửa hồ sơ cá nhân"
+            android:textColor="#DB3E3E"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Họ tên: "
+                android:layout_marginTop="20dp"
+                android:fontFamily="arial"
+                android:textSize="22dp"/>
+            <EditText
+                android:id="@+id/edtHoTen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="arial"
+                android:textColor="#000000"
+                android:hint="Nhập họ tên"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Năm sinh: "
+                android:layout_marginTop="5dp"
+                android:fontFamily="arial"
+                android:textSize="22dp"/>
+            <TextView
+                android:id="@+id/edtNamSinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="arial"
+                android:textColor="#000000"
+                android:paddingLeft="5dp"
+                android:hint="Nhập năm sinh"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="SĐT: "
+                android:layout_marginTop="5dp"
+                android:fontFamily="arial"
+                android:textSize="22dp"/>
+            <EditText
+                android:id="@+id/edtSDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="arial"
+                android:textColor="#000000"
+
+                android:hint="Nhập số điện thoại"
+                android:textSize="22dp" />
+
+        </LinearLayout>        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:layout_marginTop="5dp"
+            android:fontFamily="arial"
+            android:textSize="22dp"/>
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="arial"
+            android:textColor="#000000"
+
+            android:hint="Nhập email"
+            android:textSize="22dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="35dp"
+        android:layout_gravity="center_horizontal">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLuu"
+            android:layout_width="0dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_button5"
+            android:text="Lưu"
+            android:textColor="#fff9f9" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnHuy"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_button6"
+            android:text="Hủy"
+            android:textColor="#fff9f9" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
