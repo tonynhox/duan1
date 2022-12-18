@@ -16,12 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1.R;
 import com.example.duan1.ServiceAPI;
-import com.example.duan1.models.CheckTaiKhoan;
-import com.example.duan1.others.ShowNotifyUser;
-import com.example.duan1.others.StaticOthers;
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import java.util.ArrayList;
+import com.example.duan1.others.StaticOthers;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -57,11 +54,17 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                 passOld = edt_passOld.getText().toString();
                 passNew= edt_passNew.getText().toString();
                 passNew2= edt_passNew2.getText().toString();
+
+                if(passOld.equals(passNew)){
+                    Toast.makeText(DoiMatKhauActivity.this, "Mật khẩu mới không được trùng với mật khẩu cũ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if(passNew.equals(passNew2)){
                     passNewLast=passNew;
                 }
                 else
-                    passNewLast=null;
+                    passNewLast="";
 
                 DemoCallAPI(StaticOthers.idUser,passOld,passNewLast);
                 Log.d("Id user", StaticOthers.idUser+"");
@@ -92,17 +95,22 @@ public class DoiMatKhauActivity extends AppCompatActivity {
             editor.commit();
             Toast.makeText(this, "Đổi mật khẩu thành công", Toast.LENGTH_SHORT).show();
             finish();
-        }else
+        }else{
             Toast.makeText(this, "Sai mật khẩu", Toast.LENGTH_SHORT).show();
+        }
 
-        ShowNotifyUser.dismissProgressDialog();
+
 
     }
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
-        Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
-        ShowNotifyUser.dismissProgressDialog();
+        try {
+            Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
+
+        }catch (Exception e){
+
+        }
     }
 }

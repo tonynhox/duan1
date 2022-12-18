@@ -30,10 +30,12 @@ import com.example.duan1.R;
 import com.example.duan1.fragments.HistoryFragment;
 import com.example.duan1.fragments.HomeFragment;
 import com.example.duan1.fragments.MeFragment;
+import com.example.duan1.fragments.NoLoginFragment;
 import com.example.duan1.fragments.SanPhamTHFragment;
 import com.example.duan1.fragments.SearchSanPhamFragment;
 import com.example.duan1.models.SanPham;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
@@ -100,11 +102,10 @@ public class  ManHinhChinh extends AppCompatActivity {
                 if (keyCode == EditorInfo.IME_ACTION_SEARCH ||
                         (event.getAction() == KeyEvent.ACTION_DOWN &&
                                 event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-
                     a= editText.getText().toString();
                     fragment = new SearchSanPhamFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ManHinhChinh.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
@@ -176,7 +177,7 @@ public class  ManHinhChinh extends AppCompatActivity {
                         txtSua.setVisibility(View.GONE);
                         image.setVisibility(View.VISIBLE);
                         ivFiller.setVisibility(View.VISIBLE);
-
+                        editText.setText("");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, homeFragment).commit();
                         break;
                     case R.id.history:
@@ -189,7 +190,12 @@ public class  ManHinhChinh extends AppCompatActivity {
                         changToolbar();
 
                         txtTitle.setText("Tôi");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
+                        if(StaticOthers.idUser==0){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, new NoLoginFragment()).commit();
+
+                        }else
+                            getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, meFragment).commit();
+
                         break;
                 }
                 return false;
@@ -230,20 +236,22 @@ public class  ManHinhChinh extends AppCompatActivity {
 //                String pGia1=edtGia1.getText().toString();
 //                String pGia2=edtGia2.getText().toString();
 
-                    gia1 = edtGia1.getText().toString();
-                    gia2 = edtGia2.getText().toString();
-                    String isNum= "\\d+";
-                if(!gia1.matches(isNum)||!gia2.matches(isNum)){
+                gia1 = edtGia1.getText().toString();
+                gia2 = edtGia2.getText().toString();
+                String isNum = "\\d+";
+                if (!gia1.matches(isNum) || !gia2.matches(isNum)) {
                     Toast.makeText(ManHinhChinh.this, "Vui lòng nhập số", Toast.LENGTH_SHORT).show();
                     return;
-                }else {
+                } else if (gia1.length() > 9 || gia2.length() > 9) {
+                    Toast.makeText(ManHinhChinh.this, "Vui lòng nhập số tiền dưới 1 tỉ", Toast.LENGTH_SHORT).show();
+                } else {
                     fragment = new SearchSanPhamFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
                     alertDialogLoc.dismiss();
                 }
 
-
             }
+
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {

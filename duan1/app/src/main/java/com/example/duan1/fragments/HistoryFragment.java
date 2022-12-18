@@ -48,7 +48,6 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trangthaidonhang, container, false);
-
         listViewTTHD = view.findViewById(R.id.list_trangthaidonhang);
         listViewHD = view.findViewById(R.id.lvLichsudonhang);
         CallAPI(StaticOthers.username);
@@ -79,7 +78,6 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
         listViewTTHD.setLayoutManager(linearLayoutManager);
         TrangThaiDonHangAdapter adapter = new TrangThaiDonHangAdapter(listTTHD, getContext(), this);
         listViewTTHD.setAdapter(adapter);
-        ShowNotifyUser.dismissProgressDialog();
         CallAPI2(StaticOthers.username);
 
 
@@ -110,7 +108,6 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
         listHD = info;
         LichSuHoaDonAdapter lichSuHoaDonAdapter = new LichSuHoaDonAdapter(listHD, getContext(), this);
         listViewHD.setAdapter(lichSuHoaDonAdapter);
-        ShowNotifyUser.dismissProgressDialog();
     }
 
     private void handleError2(Throwable error) {
@@ -127,13 +124,11 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
 
     @Override
     public void OnClickBtnNhan(int maHD) {
-        ShowNotifyUser.showProgressDialog(getContext(), "Loading");
         CallAPIEditTrangThai(maHD, "Đã giao");
     }
 
     @Override
     public void OnClickBtnHuy(int maHD) {
-        ShowNotifyUser.showProgressDialog(getContext(), "Loading");
         CallAPIEditTrangThai(maHD, "Đã Hủy");
         CallAPISl(maHD);
     }
@@ -224,6 +219,5 @@ public class HistoryFragment extends Fragment implements ItemOnClickHD {
     private void handleError5(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
-        ShowNotifyUser.dismissProgressDialog();
     }
 }

@@ -115,7 +115,7 @@
                         <TextView
                             android:id="@+id/edtMaThuongHieu"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:fontFamily="arial"
                             android:gravity="bottom"
@@ -150,10 +150,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:layout_marginTop="20dp"
-                            android:fontFamily="arial"
-                            android:gravity="bottom"
-                            android:hint="Mô tả:"
                             android:background="@drawable/bg_edittext2"
+                            android:fontFamily="arial"
+                            android:gravity="top"
+                            android:hint="Mô tả:"
                             android:text=""
                             android:textSize="18dp" />
                     </LinearLayout>

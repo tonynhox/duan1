@@ -83,7 +83,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                     b= editText.getText().toString();
                     fragment = new SearchSanPhamAdminFragment();
                     fragmentManager.beginTransaction().replace(R.id.linearLayout, fragment).commit();
-                    Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ManHinhChinhAdmin.this, editText.getText(), Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
@@ -163,6 +163,7 @@ public class  ManHinhChinhAdmin extends AppCompatActivity {
                     case R.id.home:
                         editText.setVisibility(View.VISIBLE);
                         txtTitle.setVisibility(View.GONE);
+                        editText.setText("");
                         getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, homeFragment).commit();
                         break;
                     case R.id.history:

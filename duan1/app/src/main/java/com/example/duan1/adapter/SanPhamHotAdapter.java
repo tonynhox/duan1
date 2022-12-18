@@ -29,6 +29,7 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
     ArrayList<SanPham> list;
     Context context;
     ItemOnClick itemOnClick;
+    GioHang gioHang;
     public SanPhamHotAdapter(ArrayList<SanPham> list, Context context,ItemOnClick itemOnClick) {
         this.list = list;
         this.context = context;
@@ -59,7 +60,7 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
                 //Để ý models và tên biến do coppy làm biếng sửa
                 SanPham timKiemSanPham = list.get(holder.getAdapterPosition());
                 if (timKiemSanPham.getSoLuongSp()>0){
-                GioHang gioHang= new GioHang();
+                gioHang= new GioHang();
                 gioHang.setTenSp(timKiemSanPham.getTenSp());
                 gioHang.setGiaSp(timKiemSanPham.getGiaSp());
                 gioHang.setSoLuong(1);
@@ -83,17 +84,29 @@ public class SanPhamHotAdapter extends RecyclerView.Adapter<SanPhamHotAdapter.Vi
                         gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
                         StaticOthers.listGH.set(a,gioHang2);
                         count=1;
-                        Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
                 if (count==0){
                     StaticOthers.listGH.add(gioHang);
-                    Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     Toast.makeText(context, "Hết hàng", Toast.LENGTH_SHORT).show();
-
+                    return;
                 }
+                long b=0;
+                for (GioHang item2:StaticOthers.listGH
+                ) {
+                    b+=item2.getSoLuong()*item2.getGiaSp();
+                    if(b>1000000000){
+                        gioHang.setSoLuong(gioHang.getSoLuong()-1);
+                        Toast.makeText(context, "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                        if(item2.getSoLuong()==0){
+                            StaticOthers.listGH.remove(item2);
+                        }
+                        return;
+                    }
+                }
+                Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
             }
         });
         holder.txtChiTiet.setOnClickListener(new View.OnClickListener() {

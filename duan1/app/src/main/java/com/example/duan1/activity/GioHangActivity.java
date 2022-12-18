@@ -1,6 +1,8 @@
 package com.example.duan1.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.duan1.R;
 import com.example.duan1.adapter.ChiTietHoaDonAdapter;
 import com.example.duan1.adapter.GioHangAdapter;
+import com.example.duan1.fragments.NoLoginFragment;
 import com.example.duan1.models.ChiTietHoaDon;
 import com.example.duan1.models.GioHang;
 import com.example.duan1.others.StaticOthers;
@@ -50,8 +53,35 @@ public class GioHangActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(StaticOthers.listGH.size()>0){
-                    Intent intent= new Intent(GioHangActivity.this,ThanhToanActivity.class);
-                    startActivity(intent);
+                    if(StaticOthers.idUser!=0){
+                        Intent intent= new Intent(GioHangActivity.this,ThanhToanActivity.class);
+                        startActivity(intent);
+                    }else {
+                        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(GioHangActivity.this);
+                        builder.setMessage("Vui lòng đăng nhập");
+                        builder.setPositiveButton("Đăng nhập", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                startActivity(new Intent(GioHangActivity.this,ManHinhLogin.class));
+                            }
+                        });
+                        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(GioHangActivity.this,"Đã hủy",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        android.app.AlertDialog alertDialog= builder.create();
+                        alertDialog.show();
+
+                    }
+
+
+
+
+
+
+
                 }else
                     Toast.makeText(GioHangActivity.this, "Vui lòng thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
 

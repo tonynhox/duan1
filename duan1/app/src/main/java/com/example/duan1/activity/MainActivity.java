@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
-        CountDownTimer countDownTimer = new CountDownTimer(5000,5000) {
+        CountDownTimer countDownTimer = new CountDownTimer(2000,2000) {
             @Override
             public void onTick(long l) {
 
@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Intent intent= new Intent(MainActivity.this,ManHinhLogin.class);
+                Intent intent= new Intent(MainActivity.this,ManHinhChinh.class);
                 startActivity(intent);
+                finish();
             }
         };
         countDownTimer.start();

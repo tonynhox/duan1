@@ -48,6 +48,7 @@ import com.example.duan1.models.SanPham;
 import com.example.duan1.models.TimKiemSanPham;
 import com.example.duan1.others.ItemOnClick;
 import com.example.duan1.others.ShowNotifyUser;
+import com.example.duan1.others.StaticOthers;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.ArrayList;
@@ -415,12 +416,38 @@ public class HomeAdminFragment extends Fragment implements ItemOnClick {
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
 
                 tenSP = edtTenSP.getText().toString();
                 mota = edtMoTaSP.getText().toString();
-                soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
-                gia = Long.parseLong(edtGiaSP.getText().toString());
+
+                if(tenSP.equals("")||mota.equals("")){
+                    Toast.makeText(getContext(), "Không được để trống", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                try {
+                    soLuong = Integer.parseInt(edtSoLuongSP.getText().toString());
+                    gia = Long.parseLong(edtGiaSP.getText().toString());
+
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Số ko được nhập chữ hoặc để trống!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (soLuong<0||gia<0){
+                    Toast.makeText(getContext(), "Không được nhập số âm", Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+                if (gia>1000000000){
+                    Toast.makeText(getContext(), "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (soLuong>100000){
+                    Toast.makeText(getContext(), "Số lượng phải nhỏ hơn 100 ngàn", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
+
                 try {
                     uploadSua(listAllSP.get(0).getMaSp());
                 }catch (Exception e){

@@ -28,7 +28,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
 
     List<GioHang> list;
     Context context;
-
+    GioHang gioHang;
     public GioHangAdapter(List<GioHang> list, Context context) {
         this.list = list;
         this.context = context;
@@ -49,7 +49,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
         holder.txtSoLuong.setText(list.get(i).getSoLuong()+"");
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         holder.txtGia.setText(formatter.format(list.get(i).getGiaSp()));
-        GioHang gioHang= list.get(holder.getAdapterPosition());
+        gioHang= list.get(holder.getAdapterPosition());
         holder.btnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,8 +98,8 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
             public void onClick(View view) {
                 if(gioHang.getSoLuong()<gioHang.getSoLuongTon()){
                     gioHang.setSoLuong(gioHang.getSoLuong()+1);
-                    holder.txtSoLuong.setText((gioHang.getSoLuong())+"");
                     LoadTongTien();
+                    holder.txtSoLuong.setText((gioHang.getSoLuong())+"");
                 }else {
                     Toast.makeText(context, "Số lượng sản phẩm không đủ", Toast.LENGTH_SHORT).show();
                 }
@@ -138,6 +138,11 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
         for (GioHang item:StaticOthers.listGH
         ) {
             a+=item.getSoLuong()*item.getGiaSp();
+            if(a>1000000000){
+                gioHang.setSoLuong(gioHang.getSoLuong()-1);
+                Toast.makeText(context, "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         GioHangActivity.txtTong.setText(formatter.format(a)+" VND");

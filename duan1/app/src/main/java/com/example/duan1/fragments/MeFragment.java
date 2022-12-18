@@ -3,6 +3,7 @@ package com.example.duan1.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,7 +34,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MeFragment extends Fragment {
     static public Button btnXoa,btnHoSo,btnDangXuat;
     Fragment fragment;
-    SharedPreferences  sharedPreferences;
 
     @Nullable
     @Override
@@ -105,8 +105,13 @@ public class MeFragment extends Fragment {
                         SharedPreferences.Editor editor= sharedPreferences.edit();
                         editor.clear();
                         editor.commit();
-                        getActivity().finish();
+                        StaticOthers.idUser=0;
+                        StaticOthers.username=null;
                         StaticOthers.listGH.clear();
+//                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout,new NoLoginFragment()).commit();
+                        Intent intent = new Intent(getContext(), ManHinhChinh.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                     }
                 });
                 builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -142,7 +147,16 @@ public class MeFragment extends Fragment {
         //Xử lý chức năng
         if(info == 1){
             Toast.makeText(getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
-            getActivity().finish();
+            SharedPreferences  sharedPreferences = getActivity().getSharedPreferences("Data", Context.MODE_PRIVATE);
+
+            SharedPreferences.Editor editor= sharedPreferences.edit();
+            editor.clear();
+            editor.commit();
+            StaticOthers.idUser=0;
+            StaticOthers.username=null;
+            Intent intent = new Intent(getContext(), ManHinhChinh.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }else{
             Toast.makeText(getContext(),"Xóa Không thành công", Toast.LENGTH_SHORT).show();
         }

@@ -15,6 +15,11 @@ public class ShowNotifyUser {
     }
 
     public static void dismissProgressDialog() {
-        mProgressDialog.dismiss();
+//        try {
+//        }catch (Exception e){
+            mProgressDialog.dismiss();
+
+//        }
+
     }
 }

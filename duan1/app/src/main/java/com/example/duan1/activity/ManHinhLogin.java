@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.duan1.R;
@@ -47,14 +48,14 @@ public class ManHinhLogin extends AppCompatActivity {
         typeId=sharedPreferences.getInt("idUser", 0);
         Button btnLogin = findViewById(R.id.login);
         Button btnRegister = findViewById(R.id.register);
+        ImageView ivClose = findViewById(R.id.ivClose);
+
         user = findViewById(R.id.edt_username);
         pass = findViewById(R.id.edt_password);
 
-        if(typeU.isEmpty()){
-            Toast.makeText(this, "Hello bà già", Toast.LENGTH_SHORT).show();
-        }else {
+        if(!typeU.isEmpty())
             DemoCallAPI(typeU,typePass);
-        }
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,15 @@ public class ManHinhLogin extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ManHinhLogin.this, ManHinhRegister.class);
                 startActivity(intent);
+            }
+        });
+
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StaticOthers.idUser=0;
+                StaticOthers.username=null;
+                finish();
             }
         });
     }
@@ -108,9 +118,12 @@ public class ManHinhLogin extends AppCompatActivity {
             editor.putString("pass",pass.getText().toString());
             editor.commit();
             if(maLoaiTK!=1){
-                Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
-                startActivity(intent);
+                finish();
+//                Intent intent = new Intent(ManHinhLogin.this, ManHinhChinh.class);
+//                startActivity(intent);
             } else {
+                editor.clear();
+                editor.commit();
                 Intent intent = new Intent(ManHinhLogin.this, ManHinhChinhAdmin.class);
                 startActivity(intent);
             }
@@ -118,7 +131,7 @@ public class ManHinhLogin extends AppCompatActivity {
             Toast.makeText(this, "Sai tài khoản hoặc mật khẩu", Toast.LENGTH_SHORT).show();
         }
         ShowNotifyUser.dismissProgressDialog();
-
+        return;
     }
 
     private void handleError(Throwable error) {
@@ -131,7 +144,12 @@ public class ManHinhLogin extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        StaticOthers.idUser=0;
+        StaticOthers.username=null;
+    }
 }
 
 

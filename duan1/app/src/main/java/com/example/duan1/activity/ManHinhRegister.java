@@ -102,7 +102,7 @@ public class ManHinhRegister extends AppCompatActivity {
             public void onClick(View view) {
 
                 String numPhone="0\\d{9}";
-                String pEmail="\\w+@\\w+(.\\w+){1,3}";//anhhuytran@fpt.edu.vn
+                String pEmail="^\\w+@\\w+(.\\w+){1,3}$";//anhhuytran@fpt.edu.vn
                 try {
                     name= edt_name.getText().toString();
                     user= edt_username.getText().toString();
@@ -140,8 +140,7 @@ public class ManHinhRegister extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ManHinhRegister.this, "Đã hủy đăng ký", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ManHinhRegister.this,ManHinhLogin.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

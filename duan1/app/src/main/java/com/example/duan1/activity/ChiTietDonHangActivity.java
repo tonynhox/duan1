@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -104,6 +105,7 @@ public class ChiTietDonHangActivity extends AppCompatActivity {
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
         Log.d("chay","loi");
     }
 

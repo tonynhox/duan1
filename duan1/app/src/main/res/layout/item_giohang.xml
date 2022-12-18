@@ -13,12 +13,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:textSize="16sp"
             android:id="@+id/txtGiaSP"
             android:layout_width="163dp"
             android:layout_height="35dp"
+            android:layout_marginTop="12dp"
             android:text="30.000.000"
             android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/textView18"
@@ -87,21 +88,21 @@
             app:layout_constraintTop_toBottomOf="@+id/txtGiaSP" />
 
         <TextView
-            android:textSize="16sp"
             android:id="@+id/textView18"
             android:layout_width="40dp"
             android:layout_height="35dp"
             android:layout_marginStart="24dp"
-            android:textColor="@color/black"
             android:text="Giá:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ivHinhAnhLon"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toTopOf="@+id/txtGiaSP" />
 
         <TextView
             android:textColor="@color/black"
             android:id="@+id/txtTenSP"
             android:layout_width="163dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textSize="16sp"
             android:text="iphone"

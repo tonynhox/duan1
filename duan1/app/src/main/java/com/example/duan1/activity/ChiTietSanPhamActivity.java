@@ -107,15 +107,28 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
                             gioHang2.setHinhAnhLon(list.get(0).getHinhAnhLon());
                             StaticOthers.listGH.set(a, gioHang2);
                             count = 1;
-                            Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
+
+
 
                         }
                     }
                     if (count == 0) {
                         StaticOthers.listGH.add(gioHang);
-                        Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
-
                     }
+                    long b=0;
+                    for (GioHang item2:StaticOthers.listGH
+                    ) {
+                        b+=item2.getSoLuong()*item2.getGiaSp();
+                        if(b>1000000000){
+                            gioHang.setSoLuong(gioHang.getSoLuong()-1);
+                            Toast.makeText(ChiTietSanPhamActivity.this, "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                            if(item2.getSoLuong()==0){
+                                StaticOthers.listGH.remove(item2);
+                            }
+                            return;
+                        }
+                    }
+                    Toast.makeText(ChiTietSanPhamActivity.this, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(ChiTietSanPhamActivity.this, "Hết hàng", Toast.LENGTH_SHORT).show();
                 }
@@ -165,15 +178,6 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
             txtMoTaSP.setText(info.get(0).getMotaSp()+"");
             Glide.with(this).load(info.get(0).getHinhAnhLon()).into(ivHinhAnhLon);
             Glide.with(this).load(info.get(0).getHinhAnhNho()).into(ivHinhAnhNho);
-
-
-
-
-
-
-
-
-
             HomeFragment.maSP=-1;
             SanPhamTHFragment.maSP=-1;
             SearchSanPhamFragment.maSP=-1;

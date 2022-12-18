@@ -88,15 +88,28 @@ public class SanPhamTH_SearchAdapter extends RecyclerView.Adapter<SanPhamTH_Sear
                             gioHang2.setSoLuong(item.getSoLuong()+1);
                             gioHang2.setHinhAnhLon(timKiemSanPham.getHinhAnhLon());
                             StaticOthers.listGH.set(a,gioHang2);
-                            Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                             count=1;
                         }
-
                     }
+
                     if (count==0){
                         StaticOthers.listGH.add(gioHang);
-                        Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                     }
+                    long b=0;
+                    for (GioHang item2:StaticOthers.listGH
+                    ) {
+                        b+=item2.getSoLuong()*item2.getGiaSp();
+                        if(b>1000000000){
+                            gioHang.setSoLuong(gioHang.getSoLuong()-1);
+                            Toast.makeText(context, "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                            if(item2.getSoLuong()==0){
+                                StaticOthers.listGH.remove(item2);
+                            }
+                            return;
+                        }
+                    }
+                    //fix
+                    Toast.makeText(context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(context, "Hết hàng", Toast.LENGTH_SHORT).show();
 

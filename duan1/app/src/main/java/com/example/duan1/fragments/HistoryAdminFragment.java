@@ -85,7 +85,7 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
 
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
+        Log.d("chay","error");
     }
 
     private void CallAPI2(){
@@ -117,6 +117,10 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     private void handleError2(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay","loi");
+        ShowNotifyUser.dismissProgressDialog();
+
+        Toast.makeText(getContext(), "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -171,6 +175,9 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     private void handleError3(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay","loi");
+        ShowNotifyUser.dismissProgressDialog();
+        Toast.makeText(getContext(), "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
     }
 
     public void CallAPISl(int a) {
@@ -200,6 +207,8 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     private void handleError4(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay", "loi");
+        Toast.makeText(getContext(), "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
     }
 
     //uploadSoLuong
@@ -226,6 +235,8 @@ public class HistoryAdminFragment extends Fragment implements ItemOnClickHD {
     private void handleError5(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
+        Toast.makeText(getContext(), "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
         ShowNotifyUser.dismissProgressDialog();
     }
 }

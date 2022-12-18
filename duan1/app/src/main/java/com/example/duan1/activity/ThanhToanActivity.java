@@ -125,11 +125,9 @@ public class ThanhToanActivity extends AppCompatActivity {
                         JSONObject data = orderApi.createOrder("100000");
 
                         String code = data.getString("return_code");
-                        Toast.makeText(getApplicationContext(), "return_code: " + code, Toast.LENGTH_LONG).show();
                         if (code.equals("1")) {
                             etoken = data.getString("zp_trans_token");
 
-                            Toast.makeText(getApplicationContext(), "return_code: " + etoken, Toast.LENGTH_LONG).show();
                             thanhToanZalo();
 
                         }
@@ -210,7 +208,7 @@ public class ThanhToanActivity extends AppCompatActivity {
     private void handleError(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
-        Toast.makeText(this, "fail rồi error", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
         ShowNotifyUser.dismissProgressDialog();
     }
 
@@ -236,6 +234,8 @@ public class ThanhToanActivity extends AppCompatActivity {
     private void handleError2(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("loi", error + "");
+        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
         ShowNotifyUser.dismissProgressDialog();
     }
 
@@ -261,6 +261,8 @@ public class ThanhToanActivity extends AppCompatActivity {
 
     private void handleError3(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
         Log.d("loi", error + "");
         ShowNotifyUser.dismissProgressDialog();
     }
@@ -313,6 +315,8 @@ public class ThanhToanActivity extends AppCompatActivity {
     private void handleError4(Throwable error) {
         //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
         Log.d("chay","loi");
+        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+
     }
 
 }

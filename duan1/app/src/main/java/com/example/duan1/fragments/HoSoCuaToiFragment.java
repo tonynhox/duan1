@@ -64,16 +64,17 @@ public class HoSoCuaToiFragment extends Fragment {
         try {
             ManHinhChinh.image.setVisibility(View.GONE);
             ManHinhChinh.txtSua.setVisibility(View.VISIBLE);
+            ManHinhChinh.txtSua.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showDialogSua();
+                }
+            });
         }catch (Exception e){
 
         }
 
-        ManHinhChinh.txtSua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialogSua();
-            }
-        });
+
         txtDoiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -183,7 +184,7 @@ public class HoSoCuaToiFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String numPhone="0\\d{9}";
-                String pEmail="\\w+@\\w+(.\\w+){1,3}";//anhhuytran@fpt.edu.vn
+                String pEmail="^\\w+@\\w+(.\\w+){1,3}$";//anhhuytran@fpt.edu.vn
 
                 String nHoTen= edtHoTen.getText().toString();
                 String nNamSinh= edtNamSinh.getText().toString();

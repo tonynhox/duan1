@@ -194,15 +194,24 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                     Toast.makeText(getContext(), "Không được nhập số âm", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (gia>1000000000){
+                    Toast.makeText(getContext(), "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (soLuong>100000){
+                    Toast.makeText(getContext(), "Số lượng phải nhỏ hơn 100 ngàn", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                 try {
-                    ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                     upload();
 
                 }catch (Exception e){
                     Toast.makeText(getContext(), "Vui lòng chọn đầy đủ ảnh", Toast.LENGTH_SHORT).show();
                 }
 //                upload2();
-
+                ShowNotifyUser.dismissProgressDialog();
+//
 
                     }
         });
@@ -284,6 +293,7 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
 
                 }catch (Exception e){
                     Toast.makeText(getContext(), "Chọn ảnh đầy đủ", Toast.LENGTH_SHORT).show();
+                    ShowNotifyUser.dismissProgressDialog();
                 }
                 ShowNotifyUser.dismissProgressDialog();
             }
@@ -691,7 +701,14 @@ public class SanPhamTHAdminFragment extends Fragment implements ItemOnClick {
                     Toast.makeText(getContext(), "Không được nhập số âm", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if (gia>1000000000){
+                    Toast.makeText(getContext(), "Giá phải nhỏ hơn 1 tỉ", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (soLuong>100000){
+                    Toast.makeText(getContext(), "Số lượng phải nhỏ hơn 100 ngàn", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 ShowNotifyUser.showProgressDialog(getContext(),"Loading");
                 try {

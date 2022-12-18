@@ -18,11 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:text="huy"
+            android:paddingTop="5dp"
+            android:text="Trạng thái đơn hàng"
             android:textAlignment="center"
             android:textColor="#DB3E3E"
             android:textStyle="bold"
-            android:textSize="25sp"
+            android:textSize="23sp"
             android:visibility="gone"/>
         <TextView
             android:id="@+id/txtEdit"
@@ -44,20 +45,21 @@
             android:drawableLeft="@drawable/ic_search_foreground"
             android:hint="Tìm Kiếm"
             android:inputType="text"
+            android:visibility="visible"
             android:imeOptions="actionSearch"/>
         <ImageView
             android:id="@+id/ivFiller"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/ic_filler"/>
         <ImageView
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/ivGioHang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/ic_cart" />
     </LinearLayout>
 
