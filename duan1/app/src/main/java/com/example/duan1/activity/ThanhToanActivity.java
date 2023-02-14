@@ -188,9 +188,9 @@ public class ThanhToanActivity extends AppCompatActivity {
             CallAPIAddSanPham(item.getMaSP(),maHD,item.getSoLuong(),item.getGiaSp());
             CallAPIFixSL(item.getMaSP(), item.getSoLuongTon()-item.getSoLuong());
         };
-        if(temp==1){
-            CallAPIEditTrangThai(maHD,"Đang giao hàng");
-        }
+//        if(temp==1){
+//            CallAPIEditTrangThai(maHD,"Đang giao hàng");
+//        }
         Toast.makeText(this, "Mua hàng thành công", Toast.LENGTH_SHORT).show();
         ShowNotifyUser.dismissProgressDialog();
         StaticOthers.listGH.clear();
@@ -293,30 +293,30 @@ public class ThanhToanActivity extends AppCompatActivity {
         });
     }
 
-    private void CallAPIEditTrangThai(int maHD,String ttHD){
-
-        ServiceAPI requestInterface = new Retrofit.Builder()
-                .baseUrl(ServiceAPI.BASE_Service)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build().create(ServiceAPI.class);
-
-        new CompositeDisposable().add(requestInterface.capNhatTrangThaiHD(maHD,ttHD)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(this::handleResponse4, this::handleError4)
-        );
-    }
-
-    private void handleResponse4(int info) {
-
-    }
-
-    private void handleError4(Throwable error) {
-        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
-        Log.d("chay","loi");
-        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
-
-    }
+//    private void CallAPIEditTrangThai(int maHD,String ttHD){
+//
+//        ServiceAPI requestInterface = new Retrofit.Builder()
+//                .baseUrl(ServiceAPI.BASE_Service)
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build().create(ServiceAPI.class);
+//
+//        new CompositeDisposable().add(requestInterface.capNhatTrangThaiHD(maHD,ttHD)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.io())
+//                .subscribe(this::handleResponse4, this::handleError4)
+//        );
+//    }
+//
+//    private void handleResponse4(int info) {
+//
+//    }
+//
+//    private void handleError4(Throwable error) {
+//        //khi gọi API KHÔNG THÀNH CÔNG thì thực hiện xử lý ở đây
+//        Log.d("chay","loi");
+//        Toast.makeText(this, "Lỗi hệ thống, xin vui lòng thử lại sau", Toast.LENGTH_SHORT).show();
+//
+//    }
 
 }
