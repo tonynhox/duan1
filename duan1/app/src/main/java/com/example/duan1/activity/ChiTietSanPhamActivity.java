@@ -182,9 +182,7 @@ public class ChiTietSanPhamActivity extends AppCompatActivity {
             SanPhamTHFragment.maSP=-1;
             SearchSanPhamFragment.maSP=-1;
 
-
         }
-
 
     }
 
